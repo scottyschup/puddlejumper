@@ -163,3 +163,52 @@ ORDER BY c.conname
   [1m[36mSQL (1.6ms)[0m  [1mINSERT INTO "planets" ("name", "desc", "galaxy", "clearance", "protected", "race", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Earth"], ["desc", "Origin of human life in the Milky Way. Also known as Tauri"], ["galaxy", "Milky Way"], ["clearance", 1], ["protected", "t"], ["race", "Human"], ["created_at", "2015-04-07 19:12:27.758683"], ["updated_at", "2015-04-07 19:12:27.758683"]]
   [1m[35m (0.4ms)[0m  COMMIT
   [1m[36mPlanet Load (1.6ms)[0m  [1mSELECT "planets".* FROM "planets"[0m
+
+
+Started GET "/" for ::1 at 2015-04-07 13:52:24 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (1.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ApplicationController#tmp_root as HTML
+  Rendered layouts/tmp_root.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 161ms (Views: 160.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application-5266d2988799ecc8fe6e81eaab412e7d.css?body=1" for ::1 at 2015-04-07 13:52:25 -0700
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-04-07 13:52:25 -0700
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-04-07 13:52:25 -0700
+
+
+Started GET "/assets/underscore-d431f9168936f2543e94df66a0ed8c23.js?body=1" for ::1 at 2015-04-07 13:52:25 -0700
+
+
+Started GET "/assets/backbone-393a840dc90861d7b4dc2b8ddb40420f.js?body=1" for ::1 at 2015-04-07 13:52:25 -0700
+
+
+Started GET "/assets/application-f828ae9a326347e70a51d6a1d6286a8c.js?body=1" for ::1 at 2015-04-07 13:52:25 -0700
+
+
+Started GET "/" for ::1 at 2015-04-07 13:53:55 -0700
+Processing by ApplicationController#tmp_root as HTML
+  Rendered layouts/tmp_root.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 32ms (Views: 31.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-04-07 13:53:55 -0700
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-04-07 13:53:55 -0700
+
+
+Started GET "/assets/backbone-393a840dc90861d7b4dc2b8ddb40420f.js?body=1" for ::1 at 2015-04-07 13:53:55 -0700
+
+
+Started GET "/assets/application-f828ae9a326347e70a51d6a1d6286a8c.js?body=1" for ::1 at 2015-04-07 13:53:55 -0700
+
+
+Started GET "/assets/underscore-d431f9168936f2543e94df66a0ed8c23.js?body=1" for ::1 at 2015-04-07 13:53:55 -0700
+
+
+Started GET "/assets/application-5266d2988799ecc8fe6e81eaab412e7d.css?body=1" for ::1 at 2015-04-07 13:53:55 -0700
