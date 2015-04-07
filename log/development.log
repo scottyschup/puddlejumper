@@ -212,3 +212,27 @@ Started GET "/assets/underscore-d431f9168936f2543e94df66a0ed8c23.js?body=1" for 
 
 
 Started GET "/assets/application-5266d2988799ecc8fe6e81eaab412e7d.css?body=1" for ::1 at 2015-04-07 13:53:55 -0700
+
+
+Started GET "/" for ::1 at 2015-04-07 14:47:32 -0700
+Processing by ApplicationController#tmp_root as HTML
+  Rendered layouts/tmp_root.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 28ms (Views: 27.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-04-07 14:47:32 -0700
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-04-07 14:47:32 -0700
+
+
+Started GET "/assets/application-5266d2988799ecc8fe6e81eaab412e7d.css?body=1" for ::1 at 2015-04-07 14:47:32 -0700
+
+
+Started GET "/assets/backbone-393a840dc90861d7b4dc2b8ddb40420f.js?body=1" for ::1 at 2015-04-07 14:47:32 -0700
+
+
+Started GET "/assets/underscore-d431f9168936f2543e94df66a0ed8c23.js?body=1" for ::1 at 2015-04-07 14:47:32 -0700
+
+
+Started GET "/assets/application-f828ae9a326347e70a51d6a1d6286a8c.js?body=1" for ::1 at 2015-04-07 14:47:32 -0700

@@ -14,5 +14,5 @@
 
 [gate-search]: ./wireframes/gate-search.jpg
 [ship-search]: ./wireframes/ship-search.jpg
-[ship-results-index]: ./wireframes/search-index.jpg
+[search-index]: ./wireframes/search-index.jpg
 [reservation]: ./wireframes/.jpg
