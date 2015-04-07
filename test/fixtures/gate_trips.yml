@@ -1,0 +1,23 @@
+# == Schema Information
+#
+# Table name: gate_trips
+#
+#  id              :integer          not null, primary key
+#  origin_id       :integer
+#  destination_id  :integer
+#  remaining_space :integer
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  origin_id: 1
+  destination_id: 1
+  max_travelers: 1
+
+two:
+  origin_id: 1
+  destination_id: 1
+  max_travelers: 1
