@@ -620,3 +620,186 @@
 [04/07/15 20:42:42 -0700 MacLappy (48705)] INFO : Installing Rails 4 view instrumentation
 [04/07/15 20:42:42 -0700 MacLappy (48705)] INFO : Installing Rails 4 Error instrumentation
 [04/07/15 20:42:42 -0700 MacLappy (48705)] INFO : Finished instrumentation
+[04/08/15 09:33:57 -0700 MacLappy (57721)] INFO : Starting the New Relic agent in "development" environment.
+[04/08/15 09:33:57 -0700 MacLappy (57721)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[04/08/15 09:33:57 -0700 MacLappy (57721)] WARN : No configuration file found. Working directory = /Users/Scott/Copy/appacademy/puddlejumper
+[04/08/15 09:33:57 -0700 MacLappy (57721)] WARN : Looked in these locations (based on defaults): /Users/Scott/Copy/appacademy/puddlejumper/config/newrelic.yml, /Users/Scott/Copy/appacademy/puddlejumper/newrelic.yml, /Users/Scott/Copy/appacademy/puddlejumper/config/newrelic.yml, /Users/Scott/Copy/appacademy/puddlejumper/newrelic.yml, /Users/Scott/.newrelic/newrelic.yml, /Users/Scott/newrelic.yml
+[04/08/15 09:33:57 -0700 MacLappy (57721)] INFO : Environment: development
+[04/08/15 09:33:57 -0700 MacLappy (57721)] INFO : No known dispatcher detected.
+[04/08/15 09:33:57 -0700 MacLappy (57721)] INFO : Application: development
+[04/08/15 09:33:57 -0700 MacLappy (57721)] WARN : No license key found. This often means your newrelic.yml file was not found, or it lacks a section for the running environment, 'development'. You may also want to try linting your newrelic.yml to ensure it is valid YML.
+[04/08/15 09:33:57 -0700 MacLappy (57721)] INFO : Installing ActiveJob instrumentation
+[04/08/15 09:33:57 -0700 MacLappy (57721)] INFO : Installing ActiveRecord 4 instrumentation
+[04/08/15 09:33:57 -0700 MacLappy (57721)] INFO : Installing Net instrumentation
+[04/08/15 09:33:57 -0700 MacLappy (57721)] INFO : Installing deferred Rack instrumentation
+[04/08/15 09:33:57 -0700 MacLappy (57721)] INFO : Installing Rack::Builder middleware instrumentation
+[04/08/15 09:33:57 -0700 MacLappy (57721)] INFO : Installing Rails 3+ middleware instrumentation
+[04/08/15 09:33:57 -0700 MacLappy (57721)] INFO : Installing Rails 4 Controller instrumentation
+[04/08/15 09:33:57 -0700 MacLappy (57721)] INFO : Installing Rails 4 view instrumentation
+[04/08/15 09:33:57 -0700 MacLappy (57721)] INFO : Installing Rails 4 Error instrumentation
+[04/08/15 09:33:57 -0700 MacLappy (57721)] INFO : Finished instrumentation
+[04/08/15 09:38:14 -0700 MacLappy (58016)] INFO : Starting the New Relic agent in "development" environment.
+[04/08/15 09:38:14 -0700 MacLappy (58016)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[04/08/15 09:38:14 -0700 MacLappy (58016)] WARN : No configuration file found. Working directory = /Users/Scott/Copy/appacademy/puddlejumper
+[04/08/15 09:38:14 -0700 MacLappy (58016)] WARN : Looked in these locations (based on defaults): /Users/Scott/Copy/appacademy/puddlejumper/config/newrelic.yml, /Users/Scott/Copy/appacademy/puddlejumper/newrelic.yml, /Users/Scott/Copy/appacademy/puddlejumper/config/newrelic.yml, /Users/Scott/Copy/appacademy/puddlejumper/newrelic.yml, /Users/Scott/.newrelic/newrelic.yml, /Users/Scott/newrelic.yml
+[04/08/15 09:38:14 -0700 MacLappy (58016)] INFO : Environment: development
+[04/08/15 09:38:14 -0700 MacLappy (58016)] INFO : No known dispatcher detected.
+[04/08/15 09:38:14 -0700 MacLappy (58016)] INFO : Application: development
+[04/08/15 09:38:14 -0700 MacLappy (58016)] WARN : No license key found. This often means your newrelic.yml file was not found, or it lacks a section for the running environment, 'development'. You may also want to try linting your newrelic.yml to ensure it is valid YML.
+[04/08/15 09:38:14 -0700 MacLappy (58016)] INFO : Installing ActiveJob instrumentation
+[04/08/15 09:38:14 -0700 MacLappy (58016)] INFO : Installing ActiveRecord 4 instrumentation
+[04/08/15 09:38:14 -0700 MacLappy (58016)] INFO : Installing Net instrumentation
+[04/08/15 09:38:14 -0700 MacLappy (58016)] INFO : Installing deferred Rack instrumentation
+[04/08/15 09:38:14 -0700 MacLappy (58016)] INFO : Installing Rack::Builder middleware instrumentation
+[04/08/15 09:38:14 -0700 MacLappy (58016)] INFO : Installing Rails 3+ middleware instrumentation
+[04/08/15 09:38:14 -0700 MacLappy (58016)] INFO : Installing Rails 4 Controller instrumentation
+[04/08/15 09:38:14 -0700 MacLappy (58016)] INFO : Installing Rails 4 view instrumentation
+[04/08/15 09:38:14 -0700 MacLappy (58016)] INFO : Installing Rails 4 Error instrumentation
+[04/08/15 09:38:14 -0700 MacLappy (58016)] INFO : Finished instrumentation
+[04/08/15 09:41:39 -0700 MacLappy (58352)] INFO : Starting the New Relic agent in "development" environment.
+[04/08/15 09:41:39 -0700 MacLappy (58352)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[04/08/15 09:41:39 -0700 MacLappy (58352)] WARN : No configuration file found. Working directory = /Users/Scott/Copy/appacademy/puddlejumper
+[04/08/15 09:41:39 -0700 MacLappy (58352)] WARN : Looked in these locations (based on defaults): /Users/Scott/Copy/appacademy/puddlejumper/config/newrelic.yml, /Users/Scott/Copy/appacademy/puddlejumper/newrelic.yml, /Users/Scott/Copy/appacademy/puddlejumper/config/newrelic.yml, /Users/Scott/Copy/appacademy/puddlejumper/newrelic.yml, /Users/Scott/.newrelic/newrelic.yml, /Users/Scott/newrelic.yml
+[04/08/15 09:41:39 -0700 MacLappy (58352)] INFO : Environment: development
+[04/08/15 09:41:39 -0700 MacLappy (58352)] INFO : No known dispatcher detected.
+[04/08/15 09:41:39 -0700 MacLappy (58352)] INFO : Application: development
+[04/08/15 09:41:39 -0700 MacLappy (58352)] WARN : No license key found. This often means your newrelic.yml file was not found, or it lacks a section for the running environment, 'development'. You may also want to try linting your newrelic.yml to ensure it is valid YML.
+[04/08/15 09:41:39 -0700 MacLappy (58352)] INFO : Installing ActiveJob instrumentation
+[04/08/15 09:41:39 -0700 MacLappy (58352)] INFO : Installing ActiveRecord 4 instrumentation
+[04/08/15 09:41:39 -0700 MacLappy (58352)] INFO : Installing Net instrumentation
+[04/08/15 09:41:39 -0700 MacLappy (58352)] INFO : Installing deferred Rack instrumentation
+[04/08/15 09:41:39 -0700 MacLappy (58352)] INFO : Installing Rack::Builder middleware instrumentation
+[04/08/15 09:41:39 -0700 MacLappy (58352)] INFO : Installing Rails 3+ middleware instrumentation
+[04/08/15 09:41:39 -0700 MacLappy (58352)] INFO : Installing Rails 4 Controller instrumentation
+[04/08/15 09:41:39 -0700 MacLappy (58352)] INFO : Installing Rails 4 view instrumentation
+[04/08/15 09:41:39 -0700 MacLappy (58352)] INFO : Installing Rails 4 Error instrumentation
+[04/08/15 09:41:39 -0700 MacLappy (58352)] INFO : Finished instrumentation
+[04/08/15 09:46:18 -0700 MacLappy (58517)] INFO : Starting the New Relic agent in "development" environment.
+[04/08/15 09:46:18 -0700 MacLappy (58517)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[04/08/15 09:46:18 -0700 MacLappy (58517)] WARN : No configuration file found. Working directory = /Users/Scott/Copy/appacademy/puddlejumper
+[04/08/15 09:46:18 -0700 MacLappy (58517)] WARN : Looked in these locations (based on defaults): /Users/Scott/Copy/appacademy/puddlejumper/config/newrelic.yml, /Users/Scott/Copy/appacademy/puddlejumper/newrelic.yml, /Users/Scott/Copy/appacademy/puddlejumper/config/newrelic.yml, /Users/Scott/Copy/appacademy/puddlejumper/newrelic.yml, /Users/Scott/.newrelic/newrelic.yml, /Users/Scott/newrelic.yml
+[04/08/15 09:46:18 -0700 MacLappy (58517)] INFO : Environment: development
+[04/08/15 09:46:18 -0700 MacLappy (58517)] INFO : No known dispatcher detected.
+[04/08/15 09:46:18 -0700 MacLappy (58517)] INFO : Application: development
+[04/08/15 09:46:18 -0700 MacLappy (58517)] WARN : No license key found. This often means your newrelic.yml file was not found, or it lacks a section for the running environment, 'development'. You may also want to try linting your newrelic.yml to ensure it is valid YML.
+[04/08/15 09:46:18 -0700 MacLappy (58517)] INFO : Installing ActiveJob instrumentation
+[04/08/15 09:46:18 -0700 MacLappy (58517)] INFO : Installing ActiveRecord 4 instrumentation
+[04/08/15 09:46:18 -0700 MacLappy (58517)] INFO : Installing Net instrumentation
+[04/08/15 09:46:18 -0700 MacLappy (58517)] INFO : Installing deferred Rack instrumentation
+[04/08/15 09:46:18 -0700 MacLappy (58517)] INFO : Installing Rack::Builder middleware instrumentation
+[04/08/15 09:46:18 -0700 MacLappy (58517)] INFO : Installing Rails 3+ middleware instrumentation
+[04/08/15 09:46:18 -0700 MacLappy (58517)] INFO : Installing Rails 4 Controller instrumentation
+[04/08/15 09:46:18 -0700 MacLappy (58517)] INFO : Installing Rails 4 view instrumentation
+[04/08/15 09:46:18 -0700 MacLappy (58517)] INFO : Installing Rails 4 Error instrumentation
+[04/08/15 09:46:18 -0700 MacLappy (58517)] INFO : Finished instrumentation
+[04/08/15 09:46:45 -0700 MacLappy (58653)] INFO : Starting the New Relic agent in "development" environment.
+[04/08/15 09:46:45 -0700 MacLappy (58653)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[04/08/15 09:46:45 -0700 MacLappy (58653)] WARN : No configuration file found. Working directory = /Users/Scott/Copy/appacademy/puddlejumper
+[04/08/15 09:46:45 -0700 MacLappy (58653)] WARN : Looked in these locations (based on defaults): /Users/Scott/Copy/appacademy/puddlejumper/config/newrelic.yml, /Users/Scott/Copy/appacademy/puddlejumper/newrelic.yml, /Users/Scott/Copy/appacademy/puddlejumper/config/newrelic.yml, /Users/Scott/Copy/appacademy/puddlejumper/newrelic.yml, /Users/Scott/.newrelic/newrelic.yml, /Users/Scott/newrelic.yml
+[04/08/15 09:46:45 -0700 MacLappy (58653)] INFO : Environment: development
+[04/08/15 09:46:45 -0700 MacLappy (58653)] INFO : No known dispatcher detected.
+[04/08/15 09:46:45 -0700 MacLappy (58653)] INFO : Application: development
+[04/08/15 09:46:45 -0700 MacLappy (58653)] WARN : No license key found. This often means your newrelic.yml file was not found, or it lacks a section for the running environment, 'development'. You may also want to try linting your newrelic.yml to ensure it is valid YML.
+[04/08/15 09:46:45 -0700 MacLappy (58653)] INFO : Installing ActiveJob instrumentation
+[04/08/15 09:46:45 -0700 MacLappy (58653)] INFO : Installing ActiveRecord 4 instrumentation
+[04/08/15 09:46:45 -0700 MacLappy (58653)] INFO : Installing Net instrumentation
+[04/08/15 09:46:45 -0700 MacLappy (58653)] INFO : Installing deferred Rack instrumentation
+[04/08/15 09:46:45 -0700 MacLappy (58653)] INFO : Installing Rack::Builder middleware instrumentation
+[04/08/15 09:46:45 -0700 MacLappy (58653)] INFO : Installing Rails 3+ middleware instrumentation
+[04/08/15 09:46:45 -0700 MacLappy (58653)] INFO : Installing Rails 4 Controller instrumentation
+[04/08/15 09:46:45 -0700 MacLappy (58653)] INFO : Installing Rails 4 view instrumentation
+[04/08/15 09:46:45 -0700 MacLappy (58653)] INFO : Installing Rails 4 Error instrumentation
+[04/08/15 09:46:45 -0700 MacLappy (58653)] INFO : Finished instrumentation
+[04/08/15 09:47:59 -0700 MacLappy (58749)] INFO : Starting the New Relic agent in "development" environment.
+[04/08/15 09:47:59 -0700 MacLappy (58749)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[04/08/15 09:47:59 -0700 MacLappy (58749)] WARN : No configuration file found. Working directory = /Users/Scott/Copy/appacademy/puddlejumper
+[04/08/15 09:47:59 -0700 MacLappy (58749)] WARN : Looked in these locations (based on defaults): /Users/Scott/Copy/appacademy/puddlejumper/config/newrelic.yml, /Users/Scott/Copy/appacademy/puddlejumper/newrelic.yml, /Users/Scott/Copy/appacademy/puddlejumper/config/newrelic.yml, /Users/Scott/Copy/appacademy/puddlejumper/newrelic.yml, /Users/Scott/.newrelic/newrelic.yml, /Users/Scott/newrelic.yml
+[04/08/15 09:47:59 -0700 MacLappy (58749)] INFO : Environment: development
+[04/08/15 09:47:59 -0700 MacLappy (58749)] INFO : Dispatcher: webrick
+[04/08/15 09:47:59 -0700 MacLappy (58749)] INFO : Application: development
+[04/08/15 09:47:59 -0700 MacLappy (58749)] WARN : No license key found. This often means your newrelic.yml file was not found, or it lacks a section for the running environment, 'development'. You may also want to try linting your newrelic.yml to ensure it is valid YML.
+[04/08/15 09:47:59 -0700 MacLappy (58749)] INFO : Installing ActiveJob instrumentation
+[04/08/15 09:47:59 -0700 MacLappy (58749)] INFO : Installing ActiveRecord 4 instrumentation
+[04/08/15 09:47:59 -0700 MacLappy (58749)] INFO : Installing Net instrumentation
+[04/08/15 09:47:59 -0700 MacLappy (58749)] INFO : Installing deferred Rack instrumentation
+[04/08/15 09:47:59 -0700 MacLappy (58749)] INFO : Installing Rack::Builder middleware instrumentation
+[04/08/15 09:47:59 -0700 MacLappy (58749)] INFO : Installing Rails 3+ middleware instrumentation
+[04/08/15 09:47:59 -0700 MacLappy (58749)] INFO : Installing Rails 4 Controller instrumentation
+[04/08/15 09:47:59 -0700 MacLappy (58749)] INFO : Installing Rails 4 view instrumentation
+[04/08/15 09:47:59 -0700 MacLappy (58749)] INFO : Installing Rails 4 Error instrumentation
+[04/08/15 09:47:59 -0700 MacLappy (58749)] INFO : Finished instrumentation
+[04/08/15 09:47:59 -0700 MacLappy (58749)] INFO : Doing deferred dependency-detection before Rack startup
+[04/08/15 09:48:02 -0700 MacLappy (58749)] ERROR : Invalid license key, please contact support@newrelic.com
+[04/08/15 09:48:02 -0700 MacLappy (58749)] ERROR : Visit NewRelic.com to obtain a valid license key, or to upgrade your account.
+[04/08/15 10:02:58 -0700 MacLappy (59206)] INFO : Starting the New Relic agent in "development" environment.
+[04/08/15 10:02:58 -0700 MacLappy (59206)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[04/08/15 10:02:58 -0700 MacLappy (59206)] WARN : No configuration file found. Working directory = /Users/Scott/Copy/appacademy/puddlejumper
+[04/08/15 10:02:58 -0700 MacLappy (59206)] WARN : Looked in these locations (based on defaults): /Users/Scott/Copy/appacademy/puddlejumper/config/newrelic.yml, /Users/Scott/Copy/appacademy/puddlejumper/newrelic.yml, /Users/Scott/Copy/appacademy/puddlejumper/config/newrelic.yml, /Users/Scott/Copy/appacademy/puddlejumper/newrelic.yml, /Users/Scott/.newrelic/newrelic.yml, /Users/Scott/newrelic.yml
+[04/08/15 10:02:58 -0700 MacLappy (59206)] INFO : Environment: development
+[04/08/15 10:02:58 -0700 MacLappy (59206)] INFO : No known dispatcher detected.
+[04/08/15 10:02:58 -0700 MacLappy (59206)] INFO : Application: development
+[04/08/15 10:02:58 -0700 MacLappy (59206)] WARN : No license key found. This often means your newrelic.yml file was not found, or it lacks a section for the running environment, 'development'. You may also want to try linting your newrelic.yml to ensure it is valid YML.
+[04/08/15 10:02:58 -0700 MacLappy (59206)] INFO : Installing ActiveJob instrumentation
+[04/08/15 10:02:58 -0700 MacLappy (59206)] INFO : Installing ActiveRecord 4 instrumentation
+[04/08/15 10:02:58 -0700 MacLappy (59206)] INFO : Installing Net instrumentation
+[04/08/15 10:02:58 -0700 MacLappy (59206)] INFO : Installing deferred Rack instrumentation
+[04/08/15 10:02:58 -0700 MacLappy (59206)] INFO : Installing Rack::Builder middleware instrumentation
+[04/08/15 10:02:58 -0700 MacLappy (59206)] INFO : Installing Rails 3+ middleware instrumentation
+[04/08/15 10:02:58 -0700 MacLappy (59206)] INFO : Installing Rails 4 Controller instrumentation
+[04/08/15 10:02:58 -0700 MacLappy (59206)] INFO : Installing Rails 4 view instrumentation
+[04/08/15 10:02:58 -0700 MacLappy (59206)] INFO : Installing Rails 4 Error instrumentation
+[04/08/15 10:02:58 -0700 MacLappy (59206)] INFO : Finished instrumentation
+[04/08/15 10:03:27 -0700 MacLappy (59293)] INFO : Starting the New Relic agent in "development" environment.
+[04/08/15 10:03:27 -0700 MacLappy (59293)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[04/08/15 10:03:27 -0700 MacLappy (59293)] WARN : No configuration file found. Working directory = /Users/Scott/Copy/appacademy/puddlejumper
+[04/08/15 10:03:27 -0700 MacLappy (59293)] WARN : Looked in these locations (based on defaults): /Users/Scott/Copy/appacademy/puddlejumper/config/newrelic.yml, /Users/Scott/Copy/appacademy/puddlejumper/newrelic.yml, /Users/Scott/Copy/appacademy/puddlejumper/config/newrelic.yml, /Users/Scott/Copy/appacademy/puddlejumper/newrelic.yml, /Users/Scott/.newrelic/newrelic.yml, /Users/Scott/newrelic.yml
+[04/08/15 10:03:27 -0700 MacLappy (59293)] INFO : Environment: development
+[04/08/15 10:03:27 -0700 MacLappy (59293)] INFO : No known dispatcher detected.
+[04/08/15 10:03:27 -0700 MacLappy (59293)] INFO : Application: development
+[04/08/15 10:03:27 -0700 MacLappy (59293)] WARN : No license key found. This often means your newrelic.yml file was not found, or it lacks a section for the running environment, 'development'. You may also want to try linting your newrelic.yml to ensure it is valid YML.
+[04/08/15 10:03:27 -0700 MacLappy (59293)] INFO : Installing ActiveJob instrumentation
+[04/08/15 10:03:27 -0700 MacLappy (59293)] INFO : Installing ActiveRecord 4 instrumentation
+[04/08/15 10:03:27 -0700 MacLappy (59293)] INFO : Installing Net instrumentation
+[04/08/15 10:03:27 -0700 MacLappy (59293)] INFO : Installing deferred Rack instrumentation
+[04/08/15 10:03:27 -0700 MacLappy (59293)] INFO : Installing Rack::Builder middleware instrumentation
+[04/08/15 10:03:27 -0700 MacLappy (59293)] INFO : Installing Rails 3+ middleware instrumentation
+[04/08/15 10:03:27 -0700 MacLappy (59293)] INFO : Installing Rails 4 Controller instrumentation
+[04/08/15 10:03:27 -0700 MacLappy (59293)] INFO : Installing Rails 4 view instrumentation
+[04/08/15 10:03:27 -0700 MacLappy (59293)] INFO : Installing Rails 4 Error instrumentation
+[04/08/15 10:03:27 -0700 MacLappy (59293)] INFO : Finished instrumentation
+[04/08/15 10:20:08 -0700 MacLappy (59617)] INFO : Starting the New Relic agent in "development" environment.
+[04/08/15 10:20:08 -0700 MacLappy (59617)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[04/08/15 10:20:08 -0700 MacLappy (59617)] WARN : No configuration file found. Working directory = /Users/Scott/Copy/appacademy/puddlejumper
+[04/08/15 10:20:08 -0700 MacLappy (59617)] WARN : Looked in these locations (based on defaults): /Users/Scott/Copy/appacademy/puddlejumper/config/newrelic.yml, /Users/Scott/Copy/appacademy/puddlejumper/newrelic.yml, /Users/Scott/Copy/appacademy/puddlejumper/config/newrelic.yml, /Users/Scott/Copy/appacademy/puddlejumper/newrelic.yml, /Users/Scott/.newrelic/newrelic.yml, /Users/Scott/newrelic.yml
+[04/08/15 10:20:08 -0700 MacLappy (59617)] INFO : Environment: development
+[04/08/15 10:20:08 -0700 MacLappy (59617)] INFO : No known dispatcher detected.
+[04/08/15 10:20:08 -0700 MacLappy (59617)] INFO : Application: development
+[04/08/15 10:20:08 -0700 MacLappy (59617)] WARN : No license key found. This often means your newrelic.yml file was not found, or it lacks a section for the running environment, 'development'. You may also want to try linting your newrelic.yml to ensure it is valid YML.
+[04/08/15 10:20:09 -0700 MacLappy (59617)] INFO : Installing ActiveJob instrumentation
+[04/08/15 10:20:09 -0700 MacLappy (59617)] INFO : Installing ActiveRecord 4 instrumentation
+[04/08/15 10:20:09 -0700 MacLappy (59617)] INFO : Installing Net instrumentation
+[04/08/15 10:20:09 -0700 MacLappy (59617)] INFO : Installing deferred Rack instrumentation
+[04/08/15 10:20:09 -0700 MacLappy (59617)] INFO : Installing Rack::Builder middleware instrumentation
+[04/08/15 10:20:09 -0700 MacLappy (59617)] INFO : Installing Rails 3+ middleware instrumentation
+[04/08/15 10:20:09 -0700 MacLappy (59617)] INFO : Installing Rails 4 Controller instrumentation
+[04/08/15 10:20:09 -0700 MacLappy (59617)] INFO : Installing Rails 4 view instrumentation
+[04/08/15 10:20:09 -0700 MacLappy (59617)] INFO : Installing Rails 4 Error instrumentation
+[04/08/15 10:20:09 -0700 MacLappy (59617)] INFO : Finished instrumentation
+[04/08/15 10:21:21 -0700 MacLappy (59699)] INFO : Starting the New Relic agent in "development" environment.
+[04/08/15 10:21:21 -0700 MacLappy (59699)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[04/08/15 10:21:21 -0700 MacLappy (59699)] WARN : No configuration file found. Working directory = /Users/Scott/Copy/appacademy/puddlejumper
+[04/08/15 10:21:21 -0700 MacLappy (59699)] WARN : Looked in these locations (based on defaults): /Users/Scott/Copy/appacademy/puddlejumper/config/newrelic.yml, /Users/Scott/Copy/appacademy/puddlejumper/newrelic.yml, /Users/Scott/Copy/appacademy/puddlejumper/config/newrelic.yml, /Users/Scott/Copy/appacademy/puddlejumper/newrelic.yml, /Users/Scott/.newrelic/newrelic.yml, /Users/Scott/newrelic.yml
+[04/08/15 10:21:21 -0700 MacLappy (59699)] INFO : Environment: development
+[04/08/15 10:21:21 -0700 MacLappy (59699)] INFO : No known dispatcher detected.
+[04/08/15 10:21:21 -0700 MacLappy (59699)] INFO : Application: development
+[04/08/15 10:21:21 -0700 MacLappy (59699)] WARN : No license key found. This often means your newrelic.yml file was not found, or it lacks a section for the running environment, 'development'. You may also want to try linting your newrelic.yml to ensure it is valid YML.
+[04/08/15 10:21:21 -0700 MacLappy (59699)] INFO : Installing ActiveJob instrumentation
+[04/08/15 10:21:21 -0700 MacLappy (59699)] INFO : Installing ActiveRecord 4 instrumentation
+[04/08/15 10:21:21 -0700 MacLappy (59699)] INFO : Installing Net instrumentation
+[04/08/15 10:21:21 -0700 MacLappy (59699)] INFO : Installing deferred Rack instrumentation
+[04/08/15 10:21:21 -0700 MacLappy (59699)] INFO : Installing Rack::Builder middleware instrumentation
+[04/08/15 10:21:21 -0700 MacLappy (59699)] INFO : Installing Rails 3+ middleware instrumentation
+[04/08/15 10:21:21 -0700 MacLappy (59699)] INFO : Installing Rails 4 Controller instrumentation
+[04/08/15 10:21:21 -0700 MacLappy (59699)] INFO : Installing Rails 4 view instrumentation
+[04/08/15 10:21:21 -0700 MacLappy (59699)] INFO : Installing Rails 4 Error instrumentation
+[04/08/15 10:21:21 -0700 MacLappy (59699)] INFO : Finished instrumentation

@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: gate_trips
+# Table name: trips
 #
 #  id              :integer          not null, primary key
 #  origin_id       :integer
@@ -11,9 +11,9 @@
 #  datetime        :datetime         not null
 #
 
-class GateTrip < ActiveRecord::Base
+class Trip < ActiveRecord::Base
   validates_presence_of :origin_id, :destination_id
 
-  belongs_to :origin, class_name: :Gate, foreign_key: :origin_id
-  belongs_to :destination, class_name: :Gate, foreign_key: :destination_id
+  belongs_to :origin, class_name: :Planet, foreign_key: :origin_id
+  belongs_to :destination, class_name: :Planet, foreign_key: :destination_id
 end

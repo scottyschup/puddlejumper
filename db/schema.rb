@@ -11,23 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150408010110) do
+ActiveRecord::Schema.define(version: 20150408163814) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "gate_trips", force: :cascade do |t|
-    t.integer  "origin_id"
-    t.integer  "destination_id"
-    t.integer  "remaining_space"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.datetime "datetime",        null: false
-  end
-
-  add_index "gate_trips", ["destination_id"], name: "index_gate_trips_on_destination_id", using: :btree
-  add_index "gate_trips", ["origin_id", "destination_id"], name: "index_gate_trips_on_origin_id_and_destination_id", using: :btree
-  add_index "gate_trips", ["origin_id"], name: "index_gate_trips_on_origin_id", using: :btree
 
   create_table "planets", force: :cascade do |t|
     t.string   "name",                                 null: false
@@ -45,5 +32,18 @@ ActiveRecord::Schema.define(version: 20150408010110) do
   add_index "planets", ["alias"], name: "index_planets_on_alias", using: :btree
   add_index "planets", ["clearance"], name: "index_planets_on_clearance", using: :btree
   add_index "planets", ["name"], name: "index_planets_on_name", using: :btree
+
+  create_table "trips", force: :cascade do |t|
+    t.integer  "origin_id"
+    t.integer  "destination_id"
+    t.integer  "remaining_space"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.datetime "datetime",        null: false
+  end
+
+  add_index "trips", ["destination_id"], name: "index_trips_on_destination_id", using: :btree
+  add_index "trips", ["origin_id", "destination_id"], name: "index_trips_on_origin_id_and_destination_id", using: :btree
+  add_index "trips", ["origin_id"], name: "index_trips_on_origin_id", using: :btree
 
 end

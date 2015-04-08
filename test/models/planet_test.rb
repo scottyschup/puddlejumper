@@ -12,6 +12,7 @@
 #  protected    :boolean          default(FALSE)
 #  clearance    :integer          not null
 #  gate_address :string           default("0-0-0-0-0-0"), not null
+#  alias        :string
 #
 
 require 'test_helper'
