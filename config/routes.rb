@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
   root to: 'application#tmp_root'
-  resource :travel, only: [:new, :index]
+  resources :gate_trips, only: [:index]
+  
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150407185417) do
+ActiveRecord::Schema.define(version: 20150408010110) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,33 +22,27 @@ ActiveRecord::Schema.define(version: 20150407185417) do
     t.integer  "remaining_space"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.datetime "datetime",        null: false
   end
 
   add_index "gate_trips", ["destination_id"], name: "index_gate_trips_on_destination_id", using: :btree
   add_index "gate_trips", ["origin_id", "destination_id"], name: "index_gate_trips_on_origin_id_and_destination_id", using: :btree
   add_index "gate_trips", ["origin_id"], name: "index_gate_trips_on_origin_id", using: :btree
 
-  create_table "gates", force: :cascade do |t|
-    t.string   "address",    null: false
-    t.integer  "planet_id",  null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "gates", ["address"], name: "index_gates_on_address", using: :btree
-  add_index "gates", ["planet_id"], name: "index_gates_on_planet_id", using: :btree
-
   create_table "planets", force: :cascade do |t|
-    t.string   "name",                       null: false
+    t.string   "name",                                 null: false
     t.string   "desc"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
-    t.string   "galaxy",                     null: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
+    t.string   "galaxy",                               null: false
     t.string   "race"
-    t.boolean  "protected",  default: false
-    t.integer  "clearance",                  null: false
+    t.boolean  "protected",    default: false
+    t.integer  "clearance",                            null: false
+    t.string   "gate_address", default: "0-0-0-0-0-0", null: false
+    t.string   "alias"
   end
 
+  add_index "planets", ["alias"], name: "index_planets_on_alias", using: :btree
   add_index "planets", ["clearance"], name: "index_planets_on_clearance", using: :btree
   add_index "planets", ["name"], name: "index_planets_on_name", using: :btree
 

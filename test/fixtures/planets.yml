@@ -2,15 +2,16 @@
 #
 # Table name: planets
 #
-#  id         :integer          not null, primary key
-#  name       :string           not null
-#  desc       :string
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  galaxy     :string           not null
-#  race       :string
-#  protected  :boolean          default(FALSE)
-#  clearance  :integer          not null
+#  id           :integer          not null, primary key
+#  name         :string           not null
+#  desc         :string
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#  galaxy       :string           not null
+#  race         :string
+#  protected    :boolean          default(FALSE)
+#  clearance    :integer          not null
+#  gate_address :string           default("0-0-0-0-0-0"), not null
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

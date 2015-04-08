@@ -8,6 +8,7 @@
 #  remaining_space :integer
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  datetime        :datetime         not null
 #
 
 require 'test_helper'
