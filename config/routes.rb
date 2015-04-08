@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'application#tmp_root'
+  root to: 'static_pages#root'
   resources :gate_trips, only: [:index]
-  
+
 end
