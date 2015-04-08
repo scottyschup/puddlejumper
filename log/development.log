@@ -9142,3 +9142,157 @@ Started GET "/assets/application-864edfc023b1109dbf5d27a04e371724.js?body=1" for
 
 
 Started GET "/assets/logo-6330b6b45e4e89841ba5e95d1f27b477.png" for ::1 at 2015-04-08 12:00:44 -0700
+
+
+Started GET "/" for ::1 at 2015-04-08 12:09:46 -0700
+Processing by StaticPagesController#root as HTML
+  Rendered layouts/_header.html.erb (0.2ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+  Rendered static_pages/root.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 164ms (Views: 164.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/static_pages-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-04-08 12:09:46 -0700
+
+
+Started GET "/assets/normalize-10efdac8d54129dd15a139392fd76d8d.css?body=1" for ::1 at 2015-04-08 12:09:46 -0700
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-04-08 12:09:46 -0700
+
+
+Started GET "/assets/underscore-d431f9168936f2543e94df66a0ed8c23.js?body=1" for ::1 at 2015-04-08 12:09:46 -0700
+
+
+Started GET "/assets/application-f5216e4b4672462e8cb53888ff28aad3.css?body=1" for ::1 at 2015-04-08 12:09:46 -0700
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-04-08 12:09:46 -0700
+
+
+Started GET "/assets/api/trips-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-04-08 12:09:46 -0700
+
+
+Started GET "/assets/backbone-393a840dc90861d7b4dc2b8ddb40420f.js?body=1" for ::1 at 2015-04-08 12:09:46 -0700
+
+
+Started GET "/assets/typeahead.bundle-bf6c6e44516da3a26153d13641dd416a.js?body=1" for ::1 at 2015-04-08 12:09:46 -0700
+
+
+Started GET "/assets/puddlejumper-6e009ca757b29c08e6716d10a10a81c3.js?body=1" for ::1 at 2015-04-08 12:09:46 -0700
+
+
+Started GET "/assets/trips/form-874ec2da1e44a25ec5280eeed3e24fb6.js?body=1" for ::1 at 2015-04-08 12:09:46 -0700
+
+
+Started GET "/assets/models/planet-9493707f82fc0c5d60562b929560afd9.js?body=1" for ::1 at 2015-04-08 12:09:46 -0700
+
+
+Started GET "/assets/models/trip-7d50b3959261e883c32df71fff117586.js?body=1" for ::1 at 2015-04-08 12:09:46 -0700
+
+
+Started GET "/assets/collections/planets-c0391d6e888b26e9681c8179d8ba5f09.js?body=1" for ::1 at 2015-04-08 12:09:46 -0700
+
+
+Started GET "/assets/collections/trips-445b3631ffccc89dc8a137e3c99d1011.js?body=1" for ::1 at 2015-04-08 12:09:46 -0700
+
+
+Started GET "/assets/views/tripsForm-0e6450ed58cac14c87c438f998797ad7.js?body=1" for ::1 at 2015-04-08 12:09:46 -0700
+
+
+Started GET "/assets/views/tripsIndex-64e62ddc273c2f5847f30d698ca14b67.js?body=1" for ::1 at 2015-04-08 12:09:46 -0700
+
+
+Started GET "/assets/routers/router-0b13db73c3d95603bf9c9ee031a0fdae.js?body=1" for ::1 at 2015-04-08 12:09:46 -0700
+
+
+Started GET "/assets/api/trips-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-04-08 12:09:46 -0700
+
+
+Started GET "/assets/application-5a4e99343889a1d390442b9392edefa4.js?body=1" for ::1 at 2015-04-08 12:09:46 -0700
+
+
+Started GET "/assets/logo-6330b6b45e4e89841ba5e95d1f27b477.png" for ::1 at 2015-04-08 12:09:46 -0700
+
+
+Started GET "/assets/normalize-10efdac8d54129dd15a139392fd76d8d.css?body=1" for ::1 at 2015-04-08 12:09:49 -0700
+
+
+Started GET "/assets/api/trips-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-04-08 12:09:49 -0700
+
+
+Started GET "/assets/static_pages-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-04-08 12:09:49 -0700
+
+
+Started GET "/assets/application-f5216e4b4672462e8cb53888ff28aad3.css?body=1" for ::1 at 2015-04-08 12:09:49 -0700
+
+
+Started GET "/" for ::1 at 2015-04-08 12:12:49 -0700
+Processing by StaticPagesController#root as HTML
+  Rendered layouts/_header.html.erb (0.2ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+  Rendered static_pages/root.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 144ms (Views: 143.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/static_pages-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-04-08 12:12:49 -0700
+
+
+Started GET "/assets/application-f5216e4b4672462e8cb53888ff28aad3.css?body=1" for ::1 at 2015-04-08 12:12:49 -0700
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-04-08 12:12:49 -0700
+
+
+Started GET "/assets/normalize-10efdac8d54129dd15a139392fd76d8d.css?body=1" for ::1 at 2015-04-08 12:12:49 -0700
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-04-08 12:12:49 -0700
+
+
+Started GET "/assets/underscore-d431f9168936f2543e94df66a0ed8c23.js?body=1" for ::1 at 2015-04-08 12:12:49 -0700
+
+
+Started GET "/assets/backbone-393a840dc90861d7b4dc2b8ddb40420f.js?body=1" for ::1 at 2015-04-08 12:12:49 -0700
+
+
+Started GET "/assets/typeahead.bundle-bf6c6e44516da3a26153d13641dd416a.js?body=1" for ::1 at 2015-04-08 12:12:49 -0700
+
+
+Started GET "/assets/api/trips-64e62ddc273c2f5847f30d698ca14b67.css?body=1" for ::1 at 2015-04-08 12:12:49 -0700
+
+
+Started GET "/assets/puddlejumper-6e009ca757b29c08e6716d10a10a81c3.js?body=1" for ::1 at 2015-04-08 12:12:49 -0700
+
+
+Started GET "/assets/trips/form-874ec2da1e44a25ec5280eeed3e24fb6.js?body=1" for ::1 at 2015-04-08 12:12:49 -0700
+
+
+Started GET "/assets/models/planet-9493707f82fc0c5d60562b929560afd9.js?body=1" for ::1 at 2015-04-08 12:12:49 -0700
+
+
+Started GET "/assets/models/trip-7d50b3959261e883c32df71fff117586.js?body=1" for ::1 at 2015-04-08 12:12:49 -0700
+
+
+Started GET "/assets/collections/planets-71eed92910650b24f68cbb328ad86959.js?body=1" for ::1 at 2015-04-08 12:12:49 -0700
+
+
+Started GET "/assets/collections/trips-445b3631ffccc89dc8a137e3c99d1011.js?body=1" for ::1 at 2015-04-08 12:12:49 -0700
+
+
+Started GET "/assets/views/tripsForm-0e6450ed58cac14c87c438f998797ad7.js?body=1" for ::1 at 2015-04-08 12:12:49 -0700
+
+
+Started GET "/assets/views/tripsIndex-64e62ddc273c2f5847f30d698ca14b67.js?body=1" for ::1 at 2015-04-08 12:12:49 -0700
+
+
+Started GET "/assets/routers/router-0b13db73c3d95603bf9c9ee031a0fdae.js?body=1" for ::1 at 2015-04-08 12:12:49 -0700
+
+
+Started GET "/assets/api/trips-fcec5b5a277ac7c20cc9f45a209a3bcd.js?body=1" for ::1 at 2015-04-08 12:12:49 -0700
+
+
+Started GET "/assets/application-530da9e8953222556ad6e03c63a9f911.js?body=1" for ::1 at 2015-04-08 12:12:49 -0700
+
+
+Started GET "/assets/logo-6330b6b45e4e89841ba5e95d1f27b477.png" for ::1 at 2015-04-08 12:12:49 -0700

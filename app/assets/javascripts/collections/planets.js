@@ -1,4 +1,4 @@
 PuddleJumper.Collections.Planets = Backbone.Collection.extend({
-  model: PuddleJumper.Model.Planet,
+  model: PuddleJumper.Models.Planet,
   url: "api/planets"
 });
