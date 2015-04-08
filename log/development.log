@@ -1,0 +1,27 @@
+  [1m[36mPlanet Load (1.1ms)[0m  [1mSELECT  "planets".* FROM "planets"  ORDER BY "planets"."id" DESC LIMIT 1[0m
+  [1m[35mGateTrip Load (0.6ms)[0m  SELECT  "gate_trips".* FROM "gate_trips"  ORDER BY "gate_trips"."id" DESC LIMIT 1
+
+
+Started GET "/" for ::1 at 2015-04-07 19:26:03 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ApplicationController#tmp_root as HTML
+  Rendered layouts/tmp_root.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 80ms (Views: 79.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery-87424c3c19e96d4fb033c10ebe21ec40.js?body=1" for ::1 at 2015-04-07 19:26:03 -0700
+
+
+Started GET "/assets/backbone-393a840dc90861d7b4dc2b8ddb40420f.js?body=1" for ::1 at 2015-04-07 19:26:03 -0700
+
+
+Started GET "/assets/jquery_ujs-e27bd20a10d28155845a22d71ef94f2f.js?body=1" for ::1 at 2015-04-07 19:26:03 -0700
+
+
+Started GET "/assets/application-f828ae9a326347e70a51d6a1d6286a8c.js?body=1" for ::1 at 2015-04-07 19:26:03 -0700
+
+
+Started GET "/assets/underscore-d431f9168936f2543e94df66a0ed8c23.js?body=1" for ::1 at 2015-04-07 19:26:03 -0700
+
+
+Started GET "/assets/application-5266d2988799ecc8fe6e81eaab412e7d.css?body=1" for ::1 at 2015-04-07 19:26:03 -0700

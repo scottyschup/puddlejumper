@@ -9,8 +9,6 @@ PuddleJumper is a clone of Kayak for the Stargate universe, built on Rails and B
 
 <!-- This is a Markdown checklist. Use it to keep track of your progress! -->
 
-- [ ] Create accounts
-- [ ] Create sessions (log in)
 - [ ] Search for available Stargate transit schedules
 - [ ] Sort results by date/time
 - [ ] Edit search criteria from results page
@@ -34,8 +32,8 @@ PuddleJumper is a clone of Kayak for the Stargate universe, built on Rails and B
 
 ## Implementation Timeline
 
-### Phase 1: User Authentication, Account Creation (~1 day)
-I will implement user authentication in Rails based on the practices learned at App Academy. By the end of this phase, users will be able to create accounts using a simple text form in a Rails view. Because logging in is not a prerequisite to searching, I will be implementing a "guest user" account. The most important part of this phase will be pushing the app to Heroku and ensuring that everything works before moving on to phase 2.
+### Phase 1: Rails Setup/Database Seed (~1 day)
+Because logging in is not a prerequisite to searching, I will begin with creating the gate travel seed data for the search form and getting all of the initialization preliminaries done. The most important part of this phase will be pushing the app to Heroku and ensuring that everything works before moving on to phase 2.
 
 [Details][phase-one]
 

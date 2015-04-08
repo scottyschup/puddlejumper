@@ -1,18 +1,16 @@
-# Phase 1: User Authentication, Account Creation
+# Phase 1: Rails Setup/Database Seed
 
 ## Rails
 ### Models
-* User
-* Session
+* GateTrip
+* Planet
 
 ### Controllers
-* UsersController (create, new)
-* SessionsController (create, new, destroy)
+* ApplicationController (create, new)
 
 ### Views
-* users/new.html.erb
-* session/new.html.erb
-* shared/_form.html.erb
+* root.html.erb (preliminary landing page)
+
 
 ## Backbone
 ### Models
@@ -22,3 +20,7 @@
 ### Views
 
 ## Gems/Libraries
+* newrelic
+* annotate
+* better-errors
+* binding_of_caller

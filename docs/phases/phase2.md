@@ -2,13 +2,9 @@
 
 ## Rails
 ### Models
-* Gate
-* GateTrip
-* Planet
 
 ### Controllers
 * Api::GateTripsController (index, show)
-* Api::GatesController (index)
 * Api::PlanetsController (index, show)
 
 ### Views
@@ -17,12 +13,10 @@
 ## Backbone
 ### Models
 * Planet
-* Gate
 * GateTrip
 
 ### Collections
 * Planets
-* Gates
 * GateTrips
 
 ### Views
