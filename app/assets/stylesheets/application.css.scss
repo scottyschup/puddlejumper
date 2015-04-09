@@ -131,12 +131,14 @@ a, a:hover, a:visited, img {
 }
 
 .search-btn {
+  position: relative;
   background-color: $site-orange;
   color: #fff;
   border: 1px solid $site-orange;
   border-radius: 2px;
   height: 45px;
-  width: 100px;
+  width: 130px;
+  text-align: center;
 }
 
 .datepicker-container {

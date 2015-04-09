@@ -3,7 +3,9 @@ PuddleJumper.Views.TripsForm = Backbone.View.extend({
   className: 'search-form',
 
   events: {
-    "submit form": "submit"
+    "click #surpise-me": "autofill",
+    "submit form": "validate",
+    "click input": "selectText",
   },
 
   render: function () {
@@ -12,11 +14,33 @@ PuddleJumper.Views.TripsForm = Backbone.View.extend({
     return this;
   },
 
+  selectText: function (ev) {
+    var $input = $(ev.target);
+    if ($input.attr("type") === "text") {
+      $input.select();
+    }
+  },
+
+  validate: function (ev) {
+    ev.preventDefault();
+    console.log("Validate");
+
+    if (true) {
+      this.submit(ev);
+    }
+  },
+
+  autofill: function (ev) {
+    ev.preventDefault();
+    console.log("Autofill");
+  },
+
   submit: function (ev) {
     ev.preventDefault();
-    var data = this.$el.serializeJSON();
-    var results = new PuddleJumper.Collections.Trips(data);
+    console.log("Submit");
+    var data = this.$('form').serializeJSON();
+    PuddleJumper.Collections.results.fetch(data);
+    Backbone.history.navigate("trips", { trigger: true })
+  },
 
-    Backbone.history.navigate("trips", { trigger: true });
-  }
 });

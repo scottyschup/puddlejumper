@@ -1,8 +1,8 @@
 class TripSearch
   attr_accessor :departures, :returns, :roundtrip
   def initialize(params)
-    @origin = Planet.find(params[:origin_id])
-    @destination = Planet.find(params[:destination_id])
+    @origin = Planet.find_by(name: params[:origin])
+    @destination = Planet.find_by(name: params[:destination])
     @depart = params[:depart]
     @arrive = params[:return]
     @num_travelers = params[:num_travelers]

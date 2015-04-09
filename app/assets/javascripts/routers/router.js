@@ -1,7 +1,9 @@
 PuddleJumper.Router = Backbone.Router.extend({
   initialize: function ($rootEl) {
     this.$rootEl = $rootEl;
-    this.planetsList = new PuddleJumper.Collections.Planets();
+    PuddleJumper.Collections.planetsList = new PuddleJumper.Collections.Planets();
+    PuddleJumper.Collections.planetsList.fetch();
+    PuddleJumper.Collections.results = new PuddleJumper.Collections.Trips();
     // add loginDropdownView here later
   },
 
@@ -12,13 +14,15 @@ PuddleJumper.Router = Backbone.Router.extend({
 
   tripsForm: function () {
     var tripsFormView = new PuddleJumper.Views.TripsForm({
-      planets: this.planetsList
+      collection: PuddleJumper.Collections.planetsList
     });
     this._swapView(tripsFormView);
   },
 
   tripsIndex: function () {
     var tripsIndexView = new PuddleJumper.Views.TripsIndex();
+
+    this._swapView(tripsIndexView);
   },
 
   _swapView: function (view) {

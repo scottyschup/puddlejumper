@@ -12,9 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery-ui
+//= require jquery-ui/datepicker
 //= require underscore
 //= require backbone
+//= require jquery.serializejson.js
 //= require typeahead.bundle.js
 //= require moment.js
 //= require puddlejumper
