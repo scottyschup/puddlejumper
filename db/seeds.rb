@@ -168,25 +168,31 @@ planets.select { |planet| planet.clearance < 7 }
 until time >= end_time
 
   planets.each do |planet|
-    GateTrip.create(
+    Trip.create(
       origin_id: earth.id,
       destination_id: planet.id,
-      datetime: time.strftime("%Y-%m-%d %H:%M:%S")
+      remaining_space: rand(20),
+      trip_date: time.strftime("%Y-%m-%d"),
+      trip_time: time.strftime("%H:%M:%S")
     )
     time += 33.minutes
 
     other_planets = planets - [planet]
 
-    GateTrip.create(
+    Trip.create(
       origin_id: other_planets.shuffle.pop.id,
       destination_id: other_planets.sample.id,
-      datetime: time.strftime("%Y-%m-%d %H:%M:%S")
+      remaining_space: rand(20),
+      trip_date: time.strftime("%Y-%m-%d"),
+      trip_time: time.strftime("%H:%M:%S")
     )
 
-    GateTrip.create(
+    Trip.create(
       origin_id: planet.id,
       destination_id: earth.id,
-      datetime: time.strftime("%Y-%m-%d %H:%M:%S")
+      remaining_space: rand(20),
+      trip_date: time.strftime("%Y-%m-%d"),
+      trip_time: time.strftime("%H:%M:%S")
     )
     time += 33.minutes
   end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150408163814) do
+ActiveRecord::Schema.define(version: 20150408224606) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,11 +39,14 @@ ActiveRecord::Schema.define(version: 20150408163814) do
     t.integer  "remaining_space"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-    t.datetime "datetime",        null: false
+    t.date     "trip_date"
+    t.time     "trip_time"
   end
 
   add_index "trips", ["destination_id"], name: "index_trips_on_destination_id", using: :btree
   add_index "trips", ["origin_id", "destination_id"], name: "index_trips_on_origin_id_and_destination_id", using: :btree
   add_index "trips", ["origin_id"], name: "index_trips_on_origin_id", using: :btree
+  add_index "trips", ["trip_date"], name: "index_trips_on_trip_date", using: :btree
+  add_index "trips", ["trip_time"], name: "index_trips_on_trip_time", using: :btree
 
 end

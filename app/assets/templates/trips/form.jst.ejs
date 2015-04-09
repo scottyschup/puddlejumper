@@ -1,17 +1,51 @@
 <!-- eventually this swap-highlight fn needs to be accessible to all views -->
 <h1 class=search-form-title>Gate Travel</h1>
 <form class=search>
+  <div class="radio-btns">
+    <input type="radio"
+           name="trips[roundtrip]"
+           class="roundtrip"
+           value="true"
+           checked>Round-trip
+
+    <input type="radio"
+           name="trips[roundtrip]"
+           class="roundtrip"
+           value="false">One-way
+  </div>
+<!-- add planetslist typeahead to input boxes -->
   <input type="text"
-    class="search-input planet-input typeahead"
-    name="trips[origin]"
-    placeholder="From: Earth, Abydos, etc.">
+         class="search-input planet-input typeahead"
+         name="trips[origin]"
+         placeholder="From: Earth, Abydos, etc.">
   <input type="text"
-    class="search-input planet-input typeahead"
-    name="trips[destination]"
-    placeholder="To: Chulak, P3X888, etc.">
+         class="search-input planet-input typeahead"
+         name="trips[destination]"
+         placeholder="To: Chulak, P3X888, etc.">
   <input type="text"
-    class="search-input num-input"
-    name="trips[num_travelers]"
-    placeholder="1">
+         class="search-input num-input"
+         name="trips[num_travelers]"
+         placeholder="1">
   <button class=search-btn>Search</button>
+
+  <div class=datepicker-container>
+    <h2>Exact Dates</h2>
+    <label for=trip[depart]>Depart</label>
+    <input type=text class="search-input datepicker"
+           id=depart-datepicker name=trip[depart]
+           placeholder="<%= moment().format("ddd M/D") %>">
+
+    <br>
+    <label>Return</label>
+    <input type=text class="search-input datepicker"
+           id=return-datepicker name=trip[return]
+           placeholder="<%= moment().add(1, 'days').format("ddd M/D") %>">
+  </div>
 </form>
+
+<script>
+$(function () {
+  $('#return-datepicker').datepicker();
+  $('#depart-datepicker').datepicker();
+});
+</script>

@@ -19,6 +19,14 @@ class Planet < ActiveRecord::Base
   validates_presence_of :name, :galaxy, :clearance, :gate_address
   validates_uniqueness_of :name
 
-  has_many :trips_to, class_name: :Trip, foreign_key: :destination_id
-  has_many :trips_from, class_name: :Trip, foreign_key: :origin_id
+  has_many :departures, class_name: :Trip, foreign_key: :origin_id
+  has_many :arrivals, class_name: :Trip, foreign_key: :destination_id
+
+  def departures_to(other_planet)
+    departures.where("destination_id = #{other_planet.id}")
+  end
+
+  def arrivals_from(other_planet)
+    arrivals.where("origin_id = #{other_planet.id}")
+  end
 end

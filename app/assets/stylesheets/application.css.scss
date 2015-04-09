@@ -12,13 +12,16 @@
  *
  *= require_tree .
  *= require_self
+ *= require jquery-ui
  */
+
 $site-orange : #f6861f;
 
 body {
   position: relative;
   margin: 0;
   font-family: trebuchet, sans-serif;
+  font-size: 18px;
 }
 
 .clearfix:after {
@@ -101,7 +104,7 @@ a, a:hover, a:visited, img {
 }
 
 /* Search Forms */
-.search-form input {
+.search-input {
   height: 40px;
   padding-left: 5px;
   margin-right: 5px;
@@ -124,6 +127,7 @@ a, a:hover, a:visited, img {
 .search-form-title {
   margin: 20px auto;
   padding: 0;
+  font-weight: 400;
 }
 
 .search-btn {
@@ -133,4 +137,30 @@ a, a:hover, a:visited, img {
   border-radius: 2px;
   height: 45px;
   width: 100px;
+}
+
+.datepicker-container {
+  margin: 10px 0;
+}
+
+input.datepicker {
+  width: 150px;
+  display: inline-block;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.datepicker-container > label {
+  display: inline-block;
+  width: 100px;
+}
+
+.radio-btns {
+  margin: 10px 0;
+}
+
+.roundtrip {
+  display: inline-block;
+  position: relative;
+  width: 30px;
 }

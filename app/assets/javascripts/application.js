@@ -12,12 +12,13 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui
 //= require underscore
 //= require backbone
 //= require typeahead.bundle.js
-//= require underscore
-//= require backbone
+//= require moment.js
 //= require puddlejumper
+//= require_tree ./util
 //= require_tree ../templates
 //= require_tree ./models
 //= require_tree ./collections
