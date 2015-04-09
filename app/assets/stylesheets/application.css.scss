@@ -118,12 +118,6 @@ a, a:hover, a:visited, img {
   width: 30px;
 }
 
-.trip-form {
-  position: relative;
-  display: block;
-  clear: both;
-}
-
 .search-form-title {
   margin: 20px auto;
   padding: 0;
@@ -132,13 +126,15 @@ a, a:hover, a:visited, img {
 
 .search-btn {
   position: relative;
+  top: -2px;
   background-color: $site-orange;
   color: #fff;
-  border: 1px solid $site-orange;
+  border: none;
   border-radius: 2px;
-  height: 45px;
+  height: 46px;
   width: 130px;
-  text-align: center;
+  font-size: 16px;
+  font-weight: 500;
 }
 
 .datepicker-container {

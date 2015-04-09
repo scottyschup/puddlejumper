@@ -3,7 +3,7 @@ PuddleJumper.Views.TripsForm = Backbone.View.extend({
   className: 'search-form',
 
   events: {
-    "click #surpise-me": "autofill",
+    "click #surprise-me-btn": "autofill",
     "submit form": "validate",
     "click input": "selectText",
   },
@@ -23,8 +23,7 @@ PuddleJumper.Views.TripsForm = Backbone.View.extend({
 
   validate: function (ev) {
     ev.preventDefault();
-    console.log("Validate");
-
+    // TODO: write client-side form validations
     if (true) {
       this.submit(ev);
     }
@@ -32,15 +31,23 @@ PuddleJumper.Views.TripsForm = Backbone.View.extend({
 
   autofill: function (ev) {
     ev.preventDefault();
-    console.log("Autofill");
+    this.$("#from-box").val('Earth');
+    this.$("#to-box").val('Chulak');
+    this.$("#num-box").val('2');
+    this.$("#depart-datepicker").val('2015/05/04');
+    this.$("#return-datepicker").val('2015/05/06');
+    setTimeout(function () {
+      this.$("form").submit();
+    }.bind(this), 600);
   },
 
   submit: function (ev) {
     ev.preventDefault();
-    console.log("Submit");
     var data = this.$('form').serializeJSON();
-    PuddleJumper.Collections.results.fetch(data);
-    Backbone.history.navigate("trips", { trigger: true })
+    PuddleJumper.Collections.results.fetch({
+      data: data
+    });
+    Backbone.history.navigate("trips", { trigger: true });
   },
 
 });

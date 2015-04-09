@@ -12,16 +12,19 @@ PuddleJumper.Views.TripsIndex = Backbone.CompositeView.extend({
   },
 
   render: function () {
+    // this is all messed up to simulate longer loading time and test img
     var content;
     if (PuddleJumper.Collections.results.length > 0) {
-      content = this.template({
-        results: PuddleJumper.Collections.results
-      });
+      setTimeout(function () {
+        content = this.template({
+          results: PuddleJumper.Collections.results
+        });
+      }.bind(this), 600);
     } else {
       content = this.loadingTemplate();
+      this.$el.html(content);
     }
 
-    this.$el.html(content);
     return this;
   }
 });

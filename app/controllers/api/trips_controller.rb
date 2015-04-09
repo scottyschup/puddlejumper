@@ -1,22 +1,17 @@
 class Api::TripsController < ApplicationController
   def index
-    if params[:trip].nil?
-      render json: params
-    else
-      @search_results = TripSearch.new(trip_params)
-      render :index
-    end
+    @search_results = TripSearch.new(trip_params)
+    render :index
   end
 
   private
   def trip_params
-    debugger
     params.require(:trip).permit(
-      :origin_id,
-      :destination_id,
+      :origin,
+      :destination,
       :num_travelers,
-      :departure_date,
-      :return_date,
+      :depart,
+      :return,
       :roundtrip
     )
   end
