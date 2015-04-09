@@ -3,7 +3,10 @@ PuddleJumper.Router = Backbone.Router.extend({
     this.$rootEl = $rootEl;
     PuddleJumper.Collections.planetsList = new PuddleJumper.Collections.Planets();
     PuddleJumper.Collections.planetsList.fetch();
-    PuddleJumper.Collections.results = new PuddleJumper.Collections.Trips();
+    if (!PuddleJumper.Collections.results) {
+      Backbone.history.navigate("", { trigger: true });
+      PuddleJumper.Collections.results = new PuddleJumper.Collections.Trips();
+    }
     // add loginDropdownView here later
   },
 
