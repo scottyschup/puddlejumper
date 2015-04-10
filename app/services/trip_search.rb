@@ -8,8 +8,6 @@ class TripSearch
     @arrive = params[:return]
     @num_travelers = params[:num_travelers]
     @roundtrip = params[:roundtrip]
-    @clearance = minimum_clearance_required
-
     @departures = nonstop_there + one_stop_there
     @arrivals = nonstop_back + one_stop_back
   end
@@ -38,9 +36,5 @@ class TripSearch
 
   def one_stop_back
     []
-  end
-
-  def minimum_clearance_required
-    [@origin.clearance, @destination.clearance].max
   end
 end

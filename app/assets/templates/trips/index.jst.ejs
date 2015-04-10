@@ -1,1 +1,7 @@
-<%= JSON.stringify(trips) %>
+<ul class=trip-details>
+  <li class=route><%= details.origin_id %> --> <%= details.destination_id %></li>
+  <li class=dates><%= details.depart %> --> <%= details.arrive %></li>
+  <li class=num-travelers> <%= details.num_travelers %> traveler(s)</li>
+</ul>
+
+<ul class=trips></ul>

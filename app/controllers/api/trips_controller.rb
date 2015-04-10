@@ -1,7 +1,11 @@
-class Api::TripsController < ApplicationController # TripResultsController
+class Api::TripsController < ApplicationController
   def index
     @trip_search = TripSearch.new(trip_params)
     render :index
+  end
+
+  def show
+    @trip = Trip.find(params[:id])
   end
 
   private

@@ -4,34 +4,59 @@ PuddleJumper.Views.TripResultsIndex = Backbone.CompositeView.extend({
   className: 'trip-results',
 
   initialize: function () {
-    this.listenTo(PuddleJumper.tripResult, "sync", this.render);
+    this.listenTo(PuddleJumper.tripSearch, "sync", this.addAllSubviews);
+
+    if (this.thereAreResults()) {
+      var results = PuddleJumper.tripSearch.attributes;
+      this.details = {
+        roundtrip: results.roundtrip,
+        numTrips: results.departures.length * results.arrivals.length,
+        departureDate: results.departures[0].trip_date,
+        arrivalDate: results.arrivals[0].trip_date,
+        origin: PuddleJumper.planets.get(results.departures[0].origin_id),
+        destination: PuddleJumper.planets.get(results.departures[0].destination_id)
+      };
+    }
+  },
+
+  thereAreResults: function () {
+    return PuddleJumper.tripSearch.has('departures');
+  },
+
+  addAllSubviews: function () {
+    var thisSubview;
+    _.each(PuddleJumper.tripSearch.allTrips(), function (tripResult) {
+      thisSubview = new PuddleJumper.Views.TripResultsIndexItem(tripResult);
+      this.addSubview('.trips', thisSubview);
+    }.bind(this));
   },
 
   render: function () {
-    var content;
-    if (PuddleJumper.tripResult.has('departures')) {
-      setTimeout(function () {
-        content = this.template({
-          trips: PuddleJumper.tripResult.allTrips()
-        });
-        this.$el.html(content);
-      }.bind(this), 1500);
+    if (this.thereAreResults()) {
+      // timeout to simulate longer search time
+      setTimeout(resultsContent.bind(this), 3000);
     } else {
-      content = this.loadingTemplate();
-      this.$el.html(content);
-
-      setTimeout(function () {
-        if (PuddleJumper.tripResult.has('departures')) {
-          content = this.template({
-            trips: PuddleJumper.tripResult.allTrips()
-          });
-          this.$el.html(content);
-        } else {
-          Backbone.history.navigate('', { trigger: true });
-        }
-      }.bind(this), 3000);
+      $("body").addClass("loading");
+      this.loadingTemplate();
+      setTimeout(this.noResults.bind(this), 3000);
     }
 
     return this;
+  },
+
+  resultsContent: function () {
+    var content = this.template({ details: this.details });
+    this.attachSubviews();
+    this.$el.html(content);
+  },
+
+  noResults: function () {
+    $("body").removeClass("loading");
+
+    if (this.thereAreResults()) {
+      this.resultsContent()
+    } else {
+      Backbone.history.navigate('', { trigger: true });
+    }
   }
 });

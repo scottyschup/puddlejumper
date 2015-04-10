@@ -48,7 +48,7 @@ PuddleJumper.Views.TripSearchForm = Backbone.View.extend({
   submit: function (ev) {
     ev.preventDefault();
     var data = this.$('form').serializeJSON();
-    PuddleJumper.tripResult.fetch({
+    PuddleJumper.tripSearch.fetch({
       data: data
     });
     Backbone.history.navigate("trips", { trigger: true });

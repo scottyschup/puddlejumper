@@ -3,9 +3,9 @@ PuddleJumper.Router = Backbone.Router.extend({
     this.$rootEl = $rootEl;
     PuddleJumper.planets = new PuddleJumper.Collections.Planets();
     PuddleJumper.planets.fetch();
-    if (!PuddleJumper.tripResult) {
+    if (!PuddleJumper.tripSearch) {
       Backbone.history.navigate("", { trigger: true });
-      PuddleJumper.tripResult = new PuddleJumper.Models.TripResult();
+      PuddleJumper.tripSearch = new PuddleJumper.Models.TripSearch();
     }
     // add loginDropdownView here later
   },
@@ -16,7 +16,7 @@ PuddleJumper.Router = Backbone.Router.extend({
   },
 
   tripSearchForm: function () {
-    PuddleJumper.tripResult = new PuddleJumper.Models.TripResult();
+    PuddleJumper.tripSearch = new PuddleJumper.Models.TripSearch();
     var tripsFormView = new PuddleJumper.Views.TripSearchForm({
       planets: PuddleJumper.planets
     });
@@ -24,9 +24,9 @@ PuddleJumper.Router = Backbone.Router.extend({
   },
 
   tripResultsIndex: function () {
-    var tripsIndexView = new PuddleJumper.Views.TripResultsIndex();
+    var tripResultsIndexView = new PuddleJumper.Views.TripResultsIndex();
 
-    this._swapView(tripsIndexView);
+    this._swapView(tripResultsIndexView);
   },
 
   _swapView: function (view) {

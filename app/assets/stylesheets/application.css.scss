@@ -16,33 +16,40 @@
  */
 
 $site-orange : #f6861f;
+$fadedblack: #202020;
 
 body {
-  position: relative;
-  margin: 0;
   font-family: trebuchet, sans-serif;
   font-size: 18px;
+  height: 100%;
+  margin: 0;
+  position: relative;
+  transition: background-color 1s ease;
+}
+
+.loading {
+  background-color: $fadedblack;
 }
 
 .clearfix:after {
-  content: "";
+  clear: both;
+  content: '';
   display: block;
   visibility: hidden;
-  clear: both;
 }
 
 #main-header {
-  position: relative;
-  background-color: #202020;
+  background-color: $fadedblack;
   color: #fff;
-  width: 100%;
   padding: 0;
+  position: relative;
+  width: 100%;
 }
 
 #navbar {
-  min-width: 1024px;
-  max-width: 1024px;
   margin: 0 auto;
+  max-width: 1024px;
+  min-width: 1024px;
   padding: 0 20px;
   position: relative;
   width: 100%;

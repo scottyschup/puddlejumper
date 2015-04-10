@@ -1,0 +1,11 @@
+<li>
+  <div class=select-btn><button class=selectItem>Select</button><div>
+  <div class=legs>
+    <ul>
+      <% _.each(trip, function(leg) { %>
+        <%= leg.trip_time %>
+      <% }) %>
+    </ul>
+  </div>
+  <div class=remaining-space><%= trip.remaining_space %> spaces available</div>
+</li>
