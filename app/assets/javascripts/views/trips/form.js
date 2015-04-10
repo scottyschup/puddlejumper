@@ -40,7 +40,9 @@ PuddleJumper.Views.TripSearchForm = Backbone.View.extend({
     this.$("#num-box").val(Math.floor(Math.random() * 3) + 1);
     this.$("#depart-datepicker").val(_.sample(dDates));
     this.$("#return-datepicker").val(_.sample(rDates));
-    this.$("form").submit();
+    setTimeout(function () {
+      this.$("form").submit();
+    }.bind(this), 1000);
   },
 
   submit: function (ev) {

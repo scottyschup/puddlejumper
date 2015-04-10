@@ -19,6 +19,17 @@ PuddleJumper.Views.TripResultsIndex = Backbone.CompositeView.extend({
     } else {
       content = this.loadingTemplate();
       this.$el.html(content);
+
+      setTimeout(function () {
+        if (PuddleJumper.tripResult.has('departures')) {
+          content = this.template({
+            trips: PuddleJumper.tripResult.allTrips()
+          });
+          this.$el.html(content);
+        } else {
+          Backbone.history.navigate('', { trigger: true });
+        }
+      }.bind(this), 3000);
     }
 
     return this;
