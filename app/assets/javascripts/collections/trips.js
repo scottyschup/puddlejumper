@@ -1,4 +1,4 @@
 PuddleJumper.Collections.Trips = Backbone.Collection.extend({
-  model: PuddleJumper.Models.Trip,
-  url: 'api/trips',
+  url: 'api/trip',
+  model: PuddleJumper.Models.Trip
 });

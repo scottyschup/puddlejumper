@@ -1,6 +1,6 @@
-class Api::TripsController < ApplicationController
+class Api::TripsController < ApplicationController # TripResultsController
   def index
-    @search_results = TripSearch.new(trip_params)
+    @trip_search = TripSearch.new(trip_params)
     render :index
   end
 
