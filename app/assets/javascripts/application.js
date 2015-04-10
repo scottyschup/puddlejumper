@@ -15,6 +15,7 @@
 //= require jquery-ui/datepicker
 //= require underscore
 //= require backbone
+//= require underscore-min.js
 //= require jquery.serializejson.js
 //= require typeahead.bundle.js
 //= require moment.js
