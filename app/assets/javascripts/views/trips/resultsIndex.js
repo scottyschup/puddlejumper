@@ -4,18 +4,43 @@ PuddleJumper.Views.TripResultsIndex = Backbone.CompositeView.extend({
   className: 'trip-results',
 
   initialize: function () {
-    this.listenTo(PuddleJumper.tripSearch, "sync", this.addAllSubviews);
+    this.results = PuddleJumper.tripSearch;
+    this.listenTo(this.results, "sync", this.render);
+  },
 
-    if (this.thereAreResults()) {
-      var results = PuddleJumper.tripSearch.attributes;
-      this.details = {
-        roundtrip: results.roundtrip,
-        numTrips: results.departures.length * results.arrivals.length,
-        departureDate: results.departures[0].trip_date,
-        arrivalDate: results.arrivals[0].trip_date,
-        origin: PuddleJumper.planets.get(results.departures[0].origin_id),
-        destination: PuddleJumper.planets.get(results.departures[0].destination_id)
-      };
+  extractDetails: function () {
+    if (this.results.attributes.departures > 0) {
+      if (this.thereAreResults()) {
+        var attrs = this.results.attributes;
+        var details;
+        if (attrs.roundtrip === 'true') {
+          details = {
+            roundtrip: true,
+            numTrips: attrs.departures.length * attrs.arrivals.length,
+            departureDate: attrs.departures[0].trip_date,
+            arrivalDate: attrs.arrivals[0].trip_date,
+            origin: PuddleJumper.planets.get(attrs.departures[0].origin_id),
+            destination: PuddleJumper.planets.get(attrs.departures[0].destination_id),
+            numTravelers: attrs.numTravelers
+          };
+        } else {
+          details = {
+            roundtrip: false,
+            numTrips: attrs.departures.length,
+            departureDate: attrs.departures[0].trip_date,
+            arrivalDate: null,
+            origin: PuddleJumper.planets.get(attrs.departures[0].origin_id),
+            destination: PuddleJumper.planets.get(attrs.departures[0].destination_id),
+            numTravelers: attrs.numTravelers
+          };
+
+        this.details = details;
+        this.addAllSubviews();
+        }
+      }
+    } else {
+      this.details = { numTrips: 0 };
+      this.render();
     }
   },
 
@@ -27,26 +52,37 @@ PuddleJumper.Views.TripResultsIndex = Backbone.CompositeView.extend({
     var thisSubview;
     _.each(PuddleJumper.tripSearch.allTrips(), function (tripResult) {
       thisSubview = new PuddleJumper.Views.TripResultsIndexItem(tripResult);
-      this.addSubview('.trips', thisSubview);
+      this.addSubview('.trip', thisSubview);
     }.bind(this));
   },
 
   render: function () {
     if (this.thereAreResults()) {
-      // timeout to simulate longer search time
-      setTimeout(resultsContent.bind(this), 3000);
+      this.extractDetails();
+      this.resultsContent();
     } else {
-      $("body").addClass("loading");
-      this.loadingTemplate();
-      setTimeout(this.noResults.bind(this), 3000);
+      this.loadingContent();
+      setTimeout(this.noResults.bind(this), 1000);
     }
 
     return this;
   },
 
+  loadingContent: function () {
+    $("body").addClass("loading");
+    var content = this.loadingTemplate();
+    this.$el.html(content);
+  },
+
   resultsContent: function () {
-    var content = this.template({ details: this.details });
-    this.attachSubviews();
+    var content;
+    if (this.details.numTrips > 0) {
+      content = this.template({ details: this.details });
+      this.attachSubviews();
+    } else {
+      content = "<p>There were no available trips. \
+      Try again with different search parameters.</p>";
+    }
     this.$el.html(content);
   },
 
@@ -54,7 +90,7 @@ PuddleJumper.Views.TripResultsIndex = Backbone.CompositeView.extend({
     $("body").removeClass("loading");
 
     if (this.thereAreResults()) {
-      this.resultsContent()
+      this.resultsContent();
     } else {
       Backbone.history.navigate('', { trigger: true });
     }

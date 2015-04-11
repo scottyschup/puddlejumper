@@ -3,7 +3,7 @@ PuddleJumper.Views.TripResultsIndexItem = Backbone.View.extend({
   tagName: 'li',
   className: 'trip',
 
-  intialize: function (trip) {
+  initialize: function (trip) {
     this.trip = trip;
   },
 

@@ -7,7 +7,6 @@ PuddleJumper.Router = Backbone.Router.extend({
       Backbone.history.navigate("", { trigger: true });
       PuddleJumper.tripSearch = new PuddleJumper.Models.TripSearch();
     }
-    // add loginDropdownView here later
   },
 
   routes: {
