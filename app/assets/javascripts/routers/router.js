@@ -15,7 +15,7 @@ PuddleJumper.Router = Backbone.Router.extend({
   },
 
   tripSearchForm: function () {
-    PuddleJumper.tripSearch = new PuddleJumper.Models.TripSearch();
+    PuddleJumper.tripSearch = new PuddleJumper.Models.TripSearch(); //reset search results
     var tripsFormView = new PuddleJumper.Views.TripSearchForm({
       planets: PuddleJumper.planets
     });
