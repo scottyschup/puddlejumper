@@ -1,7 +1,7 @@
 PuddleJumper.Views.TripResultsDetails = Backbone.View.extend({
   template: JST['trips/index_details'],
   tagName: 'ul',
-  className: 'trip-results-details',
+  className: 'trip-details-list clearfix',
 
   extractDetails: function () {
     this.results = PuddleJumper.tripSearch
@@ -15,7 +15,7 @@ PuddleJumper.Views.TripResultsDetails = Backbone.View.extend({
       departureDate: attrs.departures[0].trip_date
     };
 
-    if (details.roundtrip === 'true') {
+    if (details.roundtrip) {
       details.arrivalDate   = attrs.arrivals[0].trip_date;
     } else {
       details.arrivalDate   = null;

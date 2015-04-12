@@ -1,0 +1,234 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ *= require jquery-ui/datepicker
+ */
+
+$site-orange : #f6861f;
+$fadedblack: #202020;
+
+body {
+  font-family: trebuchet, sans-serif;
+  font-size: 18px;
+  height: 100%;
+  margin: 0;
+  position: relative;
+  transition: background-color .1s ease;
+}
+
+.loading {
+  background-color: $fadedblack;
+}
+
+.clearfix:after {
+  clear: both;
+  content: '';
+  display: block;
+  visibility: hidden;
+}
+
+#main-header {
+  background-color: $fadedblack;
+  color: #fff;
+  padding: 0;
+  position: relative;
+  width: 100%;
+}
+
+#navbar {
+  margin: 0 auto;
+  max-width: 1024px;
+  min-width: 1024px;
+  padding: 0 20px;
+  position: relative;
+  width: 100%;
+}
+
+.navbar-item {
+  position: relative;
+  padding: 0;
+}
+
+.navbar-item > a {
+  margin: 0;
+  padding: 0;
+}
+
+#logo {
+  width: 450px;
+  margin: 7px 0;
+}
+
+.nav-left {
+  float: left;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.nav-right {
+  float: right;
+  margin-right: 10px;
+}
+
+ul {
+  margin: 10px;
+  padding: 0;
+}
+
+li {
+  display: block;
+  float: left;
+  padding: 12px 10px 8px;
+}
+
+a, a:hover, a:visited, img {
+  display: block;
+  color: #ccc;
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+}
+
+// Main div
+#main {
+  position: relative;
+  top: 30px;
+  margin: 0 auto;
+  clear: both;
+  width: 1024px;
+  padding: 0 20px;
+}
+
+// Search Forms
+.search-input {
+  height: 40px;
+  padding-left: 5px;
+  margin-right: 5px;
+}
+
+.planet-input {
+  width: 300px;
+}
+
+.num-input {
+  width: 30px;
+}
+
+.search-form-title {
+  margin: 20px auto;
+  padding: 0;
+  font-weight: 400;
+}
+
+.search-btn {
+  position: relative;
+  top: -2px;
+  background-color: $site-orange;
+  color: #fff;
+  border: none;
+  border-radius: 2px;
+  height: 46px;
+  width: 130px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.datepicker-container {
+  margin: 10px 0;
+}
+
+input.datepicker {
+  width: 150px;
+  display: inline-block;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.datepicker-container > label {
+  display: inline-block;
+  width: 100px;
+}
+
+.radio-btns {
+  margin: 10px 0;
+}
+
+.roundtrip {
+  display: inline-block;
+  position: relative;
+  width: 30px;
+}
+
+.stargate-shimmer {
+  height: 100%;
+}
+
+// Trip Results Index
+.trip-results {
+  border: 1px solid lightgray;
+}
+
+// Trip Results Details
+.trip-details-list {
+  border: 1px solid lightgray;
+}
+
+.arrow {
+  height: 7px;
+  margin: 5px;
+}
+
+.double-arrow {
+  background: url(<%= image_path 'double-arrow.png' %>);
+  width: 20px;
+}
+
+.right-arrow {
+  background: url(<%= image_path 'right-arrow.png' %>);
+  width: 15px;
+}
+
+.trip-details-list > li {
+  display: block;
+  float: left;
+}
+
+.trip-details-list > li > * {
+  display: block;
+  float: left;
+}
+
+.trip-details-list p {
+  margin: 0 5px;
+}
+
+// Trip Results List
+
+.trips-list * {
+  display: block;
+  float: left;
+}
+
+.legs p {
+  margin: 0px 5px;
+}
+
+.trips-list li {
+  clear: left;
+}
+
+.select-btn {
+  position: relative;
+  top: 40px;
+}

@@ -1,15 +1,15 @@
 <div class=select-btn>
   <button class=selectItem>Select</button>
-<div>
+</div>
 
 <div class=legs>
   <ul class=legs-list>
     <% _.each(trip, function(leg) { %>
       <li>
         <div class=time>
-          <b>
+          <p><b>
             <%= leg.trip_time.split('').splice(11, 5).join('') %>
-          </b>
+          </b></p>
         </div>
         <div class=origin>
           <p>

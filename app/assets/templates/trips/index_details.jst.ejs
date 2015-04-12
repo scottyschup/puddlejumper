@@ -1,12 +1,16 @@
 <li class=route>
-  <%= details.origin.get("name") %>
-  <div class='double-arrow'></div>
-  <%= details.destination.get("name") %>
+  <p><%= details.origin.get("name") %></p>
+  <div class="arrow double-arrow"></div>
+  <p><%= details.destination.get("name") %></p>
 </li>
 <li class=dates>
-  <%= details.departureDate %>
-  <div class=right-arrow></div>
-  <%= details.arrivalDate %>
+  <p><%= details.departureDate %></p>
+  <div class="arrow right-arrow"></div>
+  <p><%= details.arrivalDate %></p>
 </li>
-<li class=num-trips><%= details.numTrips %> itineraries</li>
-<li class=num-travelers><%= details.numTravelers %> traveler(s)</li>
+<li class=num-trips>
+  <p><%= details.numTrips %> itineraries</p>
+</li>
+<li class=num-travelers>
+  <p><%= details.numTravelers %> traveler(s)</p>
+</li>
