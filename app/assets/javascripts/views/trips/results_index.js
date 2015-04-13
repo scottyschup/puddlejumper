@@ -32,11 +32,13 @@ PuddleJumper.Views.TripResultsIndex = Backbone.CompositeView.extend({
     var content;
 
     if (PuddleJumper.tripSearch.isFetched()) {
+      $("body").removeClass("loading");
       content = this.template();
       this.$el.html(content);
 
       this.addValidSubviews();
     } else {
+      $("body").addClass("loading");
       content = this.loadingTemplate();
       this.$el.html(content);
     }

@@ -1,12 +1,14 @@
 <div class=select-btn>
   <button class=btn>Select</button>
 </div>
-
+<% var available_spaces = []; %>
 <div class=legs>
   <ul class=legs-list>
+
     <% _.each(trip, function(leg) { %>
+      <% available_spaces.push(parseInt(leg.remaining_space)) %>
       <li>
-        <div class=time>
+        <div class="leg-item time">
           <p>
             <%= moment(leg.datetime).format("MMM D") %>
           </p>
@@ -14,21 +16,27 @@
             <%= moment(leg.datetime).format("H:mm") %>
           </b>
         </div>
-        <div class=origin>
+        <div class="leg-item origin">
           <p>
             <%= PuddleJumper.planets.findWhere({ id: leg.origin_id }).get('name') %>
           </p>
         </div>
-        <div class="arrow right-arrow"></div>
-        <div class=destination>
+        <div class="leg-item arrow right-arrow"></div>
+        <div class="leg-item destination">
           <p>
             <%= PuddleJumper.planets.findWhere({ id: leg.destination_id }).get('name') %>
           </p>
         </div>
-        <div class=remaining-space>
-          <p><%= leg.remaining_space %> spaces available<p>
-        </div>
       </li>
     <% }) %>
+
+    <% var min_available = Math.min.apply(null, available_spaces) %>
+    <% if (min_available < 10) { %>
+      <li>
+        <div class="leg-item space">
+          <p>Only <%= min_available %> spaces left on this trip<p>
+        </div>
+      </li>
+    <% } %>
   </ul>
 </div>

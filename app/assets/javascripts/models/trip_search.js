@@ -8,14 +8,17 @@ PuddleJumper.Models.TripSearch = Backbone.Model.extend({
     if (this._departures.length > 0) {
       this._arrivals = this.get('arrivals');
 
-      if (this._arrivals.length > 0 ? this.isRoundtrip() : !this.isRountrip()) {
+      if (this._arrivals.length > 0 ? this.isRoundtrip() : !this.isRoundtrip()) {
         // the above line makes sure roundtrips have arrivals and one-way trips do not
+
+        var departure_time, arrival_time
         for (var i = 0; i < this._departures.length; i++) {
+          departure_time = this._departures[i].datetime;
           if (this.isRoundtrip()) {
             for (var j = 0; j < this._arrivals.length; j++) {
-              var departure_time = this._departures[i].datetime;
-              var arrival_time = this._arrivals[j].datetime;
+              arrival_time = this._arrivals[j].datetime;
               if (moment(departure_time) < moment(arrival_time)) {
+
                 this._allTrips.push([this._departures[i], this._arrivals[j]]);
               }
             }
@@ -37,11 +40,7 @@ PuddleJumper.Models.TripSearch = Backbone.Model.extend({
   },
 
   isRoundtrip: function () {
-    return this.get('roundtrip') === 'true' ? true : false;
-  },
-
-  hasFlexDates: function () {
-    return this.get('flex') === 'true' ? true : false;
+    return this.get('roundtrip');
   },
 
   isFetched: function () {

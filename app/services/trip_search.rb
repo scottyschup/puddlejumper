@@ -18,14 +18,14 @@ class TripSearch
       @arrive_end = @arrive_start + (params[:arrive_range].to_i).days
     else
       @flex_dates = {
-        departure: 0,
-        arrival:   0
+        dep: 0,
+        arr: 0
       }
       @depart_end, @arrive_end = @depart_start, @arrive_start
     end
 
     @num_travelers = params[:num_travelers]
-    @roundtrip = params[:roundtrip]
+    @roundtrip = params[:roundtrip] == "true" ? true : false
 
     @departures = nonstop_there + one_stop_there
     @arrivals = @roundtrip ? nonstop_back + one_stop_back : []

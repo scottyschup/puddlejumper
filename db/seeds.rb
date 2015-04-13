@@ -38,7 +38,7 @@ planets = Planet.create(
     protected: true
   },
   {
-    name: :Nox_Homeworld,
+    name: :"Nox Homeworld",
     alias: "Noxworld",
     gate_address: Array.new(6) { rand(2..39) }.join('-'),
     desc: "Home to a magical race that are extremely advanced but live simply and keep to themselves.",
@@ -68,7 +68,7 @@ planets = Planet.create(
     protected: true
   },
   {
-    name: :P3W451,
+    name: :"P3W-451",
     alias: "Black hole planet",
     gate_address: "19-8-4-37-26-16",
     desc: "Very near to a black hole. Unvisitable.",
@@ -118,7 +118,7 @@ planets = Planet.create(
     protected: false
   },
   {
-    name: :P4X650,
+    name: :"P4X-650",
     alias: "Alpha Site",
     gate_address: Array.new(6) { rand(2..39) }.join('-'),
     desc: "Current Earth alpha site.",
@@ -138,7 +138,7 @@ planets = Planet.create(
     protected: true
   },
   {
-    name: :P3X888,
+    name: :"P3X-888",
     alias: "Unas Homeworld",
     gate_address: Array.new(6) { rand(2..39) }.join('-'),
     desc: "Unas homeworld and original Goa'uld birthplace.",
@@ -148,7 +148,7 @@ planets = Planet.create(
     protected: false
   },
   {
-    name: :P9G844,
+    name: :"P9G-844",
     alias: "Sodan Homeworld",
     gate_address: Array.new(6) { rand(2..39) }.join('-'),
     desc: "Homeworld of the Sodan warriors.",

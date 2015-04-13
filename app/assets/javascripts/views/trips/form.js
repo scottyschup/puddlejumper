@@ -13,6 +13,7 @@ PuddleJumper.Views.TripSearchForm = Backbone.View.extend({
   },
 
   render: function () {
+    $('body').removeClass("loading");
     var content = this.template();
     this.$el.html(content);
     return this;
