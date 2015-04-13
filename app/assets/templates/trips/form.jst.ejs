@@ -30,7 +30,7 @@
   </div>
 
   <div class="date-inputs clearfix">
-    <input class=flex-date-value type=hidden name=trip[flex-dates] value=false>
+    <input class=flex-dates type=hidden name=trip[flex_dates] value=false>
     <div class="clearfix date-tabs">
       <ul class=tabs-list>
         <li class="selected">Exact Dates</li>
@@ -42,7 +42,7 @@
       <input type=text class="search-input datepicker"
         id=depart-datepicker name=trip[depart]
         placeholder="<%= moment().format("ddd M/D") %>">
-      <select class="search-input flex-dates" name=trip[depart-flex-range]>
+      <select class="search-input flex-dates-select" name=trip[depart_range]>
         <option value=0>only</option>
         <option value=1 selected>and the following day</option>
         <option value=2>and the next two days</option>
@@ -53,12 +53,12 @@
       </select>
     </div>
 
-    <div class="date-input clearfix return">
+    <div class="date-input clearfix">
       <p>Return</p>
       <input type=text class="search-input datepicker"
-        id=return-datepicker name=trip[return]
+        id=arrive-datepicker name=trip[arrive]
         placeholder="<%= moment().add(1, 'days').format("ddd M/D") %>">
-      <select class="search-input flex-dates" name=trip[return-flex-range]>
+      <select class="search-input flex-dates-select" name=trip[arrive_range]>
         <option value=0>only</option>
         <option value=1 selected>and the following day</option>
         <option value=2>and the next two days</option>

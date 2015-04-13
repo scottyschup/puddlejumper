@@ -35,11 +35,11 @@ PuddleJumper.Views.TripSearchForm = Backbone.View.extend({
     $li.addClass("selected");
 
     if ($li.text() === "Round-trip") {
-      $(".return").css("display", "block");
-      $(".rountrip-value").val("true");
+      $(".arrive").css("display", "block");
+      $(".roundtrip-value").val("true");
     } else {
-      $(".return").css("display", "none");
-      $(".rountrip-value").val("false");
+      $(".arrive").css("display", "none");
+      $(".roundtrip-value").val("false");
     }
   },
 
@@ -49,11 +49,11 @@ PuddleJumper.Views.TripSearchForm = Backbone.View.extend({
     $li.addClass("selected");
 
     if ($li.text() === "Flexible Dates") {
-      $(".flex-dates").css("display", "block");
-      $(".flex-dates-value").val("true");
+      $(".flex-dates-select").css("display", "block");
+      $(".flex-dates").val("true");
     } else {
-      $(".flex-dates").css("display", "none");
-      $(".flex-dates-value").val("false")      ;
+      $(".flex-dates-select").css("display", "none");
+      $(".flex-dates").val("false");
     }
   },
 
@@ -82,7 +82,7 @@ PuddleJumper.Views.TripSearchForm = Backbone.View.extend({
     this.$("#to-box").val(PuddleJumper.planets.randomDestinationFrom('Earth'));
     this.$("#num-box").val(Math.floor(Math.random() * 3) + 1);
     this.$("#depart-datepicker").val(_.sample(dDates));
-    this.$("#return-datepicker").val(_.sample(rDates));
+    this.$("#arrive-datepicker").val(_.sample(rDates));
     setTimeout(function () {
       this.$("form").submit();
     }.bind(this), 1000);

@@ -7,9 +7,12 @@
     <% _.each(trip, function(leg) { %>
       <li>
         <div class=time>
-          <p><b>
-            <%= leg.trip_time.split('').splice(11, 5).join('') %>
-          </b></p>
+          <p>
+            <%= moment(leg.datetime).format("MMM D") %>
+          </p>
+          <b>
+            <%= moment(leg.datetime).format("H:mm") %>
+          </b>
         </div>
         <div class=origin>
           <p>

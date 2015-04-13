@@ -6,13 +6,24 @@
 <% var depDate = details.departureDate, arrDate = details.arrivalDate %>
 <li class="details-item">
   <div class=departure-date>
-    <p><%= moment(depDate).format("MMM DD") %></p>
-    <p class=details-caption><%= moment(depDate).format("dddd") %></p>
-  </div>
+    <p><%= details.depDate.format("MMM DD") %></p>
+    <p class=details-caption>
+      <% if (details.depFlex > 0) { %>
+        plus <%= details.depFlex %> days
+      <% } else { %>
+        <%= details.depDate.format("dddd") %>
+      <% } %>
+    </p>  </div>
   <div class="arrow right-arrow"></div>
   <div class=arrival-date>
-    <p><%= moment(arrDate).format("MMM DD") %></p>
-    <p class=details-caption><%= moment(arrDate).format("dddd") %></p>
+    <p><%= details.arrDate.format("MMM DD") %></p>
+    <p class=details-caption>
+      <% if (details.arrFlex > 0) { %>
+        plus <%= details.arrFlex %> days
+      <% } else { %>
+        <%= details.arrDate.format("dddd") %>
+      <% } %>
+    </p>
   </div>
 </li>
 <li class=details-item>

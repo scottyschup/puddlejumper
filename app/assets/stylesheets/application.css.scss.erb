@@ -155,7 +155,7 @@ a, a:hover, a:visited, img {
   width: 30px;
 }
 
-select.flex-dates {
+select.flex-dates-select {
   display: none;
   float: left;
   -webkit-appearance: none;
@@ -236,18 +236,19 @@ input.datepicker {
 
 // Trip Results Index
 .trip-results {
+  width: 100%;
+  margin: 0;
+  border: 1px solid lightgray;
 }
 
 // Trip Results Details
 .trip-details-list {
-  border: 1px solid lightgray;
   margin: 0;
 }
 
 .arrow {
   height: 7px;
   margin: 5px;
-  margin: 10px;
 }
 
 .double-arrow {
@@ -258,6 +259,10 @@ input.datepicker {
 .right-arrow {
   background: url(<%= image_path 'right-arrow.png' %>);
   width: 15px;
+}
+
+.details-item .arrow {
+  margin: 10px;
 }
 
 .trip-details-list > li {
@@ -280,7 +285,7 @@ input.datepicker {
 }
 
 .trip-details-list li:not(:last-child) {
-  border-right: 1px solid gray;
+  border-right: 1px solid lightgray;
 }
 
 .details-item {
@@ -297,6 +302,16 @@ li.change-btn {
 }
 
 // Trip Results List
+.trips-list {
+  margin: 0;
+}
+
+.trips-list > li {
+  border-top: 1px solid lightgray;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
 
 .trips-list * {
   display: block;
@@ -309,4 +324,8 @@ li.change-btn {
 
 .trips-list li {
   clear: left;
+}
+
+.select-btn {
+  margin: 25px 10px;
 }

@@ -13,7 +13,11 @@ PuddleJumper.Models.TripSearch = Backbone.Model.extend({
         for (var i = 0; i < this._departures.length; i++) {
           if (this.isRoundtrip()) {
             for (var j = 0; j < this._arrivals.length; j++) {
-              this._allTrips.push([this._departures[i], this._arrivals[j]]);
+              var departure_time = this._departures[i].datetime;
+              var arrival_time = this._arrivals[j].datetime;
+              if (moment(departure_time) < moment(arrival_time)) {
+                this._allTrips.push([this._departures[i], this._arrivals[j]]);
+              }
             }
           } else {
             this._allTrips.push([this._departures[i]]);
@@ -34,6 +38,10 @@ PuddleJumper.Models.TripSearch = Backbone.Model.extend({
 
   isRoundtrip: function () {
     return this.get('roundtrip') === 'true' ? true : false;
+  },
+
+  hasFlexDates: function () {
+    return this.get('flex') === 'true' ? true : false;
   },
 
   isFetched: function () {

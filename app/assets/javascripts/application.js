@@ -19,6 +19,7 @@
 //= require jquery.serializejson.js
 //= require typeahead.bundle.js
 //= require moment.js
+//= require moment-timezone.js
 //= require puddlejumper
 //= require_tree ./util
 //= require_tree ../templates

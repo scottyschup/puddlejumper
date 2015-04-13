@@ -12,14 +12,17 @@ PuddleJumper.Views.TripResultsDetails = Backbone.View.extend({
       numTravelers:  attrs.numTravelers,
       numTrips:      this.results.numTrips(),
       roundtrip:     this.results.isRoundtrip(),
-      departureDate: attrs.departures[0].trip_date
+      depDate: moment(attrs.departures[0].datetime).tz('America/Denver'),
+      flexDates:     this.results.hasFlexDates()
     };
 
     if (details.roundtrip) {
-      details.arrivalDate   = attrs.arrivals[0].trip_date;
+      details.arrDate = moment(attrs.arrivals[0].datetime).tz('America/Denver');
     } else {
-      details.arrivalDate   = null;
+      details.arrDate = null;
     }
+    details.arrFlex = details.flexDates ? parseInt(attrs.flexDates.arr) : null;
+    details.depFlex = details.flexDates ? parseInt(attrs.flexDates.dep) : null;
 
   return details;
   },

@@ -172,8 +172,7 @@ until time >= end_time
       origin_id: earth.id,
       destination_id: planet.id,
       remaining_space: rand(20),
-      trip_date: time.strftime("%Y-%m-%d"),
-      trip_time: time.strftime("%H:%M:%S")
+      datetime: time.strftime("%Y-%m-%d %H:%M:%S")
     )
     time += 17.minutes
 
@@ -183,16 +182,15 @@ until time >= end_time
       origin_id: other_planets.shuffle.pop.id,
       destination_id: other_planets.sample.id,
       remaining_space: rand(20),
-      trip_date: time.strftime("%Y-%m-%d"),
-      trip_time: time.strftime("%H:%M:%S")
+      datetime: time.strftime("%Y-%m-%d %H:%M:%S")
     )
 
     Trip.create(
       origin_id: planet.id,
       destination_id: earth.id,
       remaining_space: rand(20),
-      trip_date: time.strftime("%Y-%m-%d"),
-      trip_time: time.strftime("%H:%M:%S")
+      datetime: time.strftime("%Y-%m-%d %H:%M:%S")
+
     )
     time += 17.minutes
   end

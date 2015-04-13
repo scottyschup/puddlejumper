@@ -15,8 +15,11 @@ class Api::TripsController < ApplicationController
       :destination,
       :num_travelers,
       :depart,
-      :return,
-      :roundtrip
+      :arrive,
+      :roundtrip,
+      :flex_dates,
+      :depart_range,
+      :arrive_range
     )
   end
 end
