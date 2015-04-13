@@ -6,16 +6,16 @@ class TripSearch
     @origin = Planet.find_by(name: params[:origin])
     @destination = Planet.find_by(name: params[:destination])
 
-    @depart_start = DateTime.parse(params[:depart]).to_date
-    @arrive_start = DateTime.parse(params[:arrive]).to_date
+    @depart_start = Time.zone.parse(params[:depart])
+    @arrive_start = Time.zone.parse(params[:arrive])
 
     if params[:flex_dates] == 'true'
       @flex_dates = {
         dep: params[:depart_range],
         arr: params[:arrive_range]
       }
-      @depart_end = @depart_start + (params[:depart_range].to_i + 1).days
-      @arrive_end = @arrive_start + (params[:arrive_range].to_i + 1).days
+      @depart_end = @depart_start + (params[:depart_range].to_i).days
+      @arrive_end = @arrive_start + (params[:arrive_range].to_i).days
     else
       @flex_dates = {
         departure: 0,

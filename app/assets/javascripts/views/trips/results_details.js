@@ -7,17 +7,17 @@ PuddleJumper.Views.TripResultsDetails = Backbone.View.extend({
     this.results = PuddleJumper.tripSearch
     var attrs = this.results.attributes;
     var details = {
-      origin:        PuddleJumper.planets.get(attrs.departures[0].origin_id),
-      destination:   PuddleJumper.planets.get(attrs.departures[0].destination_id),
-      numTravelers:  attrs.numTravelers,
-      numTrips:      this.results.numTrips(),
-      roundtrip:     this.results.isRoundtrip(),
-      depDate: moment(attrs.departures[0].datetime).tz('America/Denver'),
-      flexDates:     this.results.hasFlexDates()
+      origin:       PuddleJumper.planets.get(attrs.departures[0].origin_id),
+      destination:  PuddleJumper.planets.get(attrs.departures[0].destination_id),
+      numTravelers: attrs.numTravelers,
+      numTrips:     this.results.numTrips(),
+      roundtrip:    this.results.isRoundtrip(),
+      depDate:      moment(attrs.departures[0].datetime),
+      flexDates:    this.results.hasFlexDates()
     };
 
     if (details.roundtrip) {
-      details.arrDate = moment(attrs.arrivals[0].datetime).tz('America/Denver');
+      details.arrDate = moment(attrs.arrivals[0].datetime);
     } else {
       details.arrDate = null;
     }
