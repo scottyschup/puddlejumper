@@ -1,3 +1,4 @@
+#
 class TripSearch
   attr_reader :departures, :arrivals, :roundtrip, :num_travelers
 
@@ -6,9 +7,10 @@ class TripSearch
     @destination = Planet.find_by(name: params[:destination])
     @depart = params[:depart]
     @arrive = params[:return]
-    
+
     @num_travelers = params[:num_travelers]
     @roundtrip = params[:roundtrip]
+
     @departures = nonstop_there + one_stop_there
     @arrivals = nonstop_back + one_stop_back
   end

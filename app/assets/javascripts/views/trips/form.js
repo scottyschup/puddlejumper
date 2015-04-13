@@ -7,13 +7,26 @@ PuddleJumper.Views.TripSearchForm = Backbone.View.extend({
     "submit form": "validate",
     "click input": "selectText",
     "click .trip-type-tabs li": "changeTypeTab",
-    "click .date-tabs li": "changeDateTab"
+    "click .date-tabs li": "changeDateTab",
+    "focus .autocomplete": "activateAutocomplete",
+    // "blur .autocomplete": "deactivateAutocomplete"
   },
 
   render: function () {
     var content = this.template();
     this.$el.html(content);
     return this;
+  },
+
+  activateAutocomplete: function (ev) {
+    $(ev.currentTarget).autocomplete({
+      minLength: 1,
+      source: PuddleJumper.planets.pluck("name")
+    });
+  },
+
+  deactivateAutocomplete: function (ev) {
+    $(ev.currentTarget).autocomplete('destroy');
   },
 
   changeTypeTab: function (ev) {
@@ -23,8 +36,10 @@ PuddleJumper.Views.TripSearchForm = Backbone.View.extend({
 
     if ($li.text() === "Round-trip") {
       $(".return").css("display", "block");
+      $(".rountrip-value").val("true");
     } else {
       $(".return").css("display", "none");
+      $(".rountrip-value").val("false");
     }
   },
 
@@ -32,6 +47,14 @@ PuddleJumper.Views.TripSearchForm = Backbone.View.extend({
     var $li = $(ev.currentTarget);
     $(".date-tabs li").removeClass("selected");
     $li.addClass("selected");
+
+    if ($li.text() === "Flexible Dates") {
+      $(".flex-dates").css("display", "block");
+      $(".flex-dates-value").val("true");
+    } else {
+      $(".flex-dates").css("display", "none");
+      $(".flex-dates-value").val("false")      ;
+    }
   },
 
   selectText: function (ev) {

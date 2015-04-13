@@ -18,12 +18,11 @@
 $site-orange : #f6861f;
 $fadedblack: #202020;
 
-@mixin vertical-center {
-  position: relative;
-  top: 50%;
-  -webkit-transform: translateY(50%);
-  -ms-transform: translateY(50%);
-  transform: translateY(50%);
+@import url(http://weloveiconfonts.com/api/?family=entypo);
+
+/* entypo */
+[class*="entypo-"]:before {
+  font-family: 'entypo', sans-serif;
 }
 
 body {
@@ -39,6 +38,11 @@ body {
   background-color: $fadedblack;
 }
 
+.stargate-shimmer {
+  width: 50%;
+  margin: 0px auto;
+}
+
 .clearfix:after {
   clear: both;
   content: '';
@@ -46,6 +50,7 @@ body {
   visibility: hidden;
 }
 
+// Header/navbar
 #main-header {
   background-color: $fadedblack;
   color: #fff;
@@ -119,7 +124,7 @@ a, a:hover, a:visited, img {
 }
 
 // Search Forms
-.main-inputs {
+.inputs-container {
   clear: both;
 }
 
@@ -129,12 +134,37 @@ a, a:hover, a:visited, img {
   margin-right: 5px;
 }
 
-.planet-input {
+.planet-input,
+.ui-autocomplete,
+.ui-autocomplete > li {
   width: 325px;
+}
+
+.ui-autocomplete,
+.ui-autcomplete > li {
+  height: 25px;
+  font-size: 16px;
+}
+
+.ui_autocomplete > li {
+  display: block;
+  float: left;
 }
 
 .num-input {
   width: 30px;
+}
+
+select.flex-dates {
+  display: none;
+  float: left;
+  -webkit-appearance: none;
+  height: 46px;
+  width: 250px;
+  padding: 0 5px;
+  background: url(<%= image_path 'downward_triangle.png' %>) no-repeat right;
+  background-size: contain;
+
 }
 
 .search-form-title {
@@ -170,12 +200,13 @@ input.datepicker {
 }
 
 .date-inputs {
-  clear: left;
+  clear: both;
+  margin-top: 20px;
 }
 
-.datepicker-container > label {
-  display: inline-block;
-  width: 100px;
+.date-input > * {
+  display: block;
+  float: left;
 }
 
 .tabs-list {
@@ -192,7 +223,7 @@ input.datepicker {
   font-weight: 400;
 }
 
-.tabs-list:hover {
+.tabs-list li:hover {
   text-decoration: underline gray;
   cursor: pointer;
 }
@@ -202,20 +233,6 @@ input.datepicker {
   font-weight: 600;
 }
 
-.radio-btns {
-  margin: 10px 0;
-}
-
-.roundtrip {
-  display: inline-block;
-  position: relative;
-  width: 30px;
-}
-
-.stargate-shimmer {
-  width: 50%;
-  margin: 0px auto;
-}
 
 // Trip Results Index
 .trip-results {
@@ -230,6 +247,7 @@ input.datepicker {
 .arrow {
   height: 7px;
   margin: 5px;
+  margin: 10px;
 }
 
 .double-arrow {
@@ -247,6 +265,11 @@ input.datepicker {
   float: left;
 }
 
+.route {
+  font-size: 32px;
+  margin-top:10px;
+}
+
 .trip-details-list > li > * {
   display: block;
   float: left;
@@ -254,6 +277,23 @@ input.datepicker {
 
 .trip-details-list p {
   margin: 0 5px;
+}
+
+.trip-details-list li:not(:last-child) {
+  border-right: 1px solid gray;
+}
+
+.details-item {
+  margin: 10px 5px;
+}
+
+.details-caption {
+  font-size: 14px;
+}
+
+li.change-btn {
+  float: right;
+  margin: 0;
 }
 
 // Trip Results List
@@ -269,13 +309,4 @@ input.datepicker {
 
 .trips-list li {
   clear: left;
-}
-
-.select-btn {
-  @include vertical-center;
-  margin: 0px 20px;
-}
-
-li.change-btn {
-  float: right;
 }

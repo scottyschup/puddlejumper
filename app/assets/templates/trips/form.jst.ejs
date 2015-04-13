@@ -1,22 +1,22 @@
 <!-- eventually this swap-highlight fn needs to be accessible to all views -->
 <h1 class=search-form-title>Gate Travel</h1>
 <form class=search>
-  <div class="trip-type-tabs">
-    <ul class="trip-type-tabs tabs-list">
+  <input class=roundtrip-value type=hidden name=trip[roundtrip] value=true>
+  <div class="clearfix trip-type-tabs">
+    <ul class=tabs-list>
       <li class=selected>Round-trip</li>
       <li>One-way</li>
     </ul>
   </div>
-<!-- add planets typeahead to input boxes -->
-  <div class='main-inputs'>
+  <div class=clearfix>
     <input type="text"
-           class="search-input planet-input typeahead"
+           class="search-input planet-input autocomplete"
            id=from-box
            name="trip[origin]"
            placeholder="From: Earth, Abydos, etc.">
     <input type="text"
            id=to-box
-           class="search-input planet-input typeahead"
+           class="search-input planet-input autocomplete"
            name="trip[destination]"
            placeholder="To: Chulak, P3X888, etc.">
     <input type="text"
@@ -29,23 +29,44 @@
     <button class=btn id=surprise-me-btn>Surprise Me!</button>
   </div>
 
-  <div class=datepicker-container>
-    <ul class="date-tabs tabs-list">
-      <li class="selected">Exact Dates</li>
-      <li>Flexible Dates</li>
-    </ul>
-    <div class="date-inputs">
-      <div class="date-input depart">Depart
-        <input type=text class="search-input datepicker"
-          id=depart-datepicker name=trip[depart]
-          placeholder="<%= moment().format("ddd M/D") %>">
-      </div>
+  <div class="date-inputs clearfix">
+    <input class=flex-date-value type=hidden name=trip[flex-dates] value=false>
+    <div class="clearfix date-tabs">
+      <ul class=tabs-list>
+        <li class="selected">Exact Dates</li>
+        <li>Flexible Dates</li>
+      </ul>
+    </div>
+    <div class="date-input depart clearfix">
+      <p>Depart</p>
+      <input type=text class="search-input datepicker"
+        id=depart-datepicker name=trip[depart]
+        placeholder="<%= moment().format("ddd M/D") %>">
+      <select class="search-input flex-dates" name=trip[depart-flex-range]>
+        <option value=0>only</option>
+        <option value=1 selected>and the following day</option>
+        <option value=2>and the next two days</option>
+        <option value=3>and the next three days</option>
+        <option value=4>and the next four days</option>
+        <option value=5>and the next five days</option>
+        <option value=6>and the next six days</option>
+      </select>
+    </div>
 
-      <div class="date-input return">Return
-        <input type=text class="search-input datepicker"
-          id=return-datepicker name=trip[return]
-          placeholder="<%= moment().add(1, 'days').format("ddd M/D") %>">
-      </div>
+    <div class="date-input clearfix return">
+      <p>Return</p>
+      <input type=text class="search-input datepicker"
+        id=return-datepicker name=trip[return]
+        placeholder="<%= moment().add(1, 'days').format("ddd M/D") %>">
+      <select class="search-input flex-dates" name=trip[return-flex-range]>
+        <option value=0>only</option>
+        <option value=1 selected>and the following day</option>
+        <option value=2>and the next two days</option>
+        <option value=3>and the next three days</option>
+        <option value=4>and the next four days</option>
+        <option value=5>and the next five days</option>
+        <option value=6>and the next six days</option>
+      </select>
     </div>
   </div>
 </form>
