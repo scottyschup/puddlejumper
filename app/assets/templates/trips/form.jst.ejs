@@ -1,51 +1,52 @@
 <!-- eventually this swap-highlight fn needs to be accessible to all views -->
 <h1 class=search-form-title>Gate Travel</h1>
 <form class=search>
-  <div class="radio-btns">
-    <label>
-    <input type="radio"
-           name="trip[roundtrip]"
-           class="roundtrip"
-           value="true"
-           checked>Round-trip</label>
-    <label>
-    <input type="radio"
-           name="trip[roundtrip]"
-           class="roundtrip"
-           value="false">One-way</label>
+  <div class="trip-type-tabs">
+    <ul class="trip-type-tabs tabs-list">
+      <li class=selected>Round-trip</li>
+      <li>One-way</li>
+    </ul>
   </div>
 <!-- add planets typeahead to input boxes -->
-  <input type="text"
-         class="search-input planet-input typeahead"
-         id=from-box
-         name="trip[origin]"
-         placeholder="From: Earth, Abydos, etc.">
-  <input type="text"
-         id=to-box
-         class="search-input planet-input typeahead"
-         name="trip[destination]"
-         placeholder="To: Chulak, P3X888, etc.">
-  <input type="text"
-         id=num-box
-         class="search-input num-input"
-         name="trip[num_travelers]"
-         placeholder="1">
+  <div class='main-inputs'>
+    <input type="text"
+           class="search-input planet-input typeahead"
+           id=from-box
+           name="trip[origin]"
+           placeholder="From: Earth, Abydos, etc.">
+    <input type="text"
+           id=to-box
+           class="search-input planet-input typeahead"
+           name="trip[destination]"
+           placeholder="To: Chulak, P3X888, etc.">
+    <input type="text"
+           id=num-box
+           class="search-input num-input"
+           name="trip[num_travelers]"
+           placeholder="1">
 
-  <button class=search-btn id=trip-search-submit>Search</button>
-  <button class=search-btn id=surprise-me-btn>Surprise Me!</button>
+    <button class=btn id=trip-search-submit>Search</button>
+    <button class=btn id=surprise-me-btn>Surprise Me!</button>
+  </div>
 
   <div class=datepicker-container>
-    <h2>Exact Dates</h2>
-    <label for=trip[depart]>Depart</label>
-    <input type=text class="search-input datepicker"
-           id=depart-datepicker name=trip[depart]
-           placeholder="<%= moment().format("ddd M/D") %>">
+    <ul class="date-tabs tabs-list">
+      <li class="selected">Exact Dates</li>
+      <li>Flexible Dates</li>
+    </ul>
+    <div class="date-inputs">
+      <div class="date-input depart">Depart
+        <input type=text class="search-input datepicker"
+          id=depart-datepicker name=trip[depart]
+          placeholder="<%= moment().format("ddd M/D") %>">
+      </div>
 
-    <br>
-    <label>Return</label>
-    <input type=text class="search-input datepicker"
-           id=return-datepicker name=trip[return]
-           placeholder="<%= moment().add(1, 'days').format("ddd M/D") %>">
+      <div class="date-input return">Return
+        <input type=text class="search-input datepicker"
+          id=return-datepicker name=trip[return]
+          placeholder="<%= moment().add(1, 'days').format("ddd M/D") %>">
+      </div>
+    </div>
   </div>
 </form>
 

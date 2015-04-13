@@ -161,7 +161,7 @@ planets = Planet.create(
 
 # earth based trips
 time = Time.now
-end_time = time + 2.months
+end_time = time + 1.month
 earth = planets.shift
 planets.select { |planet| planet.clearance < 7 }
 
@@ -175,7 +175,7 @@ until time >= end_time
       trip_date: time.strftime("%Y-%m-%d"),
       trip_time: time.strftime("%H:%M:%S")
     )
-    time += 33.minutes
+    time += 17.minutes
 
     other_planets = planets - [planet]
 
@@ -194,6 +194,6 @@ until time >= end_time
       trip_date: time.strftime("%Y-%m-%d"),
       trip_time: time.strftime("%H:%M:%S")
     )
-    time += 33.minutes
+    time += 17.minutes
   end
 end

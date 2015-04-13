@@ -18,6 +18,14 @@
 $site-orange : #f6861f;
 $fadedblack: #202020;
 
+@mixin vertical-center {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(50%);
+  -ms-transform: translateY(50%);
+  transform: translateY(50%);
+}
+
 body {
   font-family: trebuchet, sans-serif;
   font-size: 18px;
@@ -63,6 +71,7 @@ body {
 .navbar-item > a {
   margin: 0;
   padding: 0;
+  font-size: 14px;
 }
 
 #logo {
@@ -103,14 +112,17 @@ a, a:hover, a:visited, img {
 // Main div
 #main {
   position: relative;
-  top: 30px;
   margin: 0 auto;
   clear: both;
   width: 1024px;
-  padding: 0 20px;
+  padding: 30px 20px;
 }
 
 // Search Forms
+.main-inputs {
+  clear: both;
+}
+
 .search-input {
   height: 40px;
   padding-left: 5px;
@@ -118,7 +130,7 @@ a, a:hover, a:visited, img {
 }
 
 .planet-input {
-  width: 300px;
+  width: 325px;
 }
 
 .num-input {
@@ -126,22 +138,23 @@ a, a:hover, a:visited, img {
 }
 
 .search-form-title {
-  margin: 20px auto;
+  margin: 40px auto 10px;
   padding: 0;
-  font-weight: 400;
+  font-weight: 300;
 }
 
-.search-btn {
-  position: relative;
-  top: -2px;
+.btn {
   background-color: $site-orange;
-  color: #fff;
-  border: none;
+  border: 2px solid $site-orange;
   border-radius: 2px;
-  height: 46px;
-  width: 130px;
+  color: #fff;
   font-size: 16px;
   font-weight: 500;
+  height: 46px;
+  padding: 1px;
+  margin: 0;
+  position: relative;
+  width: 130px;
 }
 
 .datepicker-container {
@@ -149,15 +162,44 @@ a, a:hover, a:visited, img {
 }
 
 input.datepicker {
-  width: 150px;
   display: inline-block;
+  margin-left: 20px;
   margin-bottom: 10px;
   position: relative;
+  width: 150px;
+}
+
+.date-inputs {
+  clear: left;
 }
 
 .datepicker-container > label {
   display: inline-block;
   width: 100px;
+}
+
+.tabs-list {
+  margin: 0;
+  padding: 0;
+}
+.tabs-list > li {
+  float: left;
+  margin: 0;
+  padding-left: 0;
+  padding-right: 20px;
+  color: gray;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.tabs-list:hover {
+  text-decoration: underline gray;
+  cursor: pointer;
+}
+
+.tabs-list > li.selected {
+  color: black;
+  font-weight: 600;
 }
 
 .radio-btns {
@@ -171,17 +213,18 @@ input.datepicker {
 }
 
 .stargate-shimmer {
-  height: 100%;
+  width: 50%;
+  margin: 0px auto;
 }
 
 // Trip Results Index
 .trip-results {
-  border: 1px solid lightgray;
 }
 
 // Trip Results Details
 .trip-details-list {
   border: 1px solid lightgray;
+  margin: 0;
 }
 
 .arrow {
@@ -229,6 +272,10 @@ input.datepicker {
 }
 
 .select-btn {
-  position: relative;
-  top: 40px;
+  @include vertical-center;
+  margin: 0px 20px;
+}
+
+li.change-btn {
+  float: right;
 }

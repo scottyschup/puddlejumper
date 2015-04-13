@@ -6,12 +6,32 @@ PuddleJumper.Views.TripSearchForm = Backbone.View.extend({
     "click #surprise-me-btn": "autofill",
     "submit form": "validate",
     "click input": "selectText",
+    "click .trip-type-tabs li": "changeTypeTab",
+    "click .date-tabs li": "changeDateTab"
   },
 
   render: function () {
     var content = this.template();
     this.$el.html(content);
     return this;
+  },
+
+  changeTypeTab: function (ev) {
+    var $li = $(ev.currentTarget);
+    $(".trip-type-tabs li").removeClass("selected");
+    $li.addClass("selected");
+
+    if ($li.text() === "Round-trip") {
+      $(".return").css("display", "block");
+    } else {
+      $(".return").css("display", "none");
+    }
+  },
+
+  changeDateTab: function (ev) {
+    var $li = $(ev.currentTarget);
+    $(".date-tabs li").removeClass("selected");
+    $li.addClass("selected");
   },
 
   selectText: function (ev) {

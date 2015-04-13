@@ -1,5 +1,5 @@
 <div class=select-btn>
-  <button class=selectItem>Select</button>
+  <button class=btn>Select</button>
 </div>
 
 <div class=legs>
@@ -15,8 +15,8 @@
           <p>
             <%= PuddleJumper.planets.findWhere({ id: leg.origin_id }).get('name') %>
           </p>
-        </div> <!-- law of De-who-now? -->
-        <div class=right-arrow></div>
+        </div>
+        <div class="arrow right-arrow"></div>
         <div class=destination>
           <p>
             <%= PuddleJumper.planets.findWhere({ id: leg.destination_id }).get('name') %>
