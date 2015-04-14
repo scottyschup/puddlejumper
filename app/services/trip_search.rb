@@ -38,7 +38,7 @@ class TripSearch
       datetime < ?",
       @num_travelers,
       @depart_start.to_s(:db), (@depart_end + 1.day).to_s(:db)
-    )
+    ).order(:remaining_space)
   end
 
   def nonstop_back
@@ -48,7 +48,7 @@ class TripSearch
       datetime < ?",
       @num_travelers,
       @arrive_start.to_s(:db), (@arrive_end + 1.day).to_s(:db)
-    )
+    ).order(:remaining_space)
   end
 
   def one_stop_there

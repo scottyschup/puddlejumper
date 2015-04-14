@@ -9,7 +9,7 @@
     <p><%= details.depDate.format("MMM DD") %></p>
     <p class=details-caption>
       <% if (details.depFlex > 0) { %>
-        plus <%= details.depFlex %> days
+        plus <%= pluralize("day", details.depFlex, true) %>
       <% } else { %>
         <%= details.depDate.format("dddd") %>
       <% } %>
@@ -20,7 +20,7 @@
     <p><%= details.arrDate.format("MMM DD") %></p>
     <p class=details-caption>
       <% if (details.arrFlex > 0) { %>
-        plus <%= details.arrFlex %> days
+        plus <%= pluralize("day", details.arrFlex, true) %>
       <% } else { %>
         <%= details.arrDate.format("dddd") %>
       <% } %>
@@ -30,13 +30,17 @@
 <li class=details-item>
   <div class=num-trips>
     <p><%= details.numTrips %></p>
-    <p class=details-caption>trips</p>
+    <p class=details-caption>
+      <%= pluralize("trip", details.numTrips) %>
+    </p>
   </div>
 </li>
 <li class=details-item>
   <div class=num-travelers>
     <p><%= details.numTravelers %></p>
-    <p class=details-caption>traveler(s)</p>
+    <p class=details-caption>
+      <%= pluralize("traveler", details.numTravelers) %>
+    </p>
   </div>
 </li>
 <li class="details-item change-btn">

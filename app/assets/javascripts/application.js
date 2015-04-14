@@ -20,6 +20,7 @@
 //= require typeahead.bundle.js
 //= require moment.js
 //= require moment-timezone.js
+//= require pluralize.js
 //= require puddlejumper
 //= require_tree ./util
 //= require_tree ../templates

@@ -33,8 +33,9 @@
     <% var min_available = Math.min.apply(null, available_spaces) %>
     <% if (min_available < 10) { %>
       <li>
+
         <div class="leg-item space">
-          <p>Only <%= min_available %> spaces left on this trip<p>
+          <p>Only <%= pluralize("space", min_available, true) %> left on this trip<p>
         </div>
       </li>
     <% } %>

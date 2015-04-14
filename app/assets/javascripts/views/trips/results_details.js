@@ -9,8 +9,8 @@ PuddleJumper.Views.TripResultsDetails = Backbone.View.extend({
     var details = {
       origin:       PuddleJumper.planets.get(attrs.departures[0].origin_id),
       destination:  PuddleJumper.planets.get(attrs.departures[0].destination_id),
-      numTravelers: attrs.numTravelers,
-      numTrips:     this.results.numTrips(),
+      numTravelers: parseInt(attrs.numTravelers),
+      numTrips:     parseInt(this.results.numTrips()),
       roundtrip:    this.results.isRoundtrip(),
       depDate:      moment(attrs.departures[0].datetime),
       depFlex:      parseInt(attrs.flexDates.dep),
