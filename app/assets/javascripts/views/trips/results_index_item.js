@@ -21,6 +21,6 @@ PuddleJumper.Views.TripResultsIndexItem = Backbone.CompositeView.extend({
 
   openResView: function (ev) {
     var resView = new PuddleJumper.Views.TripResView(this.trip);
-    $("#modal").html(resView.render().$el)
+    $("#modal").html(resView.render().$el);
   }
 });

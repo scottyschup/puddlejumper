@@ -9,20 +9,27 @@ PuddleJumper.Views.TripResView = Backbone.View.extend({
   events: {
     "click .reserve": "reserveTrip",
     "click .close": "closeResView",
-    "click modal": "closeResView"
   },
 
   render: function () {
-    $("#modal").css("display", "block");
+    $("#modal").removeClass("inactive")
+    setTimeout(function () { $("#modal").addClass("active"); }, 100);
     var content = this.template({ trip: this.trip });
-    this.$el.html(content);
+    this.$el.html(content)
+    setTimeout(function () {
+      $(".tripRes").addClass("active");
+    }, 100);
 
     return this;
   },
 
   closeResView: function (ev) {
-    $("#modal").css("display", "none");
-    $('#modal').empty();
+    $(".tripRes").removeClass("active");
+    setTimeout(function () {
+      $("#modal").removeClass("active");
+      $('#modal').empty();
+      setTimeout(function () { $("#modal").addClass("inactive"); }, 500);
+    }, 200);
   },
 
   reserveTrip: function (ev) {

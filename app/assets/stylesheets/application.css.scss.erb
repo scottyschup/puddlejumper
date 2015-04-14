@@ -24,30 +24,51 @@ body {
   height: 100%;
   margin: 0;
   position: relative;
-  transition: background-color .1s ease;
+}
+
+body p {
+  word-wrap: break-word;
 }
 
 #modal {
-  display: none;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0);
+  -webkit-transition: background .5s ease;
+}
+
+#modal.inactive {
+  display: none;
+}
+
+#modal.active {
   background: rgba(0, 0, 0, 0.6);
-  z-index: 2000;
+  display: block;
+}
+
+.tripRes p {
+  margin: 10px;
 }
 
 .tripRes {
+  width: 40%;
   display: block;
-  position: fixed;
-  z-index: 2001;
-  top: 20%;
+  position: relative;
+  z-index: 11;
+  top: -100%;
   height: 60%;
   left: 30%;
-  width: 40%;
   background: #fff;
   padding: 20px;
+  transition: top .5s ease;
+}
+
+.tripRes.active {
+  top: 20%;
 }
 
 .loading {
@@ -144,7 +165,36 @@ a, a:hover, a:visited, img {
   padding: 30px 20px;
 }
 
-// Search Forms
+//// Search Forms
+
+.search-form-title {
+  margin: 40px auto 10px;
+  padding: 0;
+  font-weight: 300;
+}
+
+// autocomplete
+.planet-input,
+.ui-autocomplete,
+.ui-menu-item {
+  width: 325px;
+}
+
+ul.ui-autocomplete {
+  border: none;
+}
+
+li.ui-menu-item {
+  padding: 5px;
+  margin: 0;
+  border: 1px solid gray;
+  background: rgba(255, 255, 255, 1);
+  height: 20px;
+  font-size: 14px;
+  display: block;
+  float: left;
+}
+
 .inputs-container {
   clear: both;
 }
@@ -155,27 +205,11 @@ a, a:hover, a:visited, img {
   margin-right: 5px;
 }
 
-.planet-input,
-.ui-autocomplete,
-.ui-autocomplete > li {
-  width: 325px;
-}
-
-.ui-autocomplete,
-.ui-autcomplete > li {
-  height: 25px;
-  font-size: 16px;
-}
-
-.ui_autocomplete > li {
-  display: block;
-  float: left;
-}
-
 .num-input {
   width: 30px;
 }
 
+// dates
 select.flex-dates-select {
   display: none;
   float: left;
@@ -185,13 +219,6 @@ select.flex-dates-select {
   padding: 0 5px;
   background: url(<%= image_path 'downward_triangle.png' %>) no-repeat right;
   background-size: contain;
-
-}
-
-.search-form-title {
-  margin: 40px auto 10px;
-  padding: 0;
-  font-weight: 300;
 }
 
 .btn {
@@ -230,6 +257,7 @@ input.datepicker {
   float: left;
 }
 
+// tabs
 .tabs-list {
   margin: 0;
   padding: 0;
