@@ -7,9 +7,7 @@
 ## Minimum Viable Product
 PuddleJumper is a clone of Kayak for the Stargate universe, built on Rails and Backbone. Users can:
 
-<!-- This is a Markdown checklist. Use it to keep track of your progress! -->
-
-- [ ] Search for available Stargate transit schedules
+- [x] Search for available Stargate transit schedules
 - [ ] Sort results by date/time
 - [ ] Edit search criteria from results page
 - [ ] Reserve transit spots
