@@ -23,7 +23,7 @@
            id=num-box
            class="search-input num-input"
            name="trip[num_travelers]"
-           placeholder="1">
+           value="1">
 
     <button class=btn id=trip-search-submit>Search</button>
     <button class=btn id=surprise-me-btn>Surprise Me!</button>
@@ -41,7 +41,7 @@
       <p>Depart</p>
       <input type=text class="search-input datepicker"
         id=depart-datepicker name=trip[depart]
-        placeholder="<%= moment().format("ddd M/D") %>">
+        value="<%= moment().format("ddd M/D") %>">
       <select class="search-input flex-dates-select" name=trip[depart_range]>
         <option value=0>only</option>
         <option value=1 selected>and the following day</option>
@@ -57,7 +57,7 @@
       <p>Return</p>
       <input type=text class="search-input datepicker"
         id=arrive-datepicker name=trip[arrive]
-        placeholder="<%= moment().add(1, 'days').format("ddd M/D") %>">
+        value="<%= moment().add(1, 'days').format("ddd M/D") %>">
       <select class="search-input flex-dates-select" name=trip[arrive_range]>
         <option value=0>only</option>
         <option value=1 selected>and the following day</option>
@@ -73,7 +73,7 @@
 
 <script>
 $(function () {
-  $('#return-datepicker').datepicker();
+  $('#arrive-datepicker').datepicker();
   $('#depart-datepicker').datepicker();
 });
 </script>

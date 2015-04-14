@@ -11,10 +11,14 @@ PuddleJumper.Router = Backbone.Router.extend({
 
   routes: {
     "": "tripSearchForm",
-    "trips": "tripResultsIndex"
+    "trips": "tripResultsIndex",
+    "ships": "shipSearchForm",
+    "lodging": "lodgingSearchForm"
   },
 
   tripSearchForm: function () {
+    $(".nav-left *").removeClass("current-page");
+    $("#gates > a").addClass("current-page");
     PuddleJumper.tripSearch = new PuddleJumper.Models.TripSearch(); //reset search results
     var tripsFormView = new PuddleJumper.Views.TripSearchForm({
       planets: PuddleJumper.planets
@@ -32,5 +36,17 @@ PuddleJumper.Router = Backbone.Router.extend({
     this._currView && this._currView.remove();
     this._currView = view;
     this.$rootEl.html(view.render().$el);
+  },
+
+  shipSearchForm: function () {
+    $(".nav-left *").removeClass("current-page");
+    $("#ships > a").addClass("current-page");
+
+  },
+
+  lodgingSearchForm: function () {
+    $(".nav-left *").removeClass("current-page");
+    $("#lodging > a").addClass("current-page");
+
   }
 });
