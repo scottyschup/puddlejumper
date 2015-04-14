@@ -2,8 +2,9 @@ PuddleJumper.Views.TripResView = Backbone.View.extend({
   template: JST['trips/resView'],
   className: 'tripRes',
 
-  initialize: function (trip) {
-    this.trip = trip;
+  initialize: function (options) {
+    this.planets = options.planets;
+    this.trip = options.trip;
   },
 
   events: {
@@ -12,10 +13,13 @@ PuddleJumper.Views.TripResView = Backbone.View.extend({
   },
 
   render: function () {
-    $("#modal").removeClass("inactive")
+    $("#modal").removeClass("inactive");
     setTimeout(function () { $("#modal").addClass("active"); }, 100);
-    var content = this.template({ trip: this.trip });
-    this.$el.html(content)
+    var content = this.template({
+      planets: this.planets,
+      trip: this.trip
+    });
+    this.$el.html(content);
     setTimeout(function () {
       $(".tripRes").addClass("active");
     }, 100);

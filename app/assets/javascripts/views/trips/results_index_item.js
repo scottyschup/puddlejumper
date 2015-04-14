@@ -20,7 +20,16 @@ PuddleJumper.Views.TripResultsIndexItem = Backbone.CompositeView.extend({
   },
 
   openResView: function (ev) {
-    var resView = new PuddleJumper.Views.TripResView(this.trip);
+    var thesePlanets = {
+      origin: PuddleJumper.planets.get(this.trip[0].origin_id),
+      destination: PuddleJumper.planets.get(this.trip[0].destination_id)
+    };
+
+    var resView = new PuddleJumper.Views.TripResView({
+      planets: thesePlanets,
+      trip: this.trip
+    });
+
     $("#modal").html(resView.render().$el);
   }
 });

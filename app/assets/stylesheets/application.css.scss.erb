@@ -30,47 +30,6 @@ body p {
   word-wrap: break-word;
 }
 
-#modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 10;
-  background: rgba(0, 0, 0, 0);
-  -webkit-transition: background .5s ease;
-}
-
-#modal.inactive {
-  display: none;
-}
-
-#modal.active {
-  background: rgba(0, 0, 0, 0.6);
-  display: block;
-}
-
-.tripRes p {
-  margin: 10px;
-}
-
-.tripRes {
-  width: 40%;
-  display: block;
-  position: relative;
-  z-index: 11;
-  top: -100%;
-  height: 60%;
-  left: 30%;
-  background: #fff;
-  padding: 20px;
-  transition: top .5s ease;
-}
-
-.tripRes.active {
-  top: 20%;
-}
-
 .loading {
   background-color: #000;
 }
@@ -400,4 +359,60 @@ li.change-btn {
   color: #6ab90f;
   font-size: 14px;
   margin-left: 30px;
+}
+
+// Reservation View
+#modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0);
+  -webkit-transition: background .5s ease;
+}
+
+#modal.inactive {
+  display: none;
+}
+
+#modal.active {
+  background: rgba(0, 0, 0, 0.6);
+  display: block;
+}
+
+.tripRes {
+  width: 50%;
+  display: block;
+  position: relative;
+  z-index: 11;
+  top: -100%;
+  height: 60%;
+  left: 25%;
+  background: #fff;
+  padding: 10px;
+  transition: top .5s ease;
+}
+
+.tripRes.active {
+  top: 20%;
+}
+
+.tripRes * {
+   margin: 2px;
+   padding: 0;
+}
+
+.planet-details, .trip-details {
+  font-size: 14px;
+}
+
+.planet-detail-item {
+  display: block;
+  float: left;
+}
+
+.description {
+  clear: left;
 }

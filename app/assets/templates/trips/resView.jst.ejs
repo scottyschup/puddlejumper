@@ -1,3 +1,50 @@
-<p>It worked!</p>
-<p><%= JSON.stringify(trip) %></p>
-<button class=close>Close</button>
+<div class=reservation-title>
+  <dl class=res-title-planet>
+    <dt class="planet-detail-item planet-name">
+      <%= planets.origin.get("name") %>
+    </dt>
+    <dd class="planet-detail-item alias">
+      <%= planets.origin.get("alias") %>
+    </dd>
+    <dd class="planet-detail-item galaxy">
+      <%= planets.origin.get("galaxy") %>
+    </dd>
+    <dd class="planet-detail-item clearance">
+      <%= planets.origin.get("clearance") %>
+    </dd>
+    <dd class="planet-detail-item description">
+      <%= planets.origin.get("description") %>
+    </dd>
+  </dl>
+</div>
+
+<div class="double-arrow large"></div>
+
+<div class=reservation-title>
+  <dl class=res-title-planet>
+    <dt class="planet-detail-item planet-name">
+      <%= planets.destination.get("name") %>
+    </dt>
+    <dd class="planet-detail-item alias">
+      <%= planets.destination.get("alias") %>
+    </dd>
+    <dd class="planet-detail-item galaxy">
+      <%= planets.destination.get("galaxy") %>
+    </dd>
+    <dd class="planet-detail-item clearance">
+      <%= planets.destination.get("clearance") %>
+    </dd>
+    <dd class="planet-detail-item description">
+      <%= planets.destination.get("description") %>
+    </dd>
+  </dl>
+</div>
+
+<div class="trip-details">
+  <% _.each(trip, function (leg) { %>
+    <p><%= JSON.stringify(leg) %></p>
+  <% }) %>
+</div>
+
+<button class="reserve btn">Reserve This Trip</button>
+<button class="close btn">Back to All Trips</button>
