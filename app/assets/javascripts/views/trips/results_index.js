@@ -4,7 +4,11 @@ PuddleJumper.Views.TripResultsIndex = Backbone.CompositeView.extend({
   className: 'trip-results',
 
   initialize: function () {
-    this.listenTo(PuddleJumper.tripSearch, 'sync', this.render);
+    // this.listenTo(PuddleJumper.tripSearch, 'sync', this.render);
+  },
+
+  events: {
+    "click .restart-btn": "backToRoot"
   },
 
   addAllSubviews: function () {
@@ -13,15 +17,11 @@ PuddleJumper.Views.TripResultsIndex = Backbone.CompositeView.extend({
     this.addSubview('.trip-details', tripDetailsView);
 
     // trip item subviews
-    if (PuddleJumper.tripSearch.numTrips() > 0) {
+    if (PuddleJumper.tripSearch.hasTrips()) {
       this.addItemSubviews();
     } else {
-      this.$el.append(' \
-      <div class=message> \
-        <h3> \
-          There were no results. Please try again with different parmaeters. \
-        </h3> \
-      </div>');
+      var html = "<div class=message><h3>There were no results. Please try again with different parmaeters.</h3></div>";
+      this.$el.append(html);
     }
   },
 
@@ -31,6 +31,10 @@ PuddleJumper.Views.TripResultsIndex = Backbone.CompositeView.extend({
       tripItemView = new PuddleJumper.Views.TripResultsIndexItem(trip);
       this.addSubview('.trips-list', tripItemView);
     }.bind(this));
+  },
+
+  backToRoot: function () {
+    Backbone.history.navigate("", { trigger: true })
   },
 
   render: function () {
@@ -46,7 +50,26 @@ PuddleJumper.Views.TripResultsIndex = Backbone.CompositeView.extend({
       $("body").addClass("loading");
       content = this.loadingTemplate();
       this.$el.html(content);
+      setTimeout(function () {
+        this.tryRenderingAgain();
+      }.bind(this), 1500);
     }
     return this;
   },
+
+  tryRenderingAgain: function () {
+    if (PuddleJumper.tripSearch.isFetched()) {
+      this.render();
+    } else {
+      $("body").removeClass("loading");
+
+      var content = "<div class=message> \
+      <h3>We were unable to process your request at this time. \
+      Please try again.</h3><p>Redirecting...</p></div>";
+      this.$el.html(content);
+      setTimeout(function () {
+        this.backToRoot();
+      }.bind(this), 3500);
+    }
+  }
 });

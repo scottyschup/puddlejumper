@@ -37,7 +37,7 @@ PuddleJumper.Views.TripResView = Backbone.View.extend({
   },
 
   reserveTrip: function (ev) {
-    // get trip ids, num of travs
-    // add form for name
+    // var data = $(".reservationForm").serializeJSON;
+
   }
 });

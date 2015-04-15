@@ -1,6 +1,7 @@
 #
 class TripSearch
-  attr_reader :departures, :arrivals, :roundtrip, :num_travelers, :flex_dates
+  attr_reader :departures, :arrivals, :roundtrip, :num_travelers, :flex_dates,
+    :origin, :destination
 
   def initialize(params)
     @origin = Planet.find_by(name: params[:origin])
@@ -24,8 +25,8 @@ class TripSearch
       @depart_end, @arrive_end = @depart_start, @arrive_start
     end
 
-    @num_travelers = params[:num_travelers]
-    @roundtrip = params[:roundtrip] == "true" ? true : false
+    @num_travelers = params[:num_travelers].to_i
+    @roundtrip = params[:roundtrip] == 'true' ? true : false
 
     @departures = nonstop_there + one_stop_there
     @arrivals = @roundtrip ? nonstop_back + one_stop_back : []

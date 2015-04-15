@@ -24,6 +24,7 @@ body {
   height: 100%;
   margin: 0;
   position: relative;
+  transition: background-color .5s ease;
 }
 
 body p {
@@ -31,7 +32,11 @@ body p {
 }
 
 .loading {
-  background-color: #000;
+  background-color: $fadedblack;
+}
+
+.loading img {
+  box-shadow: 0 0 70px #000;
 }
 
 .stargate-shimmer {
@@ -246,12 +251,14 @@ input.datepicker {
 .trip-results > *:not(img) {
   width: 100%;
   margin: 0;
-  border: 1px solid lightgray;
+  border-bottom: none;
 }
 
 // Trip Results Details
 .trip-details-list {
+  border: 1px solid lightgray;
   margin: 0;
+  width: 100%;
 }
 
 .arrow {
@@ -315,7 +322,8 @@ li.change-btn {
 }
 
 .trips-list > li {
-  border-top: 1px solid lightgray;
+  border: 1px solid lightgray;
+  border-top: none;
   width: 100%;
   margin: 0;
   padding: 0;

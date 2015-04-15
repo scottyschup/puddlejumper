@@ -4,21 +4,21 @@ PuddleJumper.Views.TripResultsDetails = Backbone.View.extend({
   className: 'trip-details-list clearfix',
 
   extractDetails: function () {
-    this.results = PuddleJumper.tripSearch
-    var attrs = this.results.attributes;
+    this.search = PuddleJumper.tripSearch
+    var data = this.search.data();
     var details = {
-      origin:       PuddleJumper.planets.get(attrs.departures[0].origin_id),
-      destination:  PuddleJumper.planets.get(attrs.departures[0].destination_id),
-      numTravelers: parseInt(attrs.numTravelers),
-      numTrips:     parseInt(this.results.numTrips()),
-      roundtrip:    this.results.isRoundtrip(),
-      depDate:      moment(attrs.departures[0].datetime),
-      depFlex:      parseInt(attrs.flexDates.dep),
-      arrFlex:      parseInt(attrs.flexDates.arr)
+      origin:       PuddleJumper.planets.get(data.departures[0].origin_id),
+      destination:  PuddleJumper.planets.get(data.departures[0].destination_id),
+      numTravelers: parseInt(data.numTravelers),
+      numTrips:     parseInt(this.search.numTrips()),
+      roundtrip:    this.search.isRoundtrip(),
+      depDate:      moment(data.departures[0].datetime),
+      depFlex:      parseInt(data.flexDates.dep),
+      arrFlex:      parseInt(data.flexDates.arr)
     };
 
-    if (this.results.isRoundtrip()) {
-      details.arrDate = moment(attrs.arrivals[0].datetime);
+    if (this.search.isRoundtrip()) {
+      details.arrDate = moment(data.arrivals[0].datetime);
     } else {
       details.arrDate = details.depDate;
     }

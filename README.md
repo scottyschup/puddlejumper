@@ -9,8 +9,10 @@ PuddleJumper is a clone of Kayak for the Stargate universe, built on Rails and B
 
 - [x] Search for available Stargate transit schedules
 - [ ] Sort results by date/time
-- [ ] Edit search criteria from results page
+- [x] View individual trip details
+- [ ] Receive Stargate Traveler ID number
 - [ ] Reserve transit spots
+- [ ] Provide tooltips for first time users
 - [ ] Search for spaceship rentals
 - [ ] Sort rentals by price, capacity
 - [ ] View individual spaceship details

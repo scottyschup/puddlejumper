@@ -43,7 +43,49 @@ PuddleJumper.Models.TripSearch = Backbone.Model.extend({
     return this.get('roundtrip');
   },
 
+  hasFlexDates: function () {
+    return Math.min(this.get("flexDates").arr, this.get("flexDates").dep) > 0;
+  },
+
   isFetched: function () {
-    return !(this.get('departures') === undefined);
+    return (this.get('departures') !== undefined);
+  },
+
+  hasTrips: function () {
+    return this.numTrips() > 0;
+  },
+
+  planetName: function (idType) {
+    var id = this.get(idType);
+    return PuddleJumper.planets.get(id).get("name");
+  },
+
+  getEarliestDate: function (legName) {
+    if (this.hasFlexDates()) {
+      var least = moment("2020-12-31")
+      _.each(this.get(legName), function (leg) {
+        if (least > moment(leg.datetime)) {
+          least = moment(leg.datetime);
+        }
+      })
+      return least;
+    } else {
+      if (this.get(legName).length > 0) {
+        return this.get(legName)[0].datetime;
+      } else {
+        return null;
+      }
+    }
+  },
+
+  data: function () {
+    var data = this.attributes;
+    data.originName = this.planetName('originId');
+    data.destinationName = this.planetName('destinationId');
+    data.numTrips = this.numTrips();
+    data.arrivalDate = moment(this.getEarliestDate('arrivals'));
+    data.departureDate = moment(this.getEarliestDate('departures'));
+    data.hasFlexDates = this.hasFlexDates();
+    return data;
   }
 });
