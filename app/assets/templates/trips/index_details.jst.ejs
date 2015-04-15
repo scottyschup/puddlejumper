@@ -1,45 +1,55 @@
 <li class="details-item route">
-  <p><%= details.origin.get("name") %></p>
-  <div class="arrow double-arrow"></div>
-  <p><%= details.destination.get("name") %></p>
+  <p><%= data.originName %></p>
+
+  <% var arrowType; %>
+  <% if (data.roundtrip) { %>
+    <% arrowType = "double-arrow"; %>
+  <% } else { %>
+     <% arrowType = "right-arrow"; %>
+   <% } %>
+  <div class="arrow <%= arrowType %>"></div>
+
+  <p><%= data.destinationName %></p>
 </li>
-<% var depDate = details.departureDate, arrDate = details.arrivalDate %>
 <li class="details-item">
   <div class=departure-date>
-    <p><%= details.depDate.format("MMM DD") %></p>
+    <p><%= data.departureDate.format("MMM DD") %></p>
     <p class=details-caption>
-      <% if (details.depFlex > 0) { %>
-        plus <%= pluralize("day", details.depFlex, true) %>
+      <% if (data.flexDates.dep > 0) { %>
+        plus <%= pluralize("day", data.flexDates.dep, true) %>
       <% } else { %>
-        <%= details.depDate.format("dddd") %>
+        <%= data.departureDate.format("dddd") %>
       <% } %>
-    </p>  </div>
+    </p>
+  </div>
+
+
   <div class="arrow right-arrow"></div>
   <div class=arrival-date>
 
-    <p><%= details.arrDate.format("MMM DD") %></p>
+    <p><%= data.arrivalDate.format("MMM DD") %></p>
     <p class=details-caption>
-      <% if (details.arrFlex > 0) { %>
-        plus <%= pluralize("day", details.arrFlex, true) %>
+      <% if (data.flexDates.arr > 0) { %>
+        plus <%= pluralize("day", data.flexDates.arr, true) %>
       <% } else { %>
-        <%= details.arrDate.format("dddd") %>
+        <%= data.arrivalDate.format("dddd") %>
       <% } %>
     </p>
   </div>
 </li>
 <li class=details-item>
   <div class=num-trips>
-    <p><%= details.numTrips %></p>
+    <p><%= data.numTrips %></p>
     <p class=details-caption>
-      <%= pluralize("trip", details.numTrips) %>
+      <%= pluralize("trip", data.numTrips) %>
     </p>
   </div>
 </li>
 <li class=details-item>
   <div class=num-travelers>
-    <p><%= details.numTravelers %></p>
+    <p><%= data.numTravelers %></p>
     <p class=details-caption>
-      <%= pluralize("traveler", details.numTravelers) %>
+      <%= pluralize("traveler", data.numTravelers) %>
     </p>
   </div>
 </li>
