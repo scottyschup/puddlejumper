@@ -13,7 +13,7 @@
   </div>
   <div class=clearfix>
     <input type="text"
-           class="search-input planet-input autocomplete"
+           class="search-input planet-input typeahead"
            id=from-box
            name="trip[origin]"
            placeholder="From: Earth, Abydos, etc."
@@ -21,7 +21,7 @@
 
     <input type="text"
            id=to-box
-           class="search-input planet-input autocomplete"
+           class="search-input planet-input typeahead"
            name="trip[destination]"
            placeholder="To: Chulak, P3X888, etc."
            value="">
@@ -80,7 +80,6 @@
 
 <script>
 $(function () {
-  $('#arrive-date').datepicker();
-  $('#depart-date').datepicker();
+  $('.datepicker').datepicker({ dateFormat: 'D m/d' });
 });
 </script>

@@ -4,9 +4,15 @@ class TripSearch
     :origin, :destination
 
   def initialize(params)
-    @origin = Planet.find_by(name: params[:origin])
-    @destination = Planet.find_by(name: params[:destination])
+    find_planets(params)
+    create_date_ranges(params)
+    party_size_and_trip_type(params)
 
+    @departures = nonstop_there + one_stop_there
+    @arrivals = @roundtrip ? nonstop_back + one_stop_back : []
+  end
+
+  def create_date_ranges(params)
     @depart_start = Time.zone.parse(params[:depart])
     @arrive_start = Time.zone.parse(params[:arrive])
 
@@ -24,12 +30,18 @@ class TripSearch
       }
       @depart_end, @arrive_end = @depart_start, @arrive_start
     end
+  end
 
-    @num_travelers = params[:num_travelers].to_i
-    @roundtrip = params[:roundtrip] == 'true' ? true : false
+  def find_planets(params)
+    @origin = Planet.where(
+      'LOWER(name) = ?',
+      params[:origin].downcase
+    ).first
 
-    @departures = nonstop_there + one_stop_there
-    @arrivals = @roundtrip ? nonstop_back + one_stop_back : []
+    @destination = Planet.where(
+      'LOWER(name) = ?',
+      params[:destination].downcase
+    ).first
   end
 
   def nonstop_there
@@ -58,5 +70,10 @@ class TripSearch
 
   def one_stop_back
     []
+  end
+
+  def party_size_and_trip_type(params)
+    @num_travelers = params[:num_travelers].to_i
+    @roundtrip = params[:roundtrip] == 'true' ? true : false
   end
 end

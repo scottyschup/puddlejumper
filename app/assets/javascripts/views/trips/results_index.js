@@ -4,6 +4,7 @@ PuddleJumper.Views.TripResultsIndex = Backbone.CompositeView.extend({
   className: 'trip-results',
 
   initialize: function () {
+    // listener turned off because long search time being simulated
     // this.listenTo(PuddleJumper.tripSearch, 'sync', this.render);
   },
 

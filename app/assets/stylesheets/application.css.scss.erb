@@ -137,26 +137,36 @@ a, a:hover, a:visited, img {
   font-weight: 300;
 }
 
-// autocomplete
-.planet-input,
-.ui-autocomplete,
-.ui-menu-item {
+// typeahead
+.planet-input {
   width: 325px;
 }
 
-ul.ui-autocomplete {
-  border: none;
+.twitter-typeahead {
+  display: block !important;
+  float: left !important;
 }
 
-li.ui-menu-item {
-  padding: 5px;
-  margin: 0;
-  border: 1px solid gray;
+.tt-dropdown-menu {
+  top: 120% !important;
+  box-shadow: 5px 5px 5px #ccc;
+  border-radius: 5px;
+  width: 95%;
+  border: 1px solid lightgray;
   background: rgba(255, 255, 255, 1);
-  height: 20px;
-  font-size: 14px;
-  display: block;
-  float: left;
+  padding: 5px;
+  margin: 1px;
+}
+
+.tt-hint {
+  color: gray;
+}
+
+.tt-cursor {
+  color: $site-orange;
+}
+
+.tt-dataset-dataset {
 }
 
 .inputs-container {

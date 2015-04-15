@@ -8,5 +8,18 @@ PuddleJumper.Collections.Planets = Backbone.Collection.extend({
 
   randomOriginName: function () {
     return _.sample(this.pluck('name'));
+  },
+
+  dataset: function () {
+    var names = this.pluck('name');
+    var aliases = this.pluck('alias');
+    var dataset = [], value;
+
+    _.each(names, function(name) {
+      aliasName = aliases[names.indexOf(name)] + "  (" + name + ")";
+      dataset.push({ value: name }, { value: aliasName });
+    });
+
+    return dataset;
   }
 });
