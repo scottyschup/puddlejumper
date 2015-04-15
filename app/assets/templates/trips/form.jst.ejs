@@ -80,6 +80,10 @@
 
 <script>
 $(function () {
-  $('.datepicker').datepicker({ dateFormat: 'D m/d' });
+  $('.datepicker').datepicker({
+    dateFormat: 'D m/d',
+    showOn: 'focus',
+    hideOn: 'blur',
+  });
 });
 </script>

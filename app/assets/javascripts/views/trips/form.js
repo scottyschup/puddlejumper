@@ -11,7 +11,7 @@ PuddleJumper.Views.TripSearchForm = Backbone.View.extend({
   },
 
   initialize: function (options) {
-    this.listenTo(PuddleJumper.planets, 'sync', this.activateTypeahead);
+    // this.listenTo(PuddleJumper.planets, 'sync', this.activateTypeahead);
     this.prevSearch = options.prevSearch;
   },
 
@@ -27,6 +27,10 @@ PuddleJumper.Views.TripSearchForm = Backbone.View.extend({
         $("#from-box").select();
       }.bind(this), 1);
     }
+
+    setTimeout(function () {
+      this.activateTypeahead()
+    }.bind(this), 100);
     return this;
   },
 
@@ -49,11 +53,6 @@ PuddleJumper.Views.TripSearchForm = Backbone.View.extend({
       displayKey: 'value',
       source: planets.ttAdapter()
     });
-
-    // $(ev.currentTarget).autocomplete({
-    //   minLength: 1,
-    //   source: PuddleJumper.planets.pluck("name")
-    // });
   },
 
   autofill: function (ev) {
@@ -74,18 +73,27 @@ PuddleJumper.Views.TripSearchForm = Backbone.View.extend({
 
     this.slowType($("#from-box"), "Earth", function () {
       that.slowType($("#to-box"), randDest, function() {
+        $("#num-box").select();
         setTimeout(function () {
           $("#num-box").val(Math.floor(Math.random() * 10) + 1);
+          $("#depart-date").select();
           setTimeout(function () {
             $("#depart-date").val(moment(_.sample(dDates)).format("ddd M/D"));
+            $("#arrive-date").select();
             setTimeout(function () {
               $("#arrive-date").val(moment(_.sample(rDates)).format("ddd M/D"));
+              $("#ui-datepicker-div").hide();
+              $(".date-tabs li:last-child").trigger('click');
               setTimeout(function () {
-                that.$("form").submit();
-              }, 500);
-            }, 700);
-          }, 700);
-        }, 500);
+                $('option select').removeAttr('selected');
+                $(".flex-dates-select option:last-child").attr('selected', 'selected');
+                setTimeout(function () {
+                  $("#trip-search-submit").trigger('click');
+                }, 500);
+              }, 700);
+            }, 1000);
+          }, 1000);
+        }, 700);
       });
     });
 
@@ -152,26 +160,29 @@ PuddleJumper.Views.TripSearchForm = Backbone.View.extend({
 
   slowType: function ($el, word, callback) {
     var currVal = "", currChar;
-    // var ev = $.Event("keydown");
+    $el.select()
+    word = word.slice(0, 4);
 
     var slowTyping = setInterval(function () {
       currChar = word.slice(0, 1).toLowerCase();
-      // ev.which = parseInt(this.keyCodes[currChar]);
       currVal += currChar;
 
-      // $el.val($el.val() + currChar);
-      // $el.trigger(ev);
       $el.val(currVal).trigger("input");
 
       word = word.substr(1);
 
       if (!word) {
         clearInterval(slowTyping);
+        var $firstSuggestion = $el.parent().find(".tt-suggestions div:first");
+        $firstSuggestion.trigger('cursor');
         setTimeout(function () {
-          callback.call();
-        }, 300);
+          $firstSuggestion.trigger('click');
+          setTimeout(function () {
+            callback.call();
+          }, 500);
+        }, 500);
       }
-    }.bind(this), 333);
+    }.bind(this), 250);
   },
 
   submit: function (ev) {
@@ -193,5 +204,10 @@ PuddleJumper.Views.TripSearchForm = Backbone.View.extend({
       this.submit(ev);
     }
   },
+
+  remove: function () {
+    Backbone.View.prototype.remove.call(this);
+    $("#ui-datepicker-div").remove();
+  }
 
 });

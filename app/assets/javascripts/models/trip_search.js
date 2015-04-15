@@ -1,6 +1,15 @@
 PuddleJumper.Models.TripSearch = Backbone.Model.extend({
   urlRoot: 'api/trips',
 
+  initialize: function () {
+    this.formData = { request: {}, response: {} };
+  },
+
+  parse: function (responseData) {
+    this.formData.response =  responseData;
+    return responseData;
+  },
+
   allTrips: function () {
     this._departures = this.get('departures');
     this._allTrips = [];
