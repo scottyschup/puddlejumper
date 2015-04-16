@@ -2167,3 +2167,24 @@ LINE 2:       trip_date BETWEEN '2015-05-03' AND '2015-05-03')
 [04/16/15 02:47:07 -0700 MacLappy (62344)] INFO : Installing Rails 4 view instrumentation
 [04/16/15 02:47:07 -0700 MacLappy (62344)] INFO : Installing Rails 4 Error instrumentation
 [04/16/15 02:47:07 -0700 MacLappy (62344)] INFO : Finished instrumentation
+[04/16/15 03:00:51 -0700 MacLappy (62955)] INFO : Starting the New Relic agent in "development" environment.
+[04/16/15 03:00:51 -0700 MacLappy (62955)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[04/16/15 03:00:51 -0700 MacLappy (62955)] WARN : No configuration file found. Working directory = /Users/Scott/Copy/appacademy/puddlejumper
+[04/16/15 03:00:51 -0700 MacLappy (62955)] WARN : Looked in these locations (based on defaults): /Users/Scott/Copy/appacademy/puddlejumper/config/newrelic.yml, /Users/Scott/Copy/appacademy/puddlejumper/newrelic.yml, /Users/Scott/Copy/appacademy/puddlejumper/config/newrelic.yml, /Users/Scott/Copy/appacademy/puddlejumper/newrelic.yml, /Users/Scott/.newrelic/newrelic.yml, /Users/Scott/newrelic.yml
+[04/16/15 03:00:51 -0700 MacLappy (62955)] INFO : Environment: development
+[04/16/15 03:00:51 -0700 MacLappy (62955)] INFO : Dispatcher: webrick
+[04/16/15 03:00:51 -0700 MacLappy (62955)] INFO : Application: development
+[04/16/15 03:00:51 -0700 MacLappy (62955)] WARN : No license key found. This often means your newrelic.yml file was not found, or it lacks a section for the running environment, 'development'. You may also want to try linting your newrelic.yml to ensure it is valid YML.
+[04/16/15 03:00:51 -0700 MacLappy (62955)] INFO : Installing ActiveJob instrumentation
+[04/16/15 03:00:51 -0700 MacLappy (62955)] INFO : Installing ActiveRecord 4 instrumentation
+[04/16/15 03:00:51 -0700 MacLappy (62955)] INFO : Installing Net instrumentation
+[04/16/15 03:00:51 -0700 MacLappy (62955)] INFO : Installing deferred Rack instrumentation
+[04/16/15 03:00:51 -0700 MacLappy (62955)] INFO : Installing Rack::Builder middleware instrumentation
+[04/16/15 03:00:51 -0700 MacLappy (62955)] INFO : Installing Rails 3+ middleware instrumentation
+[04/16/15 03:00:51 -0700 MacLappy (62955)] INFO : Installing Rails 4 Controller instrumentation
+[04/16/15 03:00:51 -0700 MacLappy (62955)] INFO : Installing Rails 4 view instrumentation
+[04/16/15 03:00:51 -0700 MacLappy (62955)] INFO : Installing Rails 4 Error instrumentation
+[04/16/15 03:00:51 -0700 MacLappy (62955)] INFO : Finished instrumentation
+[04/16/15 03:00:52 -0700 MacLappy (62955)] INFO : Doing deferred dependency-detection before Rack startup
+[04/16/15 03:00:56 -0700 MacLappy (62955)] ERROR : Invalid license key, please contact support@newrelic.com
+[04/16/15 03:00:56 -0700 MacLappy (62955)] ERROR : Visit NewRelic.com to obtain a valid license key, or to upgrade your account.
