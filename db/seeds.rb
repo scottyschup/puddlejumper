@@ -197,7 +197,7 @@ until time >= end_time
 end
 
 # Users
-users = [
+travelers = [
   { name: "Jack O'Neill", clearance: 8 },
   { name: 'George Hammond', clearance: 8 },
   { name: 'Samantha Carter', clearance: 8 },
@@ -222,13 +222,11 @@ users = [
   { name: 'Scott Schupbach', clearance: 8 }
 ]
 
-users.each do |user|
-  User.create(
-    name: user[:name],
-    email: "#{user[:name].gsub(/[\s\']/, '').downcase}@stargate-command.gov",
-    password_digest: BCrypt::Password.create('password'),
-    session_token: SecureRandom.urlsafe_base64,
+travelers.each do |traveler|
+  Traveler.create(
+    name: traveler[:name],
+    email: "#{traveler[:name].gsub(/[\s\']/, '').downcase}@stargate-command.gov",
     sgtid: SecureRandom.urlsafe_base64(10),
-    clearance:  user[:clearance]
+    clearance:  traveler[:clearance]
   )
 end

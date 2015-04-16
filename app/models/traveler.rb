@@ -13,7 +13,7 @@
 #  updated_at      :datetime         not null
 #
 
-class User < ActiveRecord::Base
+class Traveler < ActiveRecord::Base
   validates_presence_of :name, :sgtid
   validates :password, length: {minimum: 6, allow_nil: true }
 
@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
 
   has_and_belongs_to_many(:companions,
     join_table: :companionships,
-    foreign_key: :primary_id,
+    foreign_key: :reserver_id,
     association_foreign_key: :companion_id
   )
 

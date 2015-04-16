@@ -2188,3 +2188,98 @@ LINE 2:       trip_date BETWEEN '2015-05-03' AND '2015-05-03')
 [04/16/15 03:00:52 -0700 MacLappy (62955)] INFO : Doing deferred dependency-detection before Rack startup
 [04/16/15 03:00:56 -0700 MacLappy (62955)] ERROR : Invalid license key, please contact support@newrelic.com
 [04/16/15 03:00:56 -0700 MacLappy (62955)] ERROR : Visit NewRelic.com to obtain a valid license key, or to upgrade your account.
+[04/16/15 09:59:50 -0700 MacLappy (65690)] INFO : Starting the New Relic agent in "development" environment.
+[04/16/15 09:59:50 -0700 MacLappy (65690)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[04/16/15 09:59:50 -0700 MacLappy (65690)] INFO : Reading configuration from config/newrelic.yml (/Users/Scott/Copy/appacademy/puddlejumper)
+[04/16/15 09:59:50 -0700 MacLappy (65690)] INFO : New Relic Agent Developer Mode enabled.
+[04/16/15 09:59:50 -0700 MacLappy (65690)] ERROR : No application name configured.
+[04/16/15 09:59:50 -0700 MacLappy (65690)] ERROR : The Agent cannot start without at least one. Please check your 
+[04/16/15 09:59:50 -0700 MacLappy (65690)] ERROR : newrelic.yml and ensure that it is valid and has at least one 
+[04/16/15 09:59:50 -0700 MacLappy (65690)] ERROR : value set for app_name in the development 
+[04/16/15 09:59:50 -0700 MacLappy (65690)] ERROR : environment.
+[04/16/15 09:59:50 -0700 MacLappy (65690)] INFO : Installing ActiveJob instrumentation
+[04/16/15 09:59:50 -0700 MacLappy (65690)] INFO : Installing ActiveRecord 4 instrumentation
+[04/16/15 09:59:50 -0700 MacLappy (65690)] INFO : Installing Net instrumentation
+[04/16/15 09:59:50 -0700 MacLappy (65690)] INFO : Installing deferred Rack instrumentation
+[04/16/15 09:59:50 -0700 MacLappy (65690)] INFO : Installing Rack::Builder middleware instrumentation
+[04/16/15 09:59:50 -0700 MacLappy (65690)] INFO : Installing Rails 3+ middleware instrumentation
+[04/16/15 09:59:50 -0700 MacLappy (65690)] INFO : Installing Rails 4 Controller instrumentation
+[04/16/15 09:59:50 -0700 MacLappy (65690)] INFO : Installing Rails 4 view instrumentation
+[04/16/15 09:59:50 -0700 MacLappy (65690)] INFO : Installing Rails 4 Error instrumentation
+[04/16/15 09:59:50 -0700 MacLappy (65690)] INFO : Finished instrumentation
+[04/16/15 10:10:00 -0700 MacLappy (66081)] INFO : Starting the New Relic agent in "development" environment.
+[04/16/15 10:10:00 -0700 MacLappy (66081)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[04/16/15 10:10:00 -0700 MacLappy (66081)] INFO : Reading configuration from config/newrelic.yml (/Users/Scott/Copy/appacademy/puddlejumper)
+[04/16/15 10:10:00 -0700 MacLappy (66081)] INFO : New Relic Agent Developer Mode enabled.
+[04/16/15 10:10:00 -0700 MacLappy (66081)] ERROR : No application name configured.
+[04/16/15 10:10:00 -0700 MacLappy (66081)] ERROR : The Agent cannot start without at least one. Please check your 
+[04/16/15 10:10:00 -0700 MacLappy (66081)] ERROR : newrelic.yml and ensure that it is valid and has at least one 
+[04/16/15 10:10:00 -0700 MacLappy (66081)] ERROR : value set for app_name in the development 
+[04/16/15 10:10:00 -0700 MacLappy (66081)] ERROR : environment.
+[04/16/15 10:10:00 -0700 MacLappy (66081)] INFO : Installing ActiveJob instrumentation
+[04/16/15 10:10:00 -0700 MacLappy (66081)] INFO : Installing ActiveRecord 4 instrumentation
+[04/16/15 10:10:00 -0700 MacLappy (66081)] INFO : Installing Net instrumentation
+[04/16/15 10:10:00 -0700 MacLappy (66081)] INFO : Installing deferred Rack instrumentation
+[04/16/15 10:10:00 -0700 MacLappy (66081)] INFO : Installing Rack::Builder middleware instrumentation
+[04/16/15 10:10:00 -0700 MacLappy (66081)] INFO : Installing Rails 3+ middleware instrumentation
+[04/16/15 10:10:00 -0700 MacLappy (66081)] INFO : Installing Rails 4 Controller instrumentation
+[04/16/15 10:10:00 -0700 MacLappy (66081)] INFO : Installing Rails 4 view instrumentation
+[04/16/15 10:10:00 -0700 MacLappy (66081)] INFO : Installing Rails 4 Error instrumentation
+[04/16/15 10:10:00 -0700 MacLappy (66081)] INFO : Finished instrumentation
+[04/16/15 10:10:45 -0700 MacLappy (66240)] INFO : Starting the New Relic agent in "development" environment.
+[04/16/15 10:10:45 -0700 MacLappy (66240)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[04/16/15 10:10:45 -0700 MacLappy (66240)] INFO : Reading configuration from config/newrelic.yml (/Users/Scott/Copy/appacademy/puddlejumper)
+[04/16/15 10:10:45 -0700 MacLappy (66240)] INFO : New Relic Agent Developer Mode enabled.
+[04/16/15 10:10:45 -0700 MacLappy (66240)] ERROR : No application name configured.
+[04/16/15 10:10:45 -0700 MacLappy (66240)] ERROR : The Agent cannot start without at least one. Please check your 
+[04/16/15 10:10:45 -0700 MacLappy (66240)] ERROR : newrelic.yml and ensure that it is valid and has at least one 
+[04/16/15 10:10:45 -0700 MacLappy (66240)] ERROR : value set for app_name in the development 
+[04/16/15 10:10:45 -0700 MacLappy (66240)] ERROR : environment.
+[04/16/15 10:10:45 -0700 MacLappy (66240)] INFO : Installing ActiveJob instrumentation
+[04/16/15 10:10:45 -0700 MacLappy (66240)] INFO : Installing ActiveRecord 4 instrumentation
+[04/16/15 10:10:45 -0700 MacLappy (66240)] INFO : Installing Net instrumentation
+[04/16/15 10:10:45 -0700 MacLappy (66240)] INFO : Installing deferred Rack instrumentation
+[04/16/15 10:10:45 -0700 MacLappy (66240)] INFO : Installing Rack::Builder middleware instrumentation
+[04/16/15 10:10:45 -0700 MacLappy (66240)] INFO : Installing Rails 3+ middleware instrumentation
+[04/16/15 10:10:45 -0700 MacLappy (66240)] INFO : Installing Rails 4 Controller instrumentation
+[04/16/15 10:10:45 -0700 MacLappy (66240)] INFO : Installing Rails 4 view instrumentation
+[04/16/15 10:10:45 -0700 MacLappy (66240)] INFO : Installing Rails 4 Error instrumentation
+[04/16/15 10:10:45 -0700 MacLappy (66240)] INFO : Finished instrumentation
+[04/16/15 10:11:43 -0700 MacLappy (66400)] INFO : Starting the New Relic agent in "development" environment.
+[04/16/15 10:11:43 -0700 MacLappy (66400)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[04/16/15 10:11:43 -0700 MacLappy (66400)] INFO : Reading configuration from config/newrelic.yml (/Users/Scott/Copy/appacademy/puddlejumper)
+[04/16/15 10:11:43 -0700 MacLappy (66400)] INFO : New Relic Agent Developer Mode enabled.
+[04/16/15 10:11:43 -0700 MacLappy (66400)] ERROR : No application name configured.
+[04/16/15 10:11:43 -0700 MacLappy (66400)] ERROR : The Agent cannot start without at least one. Please check your 
+[04/16/15 10:11:43 -0700 MacLappy (66400)] ERROR : newrelic.yml and ensure that it is valid and has at least one 
+[04/16/15 10:11:43 -0700 MacLappy (66400)] ERROR : value set for app_name in the development 
+[04/16/15 10:11:43 -0700 MacLappy (66400)] ERROR : environment.
+[04/16/15 10:11:43 -0700 MacLappy (66400)] INFO : Installing ActiveJob instrumentation
+[04/16/15 10:11:43 -0700 MacLappy (66400)] INFO : Installing ActiveRecord 4 instrumentation
+[04/16/15 10:11:43 -0700 MacLappy (66400)] INFO : Installing Net instrumentation
+[04/16/15 10:11:43 -0700 MacLappy (66400)] INFO : Installing deferred Rack instrumentation
+[04/16/15 10:11:43 -0700 MacLappy (66400)] INFO : Installing Rack::Builder middleware instrumentation
+[04/16/15 10:11:43 -0700 MacLappy (66400)] INFO : Installing Rails 3+ middleware instrumentation
+[04/16/15 10:11:43 -0700 MacLappy (66400)] INFO : Installing Rails 4 Controller instrumentation
+[04/16/15 10:11:44 -0700 MacLappy (66400)] INFO : Installing Rails 4 view instrumentation
+[04/16/15 10:11:44 -0700 MacLappy (66400)] INFO : Installing Rails 4 Error instrumentation
+[04/16/15 10:11:44 -0700 MacLappy (66400)] INFO : Finished instrumentation
+[04/16/15 10:11:58 -0700 MacLappy (66506)] INFO : Starting the New Relic agent in "development" environment.
+[04/16/15 10:11:58 -0700 MacLappy (66506)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[04/16/15 10:11:58 -0700 MacLappy (66506)] INFO : Reading configuration from config/newrelic.yml (/Users/Scott/Copy/appacademy/puddlejumper)
+[04/16/15 10:11:58 -0700 MacLappy (66506)] INFO : New Relic Agent Developer Mode enabled.
+[04/16/15 10:11:58 -0700 MacLappy (66506)] ERROR : No application name configured.
+[04/16/15 10:11:58 -0700 MacLappy (66506)] ERROR : The Agent cannot start without at least one. Please check your 
+[04/16/15 10:11:58 -0700 MacLappy (66506)] ERROR : newrelic.yml and ensure that it is valid and has at least one 
+[04/16/15 10:11:58 -0700 MacLappy (66506)] ERROR : value set for app_name in the development 
+[04/16/15 10:11:58 -0700 MacLappy (66506)] ERROR : environment.
+[04/16/15 10:11:58 -0700 MacLappy (66506)] INFO : Installing ActiveJob instrumentation
+[04/16/15 10:11:58 -0700 MacLappy (66506)] INFO : Installing ActiveRecord 4 instrumentation
+[04/16/15 10:11:58 -0700 MacLappy (66506)] INFO : Installing Net instrumentation
+[04/16/15 10:11:58 -0700 MacLappy (66506)] INFO : Installing deferred Rack instrumentation
+[04/16/15 10:11:58 -0700 MacLappy (66506)] INFO : Installing Rack::Builder middleware instrumentation
+[04/16/15 10:11:58 -0700 MacLappy (66506)] INFO : Installing Rails 3+ middleware instrumentation
+[04/16/15 10:11:58 -0700 MacLappy (66506)] INFO : Installing Rails 4 Controller instrumentation
+[04/16/15 10:11:59 -0700 MacLappy (66506)] INFO : Installing Rails 4 view instrumentation
+[04/16/15 10:11:59 -0700 MacLappy (66506)] INFO : Installing Rails 4 Error instrumentation
+[04/16/15 10:11:59 -0700 MacLappy (66506)] INFO : Finished instrumentation

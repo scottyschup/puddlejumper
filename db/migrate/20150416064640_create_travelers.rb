@@ -1,10 +1,8 @@
-class CreateUsers < ActiveRecord::Migration
+class CreateTravelers < ActiveRecord::Migration
   def change
-    create_table :users do |t|
+    create_table :travelers do |t|
       t.string :name, null: false, index: true
       t.string :email
-      t.string :password_digest, index: true
-      t.string :session_token, nidex: true
       t.string :sgtid, index: { unique: true }
       t.integer :clearance, default: 4
 

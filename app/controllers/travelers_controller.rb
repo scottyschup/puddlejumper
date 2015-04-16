@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+class TravelersController < ApplicationController
   def new; end
 
   def create
