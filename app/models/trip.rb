@@ -8,7 +8,7 @@
 #  remaining_space :integer
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
-#  datetime        :datetime         not null
+#  datetime        :datetime
 #
 
 class Trip < ActiveRecord::Base
@@ -16,4 +16,6 @@ class Trip < ActiveRecord::Base
 
   belongs_to :origin, class_name: :Planet, foreign_key: :origin_id
   belongs_to :destination, class_name: :Planet, foreign_key: :destination_id
+
+  has_and_belongs_to_many :itineraries
 end

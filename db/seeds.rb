@@ -195,3 +195,40 @@ until time >= end_time
     time += 17.minutes
   end
 end
+
+# Users
+users = [
+  { name: "Jack O'Neill", clearance: 8 },
+  { name: 'George Hammond', clearance: 8 },
+  { name: 'Samantha Carter', clearance: 8 },
+  { name: 'Daniel Jackson', clearance: 8 },
+  { name: "Teal'c", clearance: 8 },
+  { name: 'Jacob Carter', clearance: 8 },
+  { name: 'Rodney McKay', clearance: 8 },
+  { name: 'Cameron Mitchell', clearance: 8 },
+  { name: 'Jonas Quinn', clearance: 8 },
+  { name: 'Janet Fraiser', clearance: 7 },
+  { name: 'Hank Landry', clearance: 8 },
+  { name: "Bra'tac", clearance: 7 },
+  { name: 'John Sheppard', clearance: 8 },
+  { name: 'Elizabeth Weir', clearance: 8 },
+  { name: 'Ronon Dex', clearance: 7 },
+  { name: 'Teyla Emmagan', clearance: 7 },
+  { name: 'Carson Beckett', clearance: 7 },
+  { name: 'Jennifer Keller', clearance: 7 },
+  { name: 'Vala Mal Doran', clearance: 5 },
+  { name: 'Robert Kinsey', clearance: 5 },
+  { name: 'Harry Maybourne', clearance: 6 },
+  { name: 'Scott Schupbach', clearance: 8 }
+]
+
+users.each do |user|
+  User.create(
+    name: user[:name],
+    email: "#{user[:name].gsub(/[\s\']/, '').downcase}@stargate-command.gov",
+    password_digest: BCrypt::Password.create('password'),
+    session_token: SecureRandom.urlsafe_base64,
+    sgtid: SecureRandom.urlsafe_base64(10),
+    clearance:  user[:clearance]
+  )
+end

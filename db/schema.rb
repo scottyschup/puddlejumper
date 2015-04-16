@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150408163814) do
+ActiveRecord::Schema.define(version: 20150416064640) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,5 +46,20 @@ ActiveRecord::Schema.define(version: 20150408163814) do
   add_index "trips", ["destination_id"], name: "index_trips_on_destination_id", using: :btree
   add_index "trips", ["origin_id", "destination_id"], name: "index_trips_on_origin_id_and_destination_id", using: :btree
   add_index "trips", ["origin_id"], name: "index_trips_on_origin_id", using: :btree
+
+  create_table "users", force: :cascade do |t|
+    t.string   "name",                        null: false
+    t.string   "email"
+    t.string   "password_digest"
+    t.string   "session_token"
+    t.string   "sgtid"
+    t.integer  "clearance",       default: 4
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+  end
+
+  add_index "users", ["name"], name: "index_users_on_name", using: :btree
+  add_index "users", ["password_digest"], name: "index_users_on_password_digest", using: :btree
+  add_index "users", ["sgtid"], name: "index_users_on_sgtid", unique: true, using: :btree
 
 end
