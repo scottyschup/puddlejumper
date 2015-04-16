@@ -14,6 +14,7 @@
 #
 
 class Traveler < ActiveRecord::Base
+  before_save :assign_new_sgtid
   validates_presence_of :name, :sgtid
   validates :password, length: {minimum: 6, allow_nil: true }
 
@@ -26,5 +27,9 @@ class Traveler < ActiveRecord::Base
   )
 
   has_and_belongs_to_many :itineraries
+
+  def assign_new_sgtid
+    self.sgtid ||= SecureRandom.urlsafe_base64(10)
+  end
 
 end

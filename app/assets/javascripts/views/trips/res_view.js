@@ -10,6 +10,7 @@ PuddleJumper.Views.TripResView = Backbone.View.extend({
   events: {
     "click .reserve": "reserveTrip",
     "click .close": "closeResView",
+    "click a.get-new-id": "getNewSgtid",
   },
 
   render: function () {
@@ -37,7 +38,8 @@ PuddleJumper.Views.TripResView = Backbone.View.extend({
   },
 
   reserveTrip: function (ev) {
-    // var data = $(".reservationForm").serializeJSON;
+    var data = $(".res-form form").serializeJSON();
+    
+  },
 
-  }
 });

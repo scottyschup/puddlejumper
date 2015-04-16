@@ -1,3 +1,4 @@
 PuddleJumper.Models.Trip = Backbone.Model.extend({
-  urlRoot: 'api/trip'
+  urlRoot: 'api/trip',
+
 });

@@ -36,11 +36,21 @@ body p {
 }
 
 .loading img {
-  box-shadow: 0 0 70px #000;
+  -webkit-box-reflect:
+    below
+    0px
+    -webkit-gradient(
+      linear,
+      left top,
+      left bottom,
+      from(transparent),
+      color-stop(50%, transparent),
+      to(rgba(255, 255, 255, 0.2))
+    );
 }
 
-.stargate-shimmer {
-  width: 50%;
+.stargate-loading {
+  width: 800px;
   margin: 0px auto;
 }
 
@@ -197,7 +207,6 @@ select.flex-dates-select {
 
 .btn {
   background-color: $site-orange;
-  /* border: 2px solid $site-orange; */
   border-radius: 2px;
   border: none;
   color: #fff;
@@ -281,17 +290,23 @@ input.datepicker {
 
 .arrow {
   height: 7px;
+  width: 20px;
   margin: 5px;
+  background-size: contain !important;
 }
 
 .double-arrow {
-  background: url(<%= image_path 'double-arrow.png' %>);
-  width: 20px;
+  background: url(<%= image_path 'double-arrow.png' %>) no-repeat left;
 }
 
 .right-arrow {
   background: url(<%= image_path 'right-arrow.png' %>);
   width: 15px;
+}
+
+.large-arrow {
+  height: 17px;
+  width: 50px;
 }
 
 .details-item .arrow {
@@ -445,8 +460,45 @@ li.change-btn {
 }
 
 .tripRes btn {
-   float: left;
-   margin: 0 auto;
+  display: block;
+  margin: 10px auto;
+}
+
+.res-title {
+  width: 100%
+}
+
+.res-title-planet {
+  width: 40%
+}
+
+.res-title-planet .planet-name {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.alias, .date-time, .galaxy {
+  clear: both;
+}
+
+.date-time * {
+  margin: 5px auto;
+}
+
+.alias, .date-time {
+  font-size: 14px;
+}
+
+.clearance {
+  color: $site-orange
 }
 
 // Reservation Form
@@ -454,32 +506,31 @@ li.change-btn {
 .res-form input,
 .res-form button,
 .res-form h3,
-.res-form h4 {
+.res-form h4,
+.res-form p {
   display: block;
   float: left;
   font-size: 16px;
 }
 
-.res-form label, .res-form fieldset, .res-form a {
-  clear: left;
+.res-form h3 {
+  font-size: 18px;
 }
 
-.res-form a {
-  margin-left: 33%;
+.res-form p {
+  margin-left: 35%;
+  font-size: 14px;
 }
 
 .res-form label {
+  clear: left;
   width: 33%;
   text-align: right;
 }
 
-.res-form input, .res-form a {
+.res-form input {
   width: 57%;
   font-size: 14px;
   color: $site-orange;
   font-weight: 500;
-}
-
-.res-form .email {
-  width: 45%;
 }

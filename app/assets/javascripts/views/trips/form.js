@@ -81,14 +81,16 @@ PuddleJumper.Views.TripSearchForm = Backbone.View.extend({
             setTimeout(function () {
               $("#arrive-date").val(moment(_.sample(rDates)).format("ddd M/D"));
               $("#ui-datepicker-div").hide();
-              $(".date-tabs li:last-child").trigger('click');
               setTimeout(function () {
-                $('option select').removeAttr('selected');
-                $(".flex-dates-select option:last-child").attr('selected', 'selected');
+                $(".date-tabs li:last-child").trigger('click');
                 setTimeout(function () {
-                  $("#trip-search-submit").trigger('click');
-                }, 1000);
-              }, 700);
+                  $('option select').removeAttr('selected');
+                  $(".arrive select option:last-child").attr('selected', 'selected');
+                  setTimeout(function () {
+                    $("#trip-search-submit").trigger('click');
+                  }, 1000);
+                }, 700);
+              }, 500);
             }, 1000);
           }, 1000);
         }, 700);
