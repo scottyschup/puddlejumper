@@ -11,8 +11,8 @@ PuddleJumper.Views.TripSearchForm = Backbone.View.extend({
   },
 
   initialize: function (options) {
-    // this.listenTo(PuddleJumper.planets, 'sync', this.activateTypeahead);
-    this.prevSearch = options.prevSearch;
+    this.listenTo(PuddleJumper.planets, 'sync', this.render);
+    this.prevSearch = _.last(PuddleJumper.searchHistory.trips)
   },
 
   render: function () {
@@ -21,16 +21,14 @@ PuddleJumper.Views.TripSearchForm = Backbone.View.extend({
     var content = this.template();
     this.$el.html(content);
 
-    if (this.prevSearch && this.prevSearch.isFetched()) {
-      setTimeout(function () {
+    setTimeout(function () {
+      this.activateTypeahead();
+      if (this.prevSearch && this.prevSearch.isFetched()) {
         this.refillForm();
         $("#from-box").select();
-      }.bind(this), 1);
-    }
+      }
+    }.bind(this), 1);
 
-    setTimeout(function () {
-      this.activateTypeahead()
-    }.bind(this), 100);
     return this;
   },
 
@@ -89,7 +87,7 @@ PuddleJumper.Views.TripSearchForm = Backbone.View.extend({
                 $(".flex-dates-select option:last-child").attr('selected', 'selected');
                 setTimeout(function () {
                   $("#trip-search-submit").trigger('click');
-                }, 500);
+                }, 1000);
               }, 700);
             }, 1000);
           }, 1000);
@@ -161,7 +159,7 @@ PuddleJumper.Views.TripSearchForm = Backbone.View.extend({
   slowType: function ($el, word, callback) {
     var currVal = "", currChar;
     $el.select()
-    word = word.slice(0, 4);
+    word = word.slice(0, 3);
 
     var slowTyping = setInterval(function () {
       currChar = word.slice(0, 1).toLowerCase();
@@ -179,10 +177,10 @@ PuddleJumper.Views.TripSearchForm = Backbone.View.extend({
           $firstSuggestion.trigger('click');
           setTimeout(function () {
             callback.call();
-          }, 500);
-        }, 500);
+          }, 1000);
+        }, 700);
       }
-    }.bind(this), 250);
+    }.bind(this), 200);
   },
 
   submit: function (ev) {
@@ -191,7 +189,7 @@ PuddleJumper.Views.TripSearchForm = Backbone.View.extend({
     PuddleJumper.tripSearch.fetch({
       data: data
     });
-    this.deactivateTypeahead();
+    // this.deactivateTypeahead();
     Backbone.history.navigate("trips", { trigger: true });
   },
 

@@ -197,16 +197,24 @@ select.flex-dates-select {
 
 .btn {
   background-color: $site-orange;
-  border: 2px solid $site-orange;
+  /* border: 2px solid $site-orange; */
   border-radius: 2px;
+  border: none;
   color: #fff;
   font-size: 16px;
   font-weight: 500;
   height: 46px;
   padding: 1px;
-  margin: 0;
+  margin: 2px;
   position: relative;
+  top: -1px;
   width: 130px;
+}
+
+.btn-small {
+  height: 25px;
+  font-size: 14px;
+  font-weight: 400;
 }
 
 .datepicker-container {
@@ -401,21 +409,21 @@ li.change-btn {
 }
 
 .tripRes {
-  width: 500px;
+  width: 700px;
+  max-height: 600px;
+  overflow: scroll;
   margin: 0 auto;
   display: block;
   position: relative;
   z-index: 11;
   top: -100%;
-  height: 60%;
-  left: 25%;
   background: #fff;
   padding: 10px;
   transition: top .5s ease;
 }
 
 .tripRes.active {
-  top: 20%;
+  top: 75px;
 }
 
 .tripRes * {
@@ -434,4 +442,40 @@ li.change-btn {
 
 .description {
   clear: left;
+}
+
+.tripRes btn {
+   float: left;
+   margin: 0 auto;
+}
+
+// Reservation Form
+.res-form label, input, button, h3, h4 {
+  display: block;
+  float: left;
+  font-size: 16px;
+}
+
+.res-form label, fieldset, a {
+  clear: left;
+}
+
+.res-form a {
+  margin-left: 33%;
+}
+
+.res-form label {
+  width: 33%;
+  text-align: right;
+}
+
+.res-form input, a {
+  width: 57%;
+  font-size: 14px;
+  color: $site-orange;
+  font-weight: 500;
+}
+
+.res-form .email {
+  width: 45%;
 }

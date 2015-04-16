@@ -53,7 +53,7 @@ PuddleJumper.Views.TripResultsIndex = Backbone.CompositeView.extend({
       this.$el.html(content);
       setTimeout(function () {
         this.tryRenderingAgain();
-      }.bind(this), 1500);
+      }.bind(this), 2000);
     }
     return this;
   },

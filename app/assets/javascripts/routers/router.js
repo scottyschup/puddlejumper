@@ -3,10 +3,8 @@ PuddleJumper.Router = Backbone.Router.extend({
     this.$rootEl = $rootEl;
     PuddleJumper.planets = new PuddleJumper.Collections.Planets();
     PuddleJumper.planets.fetch();
-    if (!PuddleJumper.tripSearch) {
-      Backbone.history.navigate("", { trigger: true });
-      PuddleJumper.tripSearch = new PuddleJumper.Models.TripSearch();
-    }
+    PuddleJumper.tripSearch = new PuddleJumper.Models.TripSearch();
+    PuddleJumper.searchHistory = {};
   },
 
   routes: {
@@ -20,15 +18,15 @@ PuddleJumper.Router = Backbone.Router.extend({
     $(".nav-left *").removeClass("current-page");
     $("#gates > a").addClass("current-page");
 
-    var prevSearch;
-    if (PuddleJumper.tripSearch) {
-      prevSearch = PuddleJumper.tripSearch;
+    if (!PuddleJumper.searchHistory.trips) {
+      PuddleJumper.searchHistory.trips = [];
+    } else if (PuddleJumper.tripSearch.isFetched()) {
+      PuddleJumper.searchHistory.trips.push(PuddleJumper.tripSearch);
     }
+    PuddleJumper.tripSearch = new PuddleJumper.Models.TripSearch();
 
-    PuddleJumper.tripSearch = new PuddleJumper.Models.TripSearch(); //reset search results
     var tripsFormView = new PuddleJumper.Views.TripSearchForm({
       planets: PuddleJumper.planets,
-      prevSearch: prevSearch
     });
     this._swapView(tripsFormView);
   },

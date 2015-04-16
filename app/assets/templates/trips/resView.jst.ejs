@@ -13,7 +13,7 @@
       <%= planets.origin.get("clearance") %>
     </dd>
     <dd class="planet-detail-item description">
-      <%= planets.origin.get("description") %>
+      <%= planets.origin.get("desc") %>
     </dd>
   </dl>
 </div>
@@ -35,7 +35,7 @@
       <%= planets.destination.get("clearance") %>
     </dd>
     <dd class="planet-detail-item description">
-      <%= planets.destination.get("description") %>
+      <%= planets.destination.get("desc") %>
     </dd>
   </dl>
 </div>
@@ -46,5 +46,36 @@
   <% }) %>
 </div>
 
-<button class="reserve btn">Reserve This Trip</button>
-<button class="close btn">Back to All Trips</button>
+<button class="close btn btn-small">Back to All Trips</button>
+
+<div class="res-form clearfix">
+  <form>
+    <h3>Enter traveler details</h3>
+    <label class=email>Confirmation email address (optional)</label>
+    <input type="text"
+      class=email
+      name="res[email]"
+      placeholder='Enter email address (optional)'>
+
+    <% for (var i = 1; i <= PuddleJumper.tripSearch.data().numTravelers; i ++) { %>
+      <div class=traveler-info>
+        <h4>Passenger #<%= i %></h4>
+        <label class=name>Traveler Name </label>
+        <input type="text"
+          name="res[name][<%= i %>]"
+          placeholder="Enter full name">
+
+        <label class=st-id>Stargate Traveler ID Number </label>
+        <input type="text"
+          name="res[sgtid][<%= i %>]"
+          placeholder="Enter STID">
+
+        <a href="javascript:void(0)" class="get-new-id">I don't have a STID</a>
+      </div>
+    <% } %>
+
+  </form>
+</div>
+
+<button class="close btn btn-small">Back to All Trips</button>
+<button class="reserve btn btn-small">Reserve This Trip</button>
