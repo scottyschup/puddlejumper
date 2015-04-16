@@ -1,5 +1,5 @@
-PuddleJumper.Collections.Users = Backbone.Collection.extend({
-  url: 'api/users',
-  model: Puddlejumper.Models.User,
+PuddleJumper.Collections.Travelers = Backbone.Collection.extend({
+  url: 'api/travelers',
+  model: PuddleJumper.Models.Traveler,
 
 });
