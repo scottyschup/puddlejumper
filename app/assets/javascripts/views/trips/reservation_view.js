@@ -1,10 +1,9 @@
 PuddleJumper.Views.TripResView = Backbone.View.extend({
-  template: JST['trips/resView'],
+  template: JST['trips/reservationView'],
   className: 'tripRes',
 
   initialize: function (options) {
-    this.planets = options.planets;
-    this.trip = options.trip;
+    this.fullTrip = options.fullTrip;
   },
 
   events: {
@@ -17,8 +16,7 @@ PuddleJumper.Views.TripResView = Backbone.View.extend({
     $("#modal").removeClass("inactive");
     setTimeout(function () { $("#modal").addClass("active"); }, 100);
     var content = this.template({
-      planets: this.planets,
-      trip: this.trip
+      fullTrip: this.fullTrip
     });
     this.$el.html(content);
     setTimeout(function () {
@@ -39,7 +37,7 @@ PuddleJumper.Views.TripResView = Backbone.View.extend({
 
   reserveTrip: function (ev) {
     var data = $(".res-form form").serializeJSON();
-    
+
   },
 
 });

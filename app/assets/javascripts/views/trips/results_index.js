@@ -18,7 +18,6 @@ PuddleJumper.Views.TripResultsIndex = Backbone.CompositeView.extend({
     // details subview
     var tripDetailsView = new PuddleJumper.Views.TripResultsDetails({
       results: this.results,
-      planets: this.planets
     });
     this.addSubview('.trip-details', tripDetailsView);
 

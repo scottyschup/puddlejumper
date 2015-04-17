@@ -1,0 +1,81 @@
+<div class="res-title clearfix">
+  <% var departure = fullTrip.departure %>
+  <% var arrival = fullTrip.arrival %>
+  <% var summary = '' %>
+  <% _.each([departure, arrival], function (trip) { %>
+    <dl class="res-title-planet <%= trip === departure ? 'left' : 'right' %>">
+      <dt class="planet-detail-item planet-name">
+        <%= trip.origin.get("name") %>
+      </dt>
+      <dd class="planet-detail-item alias">
+        (also known as <%= trip.origin.get("alias") %>)
+      </dd>
+      <dd class="planet-detail-item galaxy">
+        <%= trip.origin.get("galaxy") %> galaxy
+      </dd>
+      <dd class="planet-detail-item clearance">
+        Level <%= trip.origin.get("clearance") %> clearance required
+      </dd>
+      <dd class="planet-detail-item description">
+        <%= trip.origin.get("desc") %>
+      </dd>
+    </dl>
+    <% summary += trip === departure ? "<p>Departs from " : "Returns from " %>
+    <% summary += trip.origin.get("name") + " at " %>
+    <% summary += moment(trip.get("datetime")).format("HH:mm") + " on " %>
+    <% summary += moment(trip.get("datetime")).format("dddd, MMMM Do") + "</p>"%>
+
+  <% }); %>
+  <div class="arrow large-arrow double-arrow left clearfix"></div>
+  <div class="summary"><%= summary %></div>
+  <button class="close btn btn-small">Back to All Trips</button>
+</div>
+
+
+<div class="res-form clearfix">
+  <form>
+    <input type=hidden
+      name=res[trip_attributes][departure][id]
+      value="<%= fullTrip.departure.id %>">
+
+    <input type=hidden
+      name=res[trip_attributes][arrival][id]
+      value="<%= fullTrip.arrival.id %>">
+
+    <h1>Enter traveler details</h1>
+
+
+    <% for (var i = 0; i < PuddleJumper.tripSearch.numTravelers; i ++) { %>
+      <div class=traveler-info>
+        <h2>
+          <%= i === 0 ? "Your Information" : "Travel Companion #" + i %>
+        </h2>
+        <label class=name>Traveler name </label>
+        <input type="text"
+          name="res[travelers_attributes][<%= i %>][name]"
+          placeholder="Enter full name">
+
+        <% if (i === 0) { %>
+          <label class=email>Confirmation email address</label>
+          <input type="text"
+            class=email
+            name="res[travelers_attributes][<%= i %>][email]"
+            placeholder='Enter email address (optional)'>
+        <% } %>
+
+        <label class=st-id>Stargate Traveler ID number </label>
+        <input type="text"
+          name="res[travelers_attributes][<%= i %>][sgtid]"
+          placeholder="Enter SGT ID number, if you have one">
+
+        <p class=no-sgtid>
+          If you do not have an SGT ID, leave this blank and one will be assigned.
+        </p>
+      </div>
+    <% } %>
+
+    <button class="reserve btn btn-small">Reserve This Trip</button>
+  </form>
+</div>
+
+<button class="close btn btn-small">Back to All Trips</button>

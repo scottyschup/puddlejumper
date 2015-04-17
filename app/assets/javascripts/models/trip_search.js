@@ -27,6 +27,7 @@ PuddleJumper.Models.TripSearch = Backbone.Model.extend({
 
     this.origin = this.departures().models[0].origin;
     this.destination = this.departures().models[0].destination;
+    this.numTravelers = response.numTravelers;
 
     return response
   },
@@ -108,15 +109,4 @@ PuddleJumper.Models.TripSearch = Backbone.Model.extend({
     });
     return least;
   }
-  //
-  // data: function () {
-  //   var data = this.attributes;
-  //   data.originName = this.planetName('originId');
-  //   data.destinationName = this.planetName('destinationId');
-  //   data.numTrips = this.numTrips();
-  //   data.arrivalDate = moment(this.getEarliestDate('arrivals'));
-  //   data.departureDate = moment(this.getEarliestDate('departures'));
-  //   data.hasFlexDates = this.hasFlexDates();
-  //   return data;
-  // }
 });

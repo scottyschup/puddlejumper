@@ -20,13 +20,7 @@ PuddleJumper.Views.TripResultsIndexItem = Backbone.CompositeView.extend({
   },
 
   openResView: function (ev) {
-    var thesePlanets = {
-      origin: PuddleJumper.planets.get(this.fullTrip.origin_id),
-      destination: PuddleJumper.planets.get(this.fullTrip.destination_id)
-    };
-
     var resView = new PuddleJumper.Views.TripResView({
-      planets: thesePlanets,
       fullTrip: this.fullTrip
     });
 
