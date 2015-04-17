@@ -5,6 +5,7 @@ PuddleJumper.Router = Backbone.Router.extend({
     PuddleJumper.planets.fetch();
     PuddleJumper.tripSearch = new PuddleJumper.Models.TripSearch();
     PuddleJumper.searchHistory = {};
+    PuddleJumper.searchHistory.trips = [];
   },
 
   routes: {
@@ -18,9 +19,7 @@ PuddleJumper.Router = Backbone.Router.extend({
     $(".nav-left *").removeClass("current-page");
     $("#gates > a").addClass("current-page");
 
-    if (!PuddleJumper.searchHistory.trips) {
-      PuddleJumper.searchHistory.trips = [];
-    } else if (PuddleJumper.tripSearch.isFetched()) {
+    if (PuddleJumper.tripSearch.fetched) {
       PuddleJumper.searchHistory.trips.push(PuddleJumper.tripSearch);
     }
     PuddleJumper.tripSearch = new PuddleJumper.Models.TripSearch();
@@ -32,7 +31,10 @@ PuddleJumper.Router = Backbone.Router.extend({
   },
 
   tripResultsIndex: function () {
-    var tripResultsIndexView = new PuddleJumper.Views.TripResultsIndex();
+    var tripResultsIndexView = new PuddleJumper.Views.TripResultsIndex({
+      results: PuddleJumper.tripSearch,
+      planets: PuddleJumper.planets
+    });
 
     this._swapView(tripResultsIndexView);
   },
@@ -46,12 +48,16 @@ PuddleJumper.Router = Backbone.Router.extend({
   shipSearchForm: function () {
     $(".nav-left *").removeClass("current-page");
     $("#ships > a").addClass("current-page");
+    alert("Coming Soon!");
+    Backbone.history.navigate("", { trigger: true });
 
   },
 
   lodgingSearchForm: function () {
     $(".nav-left *").removeClass("current-page");
     $("#lodging > a").addClass("current-page");
+    alert("Coming Soon!");
+    Backbone.history.navigate("", { trigger: true });
 
   }
 });

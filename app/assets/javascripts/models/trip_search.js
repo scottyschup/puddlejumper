@@ -1,91 +1,122 @@
 PuddleJumper.Models.TripSearch = Backbone.Model.extend({
   urlRoot: 'api/trips',
 
-  allTrips: function () {
-    this._departures = this.get('departures');
-    this._allTrips = [];
+  initialize: function () {
+    this.fetched = false;
+  },
 
-    if (this._departures.length > 0) {
-      this._arrivals = this.get('arrivals');
+  parse: function (response) {
+    this.departures().set(response.departures, { parse: true });
+    delete response.departures;
 
-      if (this._arrivals.length > 0 ? this.isRoundtrip() : !this.isRoundtrip()) {
-        // the above line makes sure roundtrips have arrivals and one-way trips do not
+    if (response.arrivals) {
+      this.roundtrip = true;
+      this.arrivals().set(response.arrivals, { parse: true });
+      delete response.arrivals;
+    } else {
+      this.roundtrip = false;
+    }
 
-        var departure_time, arrival_time
-        for (var i = 0; i < this._departures.length; i++) {
-          departure_time = this._departures[i].datetime;
-          if (this.isRoundtrip()) {
-            for (var j = 0; j < this._arrivals.length; j++) {
-              arrival_time = this._arrivals[j].datetime;
-              if (moment(departure_time) < moment(arrival_time)) {
+    this.flexDates = response.flexDates
+    delete response.flexDates;
 
-                this._allTrips.push([this._departures[i], this._arrivals[j]]);
+    if (response.companions) {
+      this.companions().set(response.companions, { parse: true });
+      delete response.companions;
+    }
+
+    this.origin = this.departures().models[0].origin;
+    this.destination = this.departures().models[0].destination;
+
+    return response
+  },
+
+  departures: function () {
+    this._departures = this._departures || new PuddleJumper.Collections.Trips([]);
+    return this._departures
+  },
+
+  arrivals: function () {
+    this._arrivals = this._arrivals || new PuddleJumper.Collections.Trips([]);
+    return this._arrivals
+  },
+
+  companions: function () {
+    this._companions = this._companions || new PuddleJumper.Collections.Trips([]);
+    return this._companions
+  },
+
+  fullTrips: function () {
+    this._fullTrips = new PuddleJumper.Collections.FullTrips([], {
+      tripSearch: this
+    });
+
+    if (this.departures().length > 0) {
+      if (this.arrivals().length > 0 ? this.roundtrip : !this.roundtrip) {
+        // this line makes sure roundtrips have arrivals and one-way trips do not
+
+        var dep_time, arr_time, thisTrip
+        for (var i = 0; i < this.departures().length; i++) {
+          dep_time = this.departures().models[i].get("datetime");
+          if (this.roundtrip) {
+            for (var j = 0; j < this.arrivals().length; j++) {
+              arr_time = this.arrivals().models[j].get("datetime");
+              if (moment(dep_time) < moment(arr_time)) {
+                thisTrip = new PuddleJumper.Models.FullTrip({
+                  departure: this.departures().models[i],
+                  arrival: this.arrivals().models[j],
+                  roundtrip: true
+                });
+                this._fullTrips.add([thisTrip]);
               }
             }
           } else {
-            this._allTrips.push([this._departures[i]]);
+            thisTrip = new PuddleJumper.Models.FullTrip({
+              departure: this.departures().models[i],
+              arrival: null,
+              roundtrip: false
+            });
+            this._fullTrips.add([thisTrip]);
           }
         }
       }
     }
-    return this._allTrips;
-  },
-
-  numTrips: function () {
-    if (this.isRoundtrip()) {
-      return this.get('departures').length * this.get('arrivals').length;
-    } else {
-      return this.get('departures').length;
-    }
-  },
-
-  isRoundtrip: function () {
-    return this.get('roundtrip');
+    return this._fullTrips;
   },
 
   hasFlexDates: function () {
-    return Math.min(this.get("flexDates").arr, this.get("flexDates").dep) > 0;
+    return Math.min(this.flexDates.arr, this.flexDates.dep) > 0;
   },
 
-  isFetched: function () {
-    return (this.get('departures') !== undefined);
-  },
-
-  hasTrips: function () {
-    return this.numTrips() > 0;
-  },
-
-  planetName: function (idType) {
-    var id = this.get(idType);
-    return PuddleJumper.planets.get(id).get("name");
-  },
-
-  getEarliestDate: function (legName) {
+  searchDates: function () {
+    var dep, arr;
     if (this.hasFlexDates()) {
-      var least = moment("2020-12-31")
-      _.each(this.get(legName), function (leg) {
-        if (least > moment(leg.datetime)) {
-          least = moment(leg.datetime);
-        }
-      })
-      return least;
+      dep = this._earliestDate(this.departures());
+      arr = this.roundtrip ? this._earliestDate(this.arrivals()) : dep;
     } else {
-      if (this.get(legName).length > 0) {
-        return this.get(legName)[0].datetime;
-      } else {
-        return null;
-      }
+      dep = this.departures().pluck("datetime")[0];
+      arr = this.roundtrip ? this.arrivals().pluck("datetime")[0] : dep;
     }
+
+    return [moment(dep), moment(arr)];
   },
 
-  data: function () {
-    var data = this.attributes;
-    data.originName = this.planetName('originId');
-    data.destinationName = this.planetName('destinationId');
-    data.numTrips = this.numTrips();
-    data.arrivalDate = moment(this.getEarliestDate('arrivals'));
-    data.departureDate = moment(this.getEarliestDate('departures'));
-    data.hasFlexDates = this.hasFlexDates();
-    return data;
+  _earliestDate: function (legs) {
+    var least = moment("2222-12-31")
+    _.each(legs, function (leg) {
+      least = moment(leg) < least ? moment(leg) : least
+    });
+    return least;
   }
+  //
+  // data: function () {
+  //   var data = this.attributes;
+  //   data.originName = this.planetName('originId');
+  //   data.destinationName = this.planetName('destinationId');
+  //   data.numTrips = this.numTrips();
+  //   data.arrivalDate = moment(this.getEarliestDate('arrivals'));
+  //   data.departureDate = moment(this.getEarliestDate('departures'));
+  //   data.hasFlexDates = this.hasFlexDates();
+  //   return data;
+  // }
 });

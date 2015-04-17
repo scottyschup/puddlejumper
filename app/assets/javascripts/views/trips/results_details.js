@@ -3,9 +3,15 @@ PuddleJumper.Views.TripResultsDetails = Backbone.View.extend({
   tagName: 'ul',
   className: 'trip-details-list clearfix',
 
+  initialize: function (options) {
+    this.results = options.results;
+    this.planets = options.planets
+  },
+
   render: function () {
     var content = this.template({
-      data: PuddleJumper.tripSearch.data()
+      results: this.results,
+      planets: this.planets
     });
     this.$el.html(content);
     return this;

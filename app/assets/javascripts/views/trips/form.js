@@ -23,10 +23,11 @@ PuddleJumper.Views.TripSearchForm = Backbone.View.extend({
 
     setTimeout(function () {
       this.activateTypeahead();
-      if (this.prevSearch && this.prevSearch.isFetched()) {
+      if (this.prevSearch && this.prevSearch.fetched) {
         this.refillForm();
-        $("#from-box").select();
       }
+      // $("#from-box").select(); // this breaks the from-box...i have no idea why
+
     }.bind(this), 1);
 
     return this;
@@ -132,23 +133,24 @@ PuddleJumper.Views.TripSearchForm = Backbone.View.extend({
   },
 
   refillForm: function () {
-    var data = this.prevSearch.data();
-    $("#from-box").val(data.originName);
-    $("#to-box").val(data.destinationName);
-    $("#depart-date").val(data.departureDate.format("ddd M/D"));
-
-    if (data.roundtrip) {
-      $(".trip-type-tabs li:first-child").trigger("click");
-      $("#arrive-date").val(data.arrivalDate.format("ddd M/D"));
-    } else {
-      $(".trip-type-tabs li:last-child").trigger("click");
-    }
-
-    if (data.hasFlexDates) {
-      $(".date-tabs li:last-child").trigger("click");
-    } else {
-      $(".date-tabs li:first-child").trigger("click");
-    }
+    // var data = this.prevSearch.data();
+    // $("#from-box").val(data.originName);
+    // $("#to-box").val(data.destinationName);
+    // $("#num-box").val(data.numTravelers);
+    // $("#depart-date").val(data.departureDate.format("ddd M/D"));
+    //
+    // if (data.roundtrip) {
+    //   $(".trip-type-tabs li:first-child").trigger("click");
+    //   $("#arrive-date").val(data.arrivalDate.format("ddd M/D"));
+    // } else {
+    //   $(".trip-type-tabs li:last-child").trigger("click");
+    // }
+    //
+    // if (data.hasFlexDates) {
+    //   $(".date-tabs li:last-child").trigger("click");
+    // } else {
+    //   $(".date-tabs li:first-child").trigger("click");
+    // }
   },
 
   selectText: function (ev) {
@@ -188,8 +190,12 @@ PuddleJumper.Views.TripSearchForm = Backbone.View.extend({
   submit: function (ev) {
     ev.preventDefault();
     var data = this.$('form').serializeJSON();
+    PuddleJumper.tripSearch.fetched = false;
     PuddleJumper.tripSearch.fetch({
-      data: data
+      data: data,
+      success: function () {
+        PuddleJumper.tripSearch.fetched = true;
+      }
     });
     // this.deactivateTypeahead();
     Backbone.history.navigate("trips", { trigger: true });

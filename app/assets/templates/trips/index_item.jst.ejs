@@ -1,43 +1,42 @@
 <div class=select-btn>
   <button class=btn>Select</button>
 </div>
-<% var available_spaces = []; %>
 <div class=legs>
   <ul class=legs-list>
 
-    <% _.each(trip, function(leg) { %>
-      <% available_spaces.push(parseInt(leg.remaining_space)) %>
+    <% _.each([fullTrip.departure, fullTrip.arrival], function(tripLeg) { %>
       <li>
         <div class="leg-item time">
           <p>
-            <%= moment(leg.datetime).format("MMM D") %>
+            <%= moment(tripLeg.get("datetime")).format("MMM D") %>
           </p>
           <b>
-            <%= moment(leg.datetime).format("H:mm") %>
+            <%= moment(tripLeg.get("datetime")).format("H:mm") %>
           </b>
         </div>
         <div class="leg-item origin">
           <p>
-            <%= PuddleJumper.planets.findWhere({ id: leg.origin_id }).get('name') %>
+            <%= tripLeg.origin.get('name') %>
           </p>
         </div>
         <div class="leg-item arrow right-arrow"></div>
         <div class="leg-item destination">
           <p>
-            <%= PuddleJumper.planets.findWhere({ id: leg.destination_id }).get('name') %>
+            <%= tripLeg.destination.get('name') %>
           </p>
         </div>
       </li>
-    <% }) %>
+    <% }); %>
 
-    <% var min_available = Math.min.apply(null, available_spaces) %>
-    <% if (min_available < 10) { %>
+    <% var numTravelers = PuddleJumper.tripSearch.get("numTravelers") %>
+    <% var remainingSpace = fullTrip.remainingSpace() %>
+    <% if (remainingSpace < (numTravelers + 10)) { %>
       <li>
         <div class=show-details-btn>
-          
+
         </div>
         <div class="leg-item space">
-          <p>Only <%= pluralize("space", min_available, true) %> left on this trip<p>
+          <p>Only <%= pluralize("space", remainingSpace, true) %> left on this trip<p>
         </div>
       </li>
     <% } %>
