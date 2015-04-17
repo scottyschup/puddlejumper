@@ -3,8 +3,7 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     resources :travelers, only: [:index, :show]
     resources :planets, only: [:index]
-    resources :trips, only: [:index]
-    resource :trip, only: [:show, :update]
-    resource :itinerary, only: [:create, :show, :destroy]
+    resources :trips, only: [:index, :show, :update]
+    resources :itineraries, only: [:create, :show, :destroy]
   end
 end

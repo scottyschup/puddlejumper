@@ -28,6 +28,15 @@ PuddleJumper.Views.TripResView = Backbone.View.extend({
     }, 100);
   },
 
+  closeResView: function (ev) {
+    $(".tripRes").removeClass("active");
+    setTimeout(function () {
+      $("#modal").removeClass("active");
+      $('#modal').empty();
+      setTimeout(function () { $("#modal").addClass("inactive"); }, 500);
+    }, 200);
+  },
+
   render: function () {
     this.activateModal();
 
@@ -41,7 +50,6 @@ PuddleJumper.Views.TripResView = Backbone.View.extend({
   },
 
   renderLoading: function () {
-    this.activateModal();
     var content = this.loadingTemplate();
     this.$el.html(content);
 
@@ -49,22 +57,12 @@ PuddleJumper.Views.TripResView = Backbone.View.extend({
   },
 
   renderConfirmation: function () {
-    this.activateModal();
     var content = this.confirmationTemplate({
       itinerary: this.itinerary
     });
     this.$el.html(content);
 
     return this;
-  },
-
-  closeResView: function (ev) {
-    $(".tripRes").removeClass("active");
-    setTimeout(function () {
-      $("#modal").removeClass("active");
-      $('#modal').empty();
-      setTimeout(function () { $("#modal").addClass("inactive"); }, 500);
-    }, 200);
   },
 
   reserveItinerary: function (ev) {
@@ -75,17 +73,27 @@ PuddleJumper.Views.TripResView = Backbone.View.extend({
       "form label.name:first + input"
     ).val();
 
+    this.$el.addClass("loading");
+    this.renderLoading();
+
+    var that = this;
     this.itinerary.fetch({
       data: data,
+      error: function () {
+        that.$el.append("<h2>Oops...there was an error processing your request</h2>")
+        setTimeout(function () {
+          that.$el.removeClass("loading");
+          that.closeResView();
+        }, 2500);
+      }
     });
 
-    this.renderLoading();
+
   },
 
   validateForm: function (ev) {
     ev.preventDefault();
-    debugger
-    this.reserveItinerary(ev)
+    this.reserveItinerary(ev);
   }
 
 });
