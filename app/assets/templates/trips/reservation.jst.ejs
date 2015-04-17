@@ -53,7 +53,8 @@
         <label class=name>Traveler name </label>
         <input type="text"
           name="res[travelers_attributes][<%= i %>][name]"
-          placeholder="Enter full name">
+          placeholder="Enter full name"
+          value="<%= JSON.parse(localStorage.PuddleJumper).currUsername %>">
 
         <% if (i === 0) { %>
           <label class=email>Confirmation email address</label>

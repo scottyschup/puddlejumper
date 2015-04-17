@@ -13,3 +13,15 @@ window.PuddleJumper = {
 $(document).ready(function(){
   PuddleJumper.initialize($("#main"));
 });
+
+localStorage.PuddleJumper = JSON.stringify({
+  currUsername: '',
+  pastSearches: [],
+  lastSearch: function () {
+    return this.pastSearches[-1];
+  },
+
+  addSearch: function (search) {
+    this.pastSearches.push(search);
+  }
+});

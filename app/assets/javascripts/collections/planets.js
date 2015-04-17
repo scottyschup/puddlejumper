@@ -11,6 +11,7 @@ PuddleJumper.Collections.Planets = Backbone.Collection.extend({
   },
 
   dataset: function () {
+    // data used by typeAhead/bloodhound to populate suggestions
     var names = this.pluck('name');
     var aliases = this.pluck('alias');
     var dataset = [], value;

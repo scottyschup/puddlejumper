@@ -2,21 +2,17 @@ PuddleJumper.Models.Itinerary = Backbone.Model.extend({
   urlRoot: 'api/itineraries',
 
   parse: function (response) {
-    if (response.trips) {
-      this.trips().set(response.trips, { parse: true });
-      delete response.trips;
+    if (response.companions) {
+      this.companions().set(response.companions, { parse: true });
+      delete response.companions;
     }
   },
 
-  trips: function () {
-    if (!this._trips) {
-      this._trips = new PuddleJumper.Collections.Trips([], { itinerary: this });
+  companions: function () {
+    if (!this._companions) {
+      this._companions = new PuddleJumper.Collections.Travelers([]);
     }
 
-    return this._lists
-  },
-
-  travelers: function () {
-
+    return this._companions
   },
 });

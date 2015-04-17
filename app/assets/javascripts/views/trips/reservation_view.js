@@ -1,27 +1,59 @@
 PuddleJumper.Views.TripResView = Backbone.View.extend({
   template: JST['trips/reservation'],
+  loadingTemplate: JST['loading'],
+  confirmationTemplate: JST['trips/confirmation'],
   className: 'tripRes',
+
+  events: {
+    "click .close": "closeResView",
+    "click .reserve": "validateForm",
+  },
 
   initialize: function (options) {
     this.fullTrip = options.fullTrip;
+    var currUser = JSON.parse(localStorage.PuddleJumper).currUsername;
+    if (currUser) {
+      this.traveler = new PuddleJumper.Models.Traveler({ name: currUser });
+      this.traveler.fetch()
+    } else {
+      this.traveler = new PuddleJumper.Models.Traveler();
+    }
   },
 
-  events: {
-    "click .reserve": "reserveTrip",
-    "click .close": "closeResView",
-    "click a.get-new-id": "getNewSgtid",
-  },
-
-  render: function () {
+  activateModal: function () {
     $("#modal").removeClass("inactive");
     setTimeout(function () { $("#modal").addClass("active"); }, 100);
-    var content = this.template({
-      fullTrip: this.fullTrip
-    });
-    this.$el.html(content);
     setTimeout(function () {
       $(".tripRes").addClass("active");
     }, 100);
+  },
+
+  render: function () {
+    this.activateModal();
+
+    var content = this.template({
+      fullTrip: this.fullTrip,
+      traveler: this.traveler
+    });
+    this.$el.html(content);
+
+    return this;
+  },
+
+  renderLoading: function () {
+    this.activateModal();
+    var content = this.loadingTemplate();
+    this.$el.html(content);
+
+    return this;
+  },
+
+  renderConfirmation: function () {
+    this.activateModal();
+    var content = this.confirmationTemplate({
+      itinerary: this.itinerary
+    });
+    this.$el.html(content);
 
     return this;
   },
@@ -35,9 +67,25 @@ PuddleJumper.Views.TripResView = Backbone.View.extend({
     }, 200);
   },
 
-  reserveTrip: function (ev) {
+  reserveItinerary: function (ev) {
     var data = $(".res-form form").serializeJSON();
+    this.itinerary = new PuddleJumper.Models.Itinerary();
+    this.listenTo(this.itinerary, 'sync', this.render);
+    localStorage.PuddleJumper.currUsername = $(
+      "form label.name:first + input"
+    ).val();
 
+    this.itinerary.fetch({
+      data: data,
+    });
+
+    this.renderLoading();
   },
+
+  validateForm: function (ev) {
+    ev.preventDefault();
+    debugger
+    this.reserveItinerary(ev)
+  }
 
 });

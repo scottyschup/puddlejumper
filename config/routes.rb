@@ -5,5 +5,6 @@ Rails.application.routes.draw do
     resources :planets, only: [:index]
     resources :trips, only: [:index]
     resource :trip, only: [:show, :update]
+    resource :itinerary, only: [:create, :show, :destroy]
   end
 end
