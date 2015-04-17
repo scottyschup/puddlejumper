@@ -133,24 +133,25 @@ PuddleJumper.Views.TripSearchForm = Backbone.View.extend({
   },
 
   refillForm: function () {
-    // var data = this.prevSearch.data();
-    // $("#from-box").val(data.originName);
-    // $("#to-box").val(data.destinationName);
-    // $("#num-box").val(data.numTravelers);
-    // $("#depart-date").val(data.departureDate.format("ddd M/D"));
-    //
-    // if (data.roundtrip) {
-    //   $(".trip-type-tabs li:first-child").trigger("click");
-    //   $("#arrive-date").val(data.arrivalDate.format("ddd M/D"));
-    // } else {
-    //   $(".trip-type-tabs li:last-child").trigger("click");
-    // }
-    //
-    // if (data.hasFlexDates) {
-    //   $(".date-tabs li:last-child").trigger("click");
-    // } else {
-    //   $(".date-tabs li:first-child").trigger("click");
-    // }
+    var prev = this.prevSearch
+
+    $("#from-box").val(prev.origin.get("name"));
+    $("#to-box").val(prev.destination.get("name"));
+    $("#num-box").val(prev.numTravelers);
+    $("#depart-date").val(prev.searchDates().departure.format("ddd M/D"));
+
+    if (prev.roundtrip) {
+      $(".trip-type-tabs li:first-child").trigger("click");
+      $("#arrive-date").val(prev.searchDates().arrival.format("ddd M/D"));
+    } else {
+      $(".trip-type-tabs li:last-child").trigger("click");
+    }
+
+    if (prev.hasFlexDates()) {
+      $(".date-tabs li:last-child").trigger("click");
+    } else {
+      $(".date-tabs li:first-child").trigger("click");
+    }
   },
 
   selectText: function (ev) {

@@ -13,12 +13,12 @@
 </li>
 <li class="details-item">
   <div class=departure-date>
-    <p><%= results.searchDates()[0].format("MMM DD") %></p>
+    <p><%= results.searchDates().departure.format("MMM DD") %></p>
     <p class=details-caption>
       <% if (results.flexDates.dep > 0) { %>
         plus <%= pluralize("day", results.flexDates.dep, true) %>
       <% } else { %>
-        <%= results.searchDates()[0].format("dddd") %>
+        <%= results.searchDates().departure.format("dddd") %>
       <% } %>
     </p>
   </div>
@@ -27,12 +27,12 @@
   <div class="arrow right-arrow"></div>
   <div class=arrival-date>
 
-    <p><%= results.searchDates()[1].format("MMM DD") %></p>
+    <p><%= results.searchDates().arrival.format("MMM DD") %></p>
     <p class=details-caption>
       <% if (results.flexDates.arr > 0) { %>
         plus <%= pluralize("day", results.flexDates.arr, true) %>
       <% } else { %>
-        <%= results.searchDates()[1].format("dddd") %>
+        <%= results.searchDates().arrival.format("dddd") %>
       <% } %>
     </p>
   </div>

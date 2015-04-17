@@ -18,8 +18,8 @@ class TripSearch
 
     if params[:flex_dates] == 'true'
       @flex_dates = {
-        dep: params[:depart_range],
-        arr: params[:arrive_range]
+        dep: params[:depart_range].to_i,
+        arr: params[:arrive_range].to_i
       }
       @depart_end = @depart_start + (params[:depart_range].to_i).days
       @arrive_end = @arrive_start + (params[:arrive_range].to_i).days

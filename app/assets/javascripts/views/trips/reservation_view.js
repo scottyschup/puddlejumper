@@ -1,5 +1,5 @@
 PuddleJumper.Views.TripResView = Backbone.View.extend({
-  template: JST['trips/reservationView'],
+  template: JST['trips/reservation'],
   className: 'tripRes',
 
   initialize: function (options) {

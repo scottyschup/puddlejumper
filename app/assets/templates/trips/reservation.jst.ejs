@@ -20,14 +20,14 @@
         <%= trip.origin.get("desc") %>
       </dd>
     </dl>
-    <% summary += trip === departure ? "<p>Departs from " : "Returns from " %>
+    <% summary += trip === departure ? "<li>Departs from " : "<li>Returns from " %>
     <% summary += trip.origin.get("name") + " at " %>
     <% summary += moment(trip.get("datetime")).format("HH:mm") + " on " %>
-    <% summary += moment(trip.get("datetime")).format("dddd, MMMM Do") + "</p>"%>
+    <% summary += moment(trip.get("datetime")).format("dddd, MMMM Do") + "</li>"%>
 
   <% }); %>
   <div class="arrow large-arrow double-arrow left clearfix"></div>
-  <div class="summary"><%= summary %></div>
+  <ul class="summary"><%= summary %></ul>
   <button class="close btn btn-small">Back to All Trips</button>
 </div>
 

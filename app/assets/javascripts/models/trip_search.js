@@ -86,20 +86,20 @@ PuddleJumper.Models.TripSearch = Backbone.Model.extend({
   },
 
   hasFlexDates: function () {
-    return Math.min(this.flexDates.arr, this.flexDates.dep) > 0;
+    return Math.max(this.flexDates.arr, this.flexDates.dep) > 0;
   },
 
   searchDates: function () {
     var dep, arr;
     if (this.hasFlexDates()) {
       dep = this._earliestDate(this.departures());
-      arr = this.roundtrip ? this._earliestDate(this.arrivals()) : dep;
+      arr = this.roundtrip ? this._earliestDate(this.arrivals().pluck("datetime")) : dep;
     } else {
       dep = this.departures().pluck("datetime")[0];
       arr = this.roundtrip ? this.arrivals().pluck("datetime")[0] : dep;
     }
 
-    return [moment(dep), moment(arr)];
+    return { departure: moment(dep), arrival: moment(arr) };
   },
 
   _earliestDate: function (legs) {
