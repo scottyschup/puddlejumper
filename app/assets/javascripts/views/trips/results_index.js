@@ -1,5 +1,5 @@
 PuddleJumper.Views.TripResultsIndex = Backbone.CompositeView.extend({
-  template: JST['trips/index'],
+  template: JST['trips/trips_index'],
   loadingTemplate: JST['loading'],
   className: 'trip-results',
 
