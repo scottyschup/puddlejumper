@@ -1,0 +1,1 @@
+I"function(obj){var __p=[],print=function(){__p.push.apply(__p,arguments);};with(obj||{}){__p.push('<img class="large stargate-loading"\n  src="/assets/stargate_spinner-7b849ab9784dbcaf673155e7407bf371a664df7e3dd7e954cf92c825b1cc8f58.gif">\n');}return __p.join('');}:ET

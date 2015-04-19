@@ -77,8 +77,7 @@ PuddleJumper.Views.TripResView = Backbone.View.extend({
     this.renderLoading();
 
     var that = this;
-    this.itinerary.fetch({
-      data: data,
+    this.itinerary.save({ data: data }, {
       error: function () {
         that.$el.append("<h2>Oops...there was an error processing your request</h2>")
         setTimeout(function () {

@@ -1,16 +1,14 @@
 # == Schema Information
 #
-# Table name: users
+# Table name: travelers
 #
-#  id              :integer          not null, primary key
-#  name            :string           not null
-#  email           :string
-#  password_digest :string
-#  session_token   :string
-#  sgtid           :string
-#  clearance       :integer          default(4)
-#  created_at      :datetime         not null
-#  updated_at      :datetime         not null
+#  id         :integer          not null, primary key
+#  name       :string           not null
+#  email      :string
+#  sgtid      :string
+#  clearance  :integer          default(4)
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
 #
 
 class Traveler < ActiveRecord::Base

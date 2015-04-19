@@ -72,15 +72,15 @@ ActiveRecord::Schema.define(version: 20150416171159) do
   add_index "travelers", ["name"], name: "index_travelers_on_name", using: :btree
   add_index "travelers", ["sgtid"], name: "index_travelers_on_sgtid", unique: true, using: :btree
 
-  create_table "tripitinerary", force: :cascade do |t|
+  create_table "trip_itinerary", force: :cascade do |t|
     t.integer  "trip_id",      null: false
     t.integer  "itinerary_id", null: false
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
 
-  add_index "tripitinerary", ["itinerary_id"], name: "index_tripitinerary_on_itinerary_id", using: :btree
-  add_index "tripitinerary", ["trip_id"], name: "index_tripitinerary_on_trip_id", using: :btree
+  add_index "trip_itinerary", ["itinerary_id"], name: "index_trip_itinerary_on_itinerary_id", using: :btree
+  add_index "trip_itinerary", ["trip_id"], name: "index_trip_itinerary_on_trip_id", using: :btree
 
   create_table "trips", force: :cascade do |t|
     t.integer  "origin_id"

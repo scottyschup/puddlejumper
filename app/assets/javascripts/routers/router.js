@@ -12,7 +12,8 @@ PuddleJumper.Router = Backbone.Router.extend({
     "": "tripSearchForm",
     "trips": "tripResultsIndex",
     "ships": "shipSearchForm",
-    "lodging": "lodgingSearchForm"
+    "lodging": "lodgingSearchForm",
+    "login": "login"
   },
 
   tripSearchForm: function () {
@@ -58,6 +59,10 @@ PuddleJumper.Router = Backbone.Router.extend({
     $("#lodging > a").addClass("current-page");
     alert("Coming Soon!");
     Backbone.history.navigate("", { trigger: true });
+  },
 
+  login: function () {
+    alert("Coming Soon!");
+    Backbone.history.navigate("", { trigger: true });
   }
 });
