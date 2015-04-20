@@ -23,10 +23,10 @@ PuddleJumper.Views.TripSearchForm = Backbone.View.extend({
 
     setTimeout(function () {
       this.activateTypeahead();
-      if (this.prevSearch && this.prevSearch.fetched) {
+      if (this.prevSearch) {
         this.refillForm();
       }
-      // $("#from-box").select(); // this breaks the from-box...i have no idea why
+      // $("#from-box").select(); // this breaks the #from-box when re-submitted...I have no idea why
 
     }.bind(this), 1);
 
@@ -74,7 +74,7 @@ PuddleJumper.Views.TripSearchForm = Backbone.View.extend({
       that.slowType($("#to-box"), randDest, function() {
         $("#num-box").select();
         setTimeout(function () {
-          $("#num-box").val(Math.floor(Math.random() * 10) + 1);
+          $("#num-box").val(Math.floor(Math.random() * 5) + 1);
           $("#depart-date").select();
           setTimeout(function () {
             $("#depart-date").val(moment(_.sample(dDates)).format("ddd M/D"));
@@ -86,14 +86,22 @@ PuddleJumper.Views.TripSearchForm = Backbone.View.extend({
                 $(".date-tabs li:last-child").trigger('click');
                 setTimeout(function () {
                   $('option select').removeAttr('selected');
-                  $(".arrive select option:last-child").attr('selected', 'selected');
+                  var rando = Math.floor(Math.random() * 6) + 1;
+                  $(".depart select option:nth-child(" + rando + ")")
+                    .attr('selected', 'selected');
                   setTimeout(function () {
-                    $("#trip-search-submit").trigger('click');
-                  }, 1000);
-                }, 700);
+                    $('option select').removeAttr('selected');
+                    var rando = Math.floor(Math.random() * 6) + 1;
+                    $(".arrive select option:nth-child(" + rando + ")")
+                      .attr('selected', 'selected');
+                    setTimeout(function () {
+                      $("#trip-search-submit").trigger('click');
+                    }, 800);
+                  }, 600);
+                }, 600);
               }, 500);
-            }, 1000);
-          }, 1000);
+            }, 800);
+          }, 800);
         }, 700);
       });
     });
@@ -134,21 +142,24 @@ PuddleJumper.Views.TripSearchForm = Backbone.View.extend({
 
   refillForm: function () {
     var prev = this.prevSearch
-
-    $("#from-box").val(prev.origin.get("name"));
-    $("#to-box").val(prev.destination.get("name"));
-    $("#num-box").val(prev.numTravelers);
-    $("#depart-date").val(prev.searchDates().departure.format("ddd M/D"));
+    $("#from-box").val(prev.origin);
+    $("#to-box").val(prev.destination);
+    $("#num-box").val(prev.num_travelers);
+    $("#depart-date").val(prev.depart);
 
     if (prev.roundtrip) {
       $(".trip-type-tabs li:first-child").trigger("click");
-      $("#arrive-date").val(prev.searchDates().arrival.format("ddd M/D"));
+      $("#arrive-date").val(prev.arrive);
     } else {
       $(".trip-type-tabs li:last-child").trigger("click");
     }
 
-    if (prev.hasFlexDates()) {
+    if (prev.flex_dates) {
       $(".date-tabs li:last-child").trigger("click");
+      $(".arrive select option:nth-child(" + prev.arrive_range + ")")
+        .attr('selected', 'selected');
+      $(".depart select option:nth-child(" + prev.depart_range + ")")
+        .attr('selected', 'selected');
     } else {
       $(".date-tabs li:first-child").trigger("click");
     }
@@ -182,8 +193,8 @@ PuddleJumper.Views.TripSearchForm = Backbone.View.extend({
           $firstSuggestion.trigger('click');
           setTimeout(function () {
             callback.call();
-          }, 1000);
-        }, 700);
+          }, 800);
+        }, 800);
       }
     }.bind(this), 200);
   },
@@ -191,6 +202,8 @@ PuddleJumper.Views.TripSearchForm = Backbone.View.extend({
   submit: function (ev) {
     ev.preventDefault();
     var data = this.$('form').serializeJSON();
+    PuddleJumper.searchHistory.trips.push(data.trip);
+
     PuddleJumper.tripSearch.fetched = false;
     PuddleJumper.tripSearch.fetch({
       data: data,

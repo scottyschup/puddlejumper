@@ -17,7 +17,7 @@ PuddleJumper.Models.TripSearch = Backbone.Model.extend({
       this.roundtrip = false;
     }
 
-    this.flexDates = response.flexDates
+    this.flexDates = response.flexDates;
     delete response.flexDates;
 
     if (response.companions) {
@@ -25,26 +25,27 @@ PuddleJumper.Models.TripSearch = Backbone.Model.extend({
       delete response.companions;
     }
 
-    this.origin = this.departures().models[0].origin;
-    this.destination = this.departures().models[0].destination;
+    var origin
+    this.origin = PuddleJumper.planets.get(response.originId);
+    this.destination = PuddleJumper.planets.get(response.destinationId);
     this.numTravelers = response.numTravelers;
 
-    return response
-  },
-
-  departures: function () {
-    this._departures = this._departures || new PuddleJumper.Collections.Trips([]);
-    return this._departures
+    return response;
   },
 
   arrivals: function () {
     this._arrivals = this._arrivals || new PuddleJumper.Collections.Trips([]);
-    return this._arrivals
+    return this._arrivals;
   },
 
   companions: function () {
     this._companions = this._companions || new PuddleJumper.Collections.Trips([]);
-    return this._companions
+    return this._companions;
+  },
+
+  departures: function () {
+    this._departures = this._departures || new PuddleJumper.Collections.Trips([]);
+    return this._departures;
   },
 
   fullTrips: function () {
@@ -56,7 +57,7 @@ PuddleJumper.Models.TripSearch = Backbone.Model.extend({
       if (this.arrivals().length > 0 ? this.roundtrip : !this.roundtrip) {
         // this line makes sure roundtrips have arrivals and one-way trips do not
 
-        var dep_time, arr_time, thisTrip
+        var dep_time, arr_time, thisTrip;
         for (var i = 0; i < this.departures().length; i++) {
           dep_time = this.departures().models[i].get("datetime");
           if (this.roundtrip) {
@@ -93,7 +94,7 @@ PuddleJumper.Models.TripSearch = Backbone.Model.extend({
     var dep, arr;
     if (this.hasFlexDates()) {
       dep = this._earliestDate(this.departures());
-      arr = this.roundtrip ? this._earliestDate(this.arrivals().pluck("datetime")) : dep;
+      arr = this.roundtrip ? this._earliestDate(this.arrivals()) : dep;
     } else {
       dep = this.departures().pluck("datetime")[0];
       arr = this.roundtrip ? this.arrivals().pluck("datetime")[0] : dep;
@@ -102,10 +103,10 @@ PuddleJumper.Models.TripSearch = Backbone.Model.extend({
     return { departure: moment(dep), arrival: moment(arr) };
   },
 
-  _earliestDate: function (legs) {
-    var least = moment("2222-12-31")
-    _.each(legs, function (leg) {
-      least = moment(leg) < least ? moment(leg) : least
+  _earliestDate: function (legsCollection) {
+    var least = moment("2222-12-31");
+    _.each(legsCollection.pluck("datetime"), function (leg_dt) {
+      least = moment(leg_dt) < least ? moment(leg_dt) : least;
     });
     return least;
   }

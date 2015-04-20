@@ -20,10 +20,7 @@ PuddleJumper.Router = Backbone.Router.extend({
     $(".nav-left *").removeClass("current-page");
     $("#gates > a").addClass("current-page");
 
-    if (PuddleJumper.tripSearch.fetched) {
-      PuddleJumper.searchHistory.trips.push(PuddleJumper.tripSearch);
-    }
-      PuddleJumper.tripSearch = new PuddleJumper.Models.TripSearch();
+    PuddleJumper.tripSearch = new PuddleJumper.Models.TripSearch();
 
     var tripsFormView = new PuddleJumper.Views.TripSearchForm({
       planets: PuddleJumper.planets,
