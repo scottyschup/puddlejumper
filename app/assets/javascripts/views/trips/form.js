@@ -156,9 +156,9 @@ PuddleJumper.Views.TripSearchForm = Backbone.View.extend({
 
     if (prev.flex_dates) {
       $(".date-tabs li:last-child").trigger("click");
-      $(".arrive select option:nth-child(" + prev.arrive_range + ")")
+      $(".depart select option:nth-child(" + (parseInt(prev.depart_range) + 1) + ")")
         .attr('selected', 'selected');
-      $(".depart select option:nth-child(" + prev.depart_range + ")")
+      $(".arrive select option:nth-child(" + (parseInt(prev.arrive_range) + 1) + ")")
         .attr('selected', 'selected');
     } else {
       $(".date-tabs li:first-child").trigger("click");
