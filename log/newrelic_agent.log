@@ -2647,3 +2647,41 @@ LINE 2:       trip_date BETWEEN '2015-05-03' AND '2015-05-03')
 [04/19/15 22:26:40 -0700 MacLappy (13331)] INFO : Installing Rails 4 Error instrumentation
 [04/19/15 22:26:40 -0700 MacLappy (13331)] INFO : Finished instrumentation
 [04/19/15 22:26:40 -0700 MacLappy (13331)] INFO : Doing deferred dependency-detection before Rack startup
+[04/20/15 02:54:56 -0700 MacLappy (18555)] INFO : Starting the New Relic agent in "development" environment.
+[04/20/15 02:54:56 -0700 MacLappy (18555)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[04/20/15 02:54:56 -0700 MacLappy (18555)] INFO : Reading configuration from config/newrelic.yml (/Users/Scott/Copy/appacademy/puddlejumper)
+[04/20/15 02:54:56 -0700 MacLappy (18555)] INFO : New Relic Agent Developer Mode enabled.
+[04/20/15 02:54:56 -0700 MacLappy (18555)] ERROR : No application name configured.
+[04/20/15 02:54:56 -0700 MacLappy (18555)] ERROR : The Agent cannot start without at least one. Please check your 
+[04/20/15 02:54:56 -0700 MacLappy (18555)] ERROR : newrelic.yml and ensure that it is valid and has at least one 
+[04/20/15 02:54:56 -0700 MacLappy (18555)] ERROR : value set for app_name in the development 
+[04/20/15 02:54:56 -0700 MacLappy (18555)] ERROR : environment.
+[04/20/15 02:54:56 -0700 MacLappy (18555)] INFO : Installing ActiveJob instrumentation
+[04/20/15 02:54:56 -0700 MacLappy (18555)] INFO : Installing ActiveRecord 4 instrumentation
+[04/20/15 02:54:56 -0700 MacLappy (18555)] INFO : Installing Net instrumentation
+[04/20/15 02:54:56 -0700 MacLappy (18555)] INFO : Installing deferred Rack instrumentation
+[04/20/15 02:54:56 -0700 MacLappy (18555)] INFO : Installing Rack::Builder middleware instrumentation
+[04/20/15 02:54:56 -0700 MacLappy (18555)] INFO : Installing Rails 3+ middleware instrumentation
+[04/20/15 02:54:56 -0700 MacLappy (18555)] INFO : Installing Rails 4 Controller instrumentation
+[04/20/15 02:54:56 -0700 MacLappy (18555)] INFO : Installing Rails 4 view instrumentation
+[04/20/15 02:54:56 -0700 MacLappy (18555)] INFO : Installing Rails 4 Error instrumentation
+[04/20/15 02:54:56 -0700 MacLappy (18555)] INFO : Finished instrumentation
+[04/20/15 03:00:00 -0700 MacLappy (18646)] INFO : Starting the New Relic agent in "development" environment.
+[04/20/15 03:00:00 -0700 MacLappy (18646)] INFO : To prevent agent startup add a NEWRELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[04/20/15 03:00:00 -0700 MacLappy (18646)] INFO : Reading configuration from config/newrelic.yml (/Users/Scott/Copy/appacademy/puddlejumper)
+[04/20/15 03:00:00 -0700 MacLappy (18646)] INFO : New Relic Agent Developer Mode enabled.
+[04/20/15 03:00:00 -0700 MacLappy (18646)] ERROR : No application name configured.
+[04/20/15 03:00:00 -0700 MacLappy (18646)] ERROR : The Agent cannot start without at least one. Please check your 
+[04/20/15 03:00:00 -0700 MacLappy (18646)] ERROR : newrelic.yml and ensure that it is valid and has at least one 
+[04/20/15 03:00:00 -0700 MacLappy (18646)] ERROR : value set for app_name in the development 
+[04/20/15 03:00:00 -0700 MacLappy (18646)] ERROR : environment.
+[04/20/15 03:00:00 -0700 MacLappy (18646)] INFO : Installing ActiveJob instrumentation
+[04/20/15 03:00:00 -0700 MacLappy (18646)] INFO : Installing ActiveRecord 4 instrumentation
+[04/20/15 03:00:00 -0700 MacLappy (18646)] INFO : Installing Net instrumentation
+[04/20/15 03:00:00 -0700 MacLappy (18646)] INFO : Installing deferred Rack instrumentation
+[04/20/15 03:00:00 -0700 MacLappy (18646)] INFO : Installing Rack::Builder middleware instrumentation
+[04/20/15 03:00:00 -0700 MacLappy (18646)] INFO : Installing Rails 3+ middleware instrumentation
+[04/20/15 03:00:00 -0700 MacLappy (18646)] INFO : Installing Rails 4 Controller instrumentation
+[04/20/15 03:00:00 -0700 MacLappy (18646)] INFO : Installing Rails 4 view instrumentation
+[04/20/15 03:00:00 -0700 MacLappy (18646)] INFO : Installing Rails 4 Error instrumentation
+[04/20/15 03:00:00 -0700 MacLappy (18646)] INFO : Finished instrumentation

@@ -12,21 +12,12 @@
 #
 
 class Traveler < ActiveRecord::Base
-  before_save :assign_new_sgtid
+  before_validation :ensure_sgtid
   validates_presence_of :name, :sgtid
-  validates :password, length: {minimum: 6, allow_nil: true }
 
-  attr_reader :password
+  has_many :itineraries
 
-  has_and_belongs_to_many(:companions,
-    join_table: :companionships,
-    foreign_key: :reserver_id,
-    association_foreign_key: :companion_id
-  )
-
-  has_and_belongs_to_many :itineraries
-
-  def assign_new_sgtid
+  def ensure_sgtid
     self.sgtid ||= SecureRandom.urlsafe_base64(10)
   end
 

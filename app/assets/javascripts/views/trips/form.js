@@ -147,18 +147,18 @@ PuddleJumper.Views.TripSearchForm = Backbone.View.extend({
     $("#num-box").val(prev.num_travelers);
     $("#depart-date").val(prev.depart);
 
-    if (prev.roundtrip) {
+    if (prev.roundtrip === "true") {
       $(".trip-type-tabs li:first-child").trigger("click");
       $("#arrive-date").val(prev.arrive);
     } else {
       $(".trip-type-tabs li:last-child").trigger("click");
     }
 
-    if (prev.flex_dates) {
+    if (prev.flex_dates === "true") {
       $(".date-tabs li:last-child").trigger("click");
-      $(".depart select option:nth-child(" + (parseInt(prev.depart_range) + 1) + ")")
+      $(".depart option:nth-child(" + (parseInt(prev.depart_range) + 1) + ")")
         .attr('selected', 'selected');
-      $(".arrive select option:nth-child(" + (parseInt(prev.arrive_range) + 1) + ")")
+      $(".arrive option:nth-child(" + (parseInt(prev.arrive_range) + 1) + ")")
         .attr('selected', 'selected');
     } else {
       $(".date-tabs li:first-child").trigger("click");
