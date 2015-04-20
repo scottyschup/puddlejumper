@@ -10,9 +10,8 @@
 #
 
 class Itinerary < ActiveRecord::Base
-  has_many :travelers, through: :traveler
-  has_and_belongs_to_many :trips
+  belongs_to :traveler
 
-  accepts_nested_attributes_for :travelers
-  accepts_nested_attributes_fot :trips
+  def travelers=(traveler_params)
+  end
 end
