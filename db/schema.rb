@@ -88,10 +88,9 @@ ActiveRecord::Schema.define(version: 20150416171159) do
     t.integer  "remaining_space"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-    t.datetime "datetime"
+    t.datetime "datetime",        null: false
   end
 
-  add_index "trips", ["datetime"], name: "index_trips_on_datetime", using: :btree
   add_index "trips", ["destination_id"], name: "index_trips_on_destination_id", using: :btree
   add_index "trips", ["origin_id", "destination_id"], name: "index_trips_on_origin_id_and_destination_id", using: :btree
   add_index "trips", ["origin_id"], name: "index_trips_on_origin_id", using: :btree
