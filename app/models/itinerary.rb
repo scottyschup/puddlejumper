@@ -15,7 +15,7 @@ class Itinerary < ActiveRecord::Base
   belongs_to :traveler
   belongs_to :departure, class_name: :Trip, foreign_key: :departure_id
   belongs_to :arrival, class_name: :Trip, foreign_key: :arrival_id
-  has_and_belongs_to_many :companions
+  has_and_belongs_to_many :companions, class_name: :traveler
 
   def traveler_attrs=(trav_attrs)
     self.traveler = Traveler.where({ name: trav_attrs[:name] })
@@ -29,5 +29,16 @@ class Itinerary < ActiveRecord::Base
 
   def arrival_id=(arr_id)
     self.arrival = Trip.find(arr_id)
+  end
+
+  def companion_attrs=(comp_attrs)
+    self.companions ||= []
+    comp_attrs.each do |c_attr|
+      this_companion = Traveler.where({ name: c_attrs[:name] })
+                               .first_or_create
+      self.companions << this_companion.update(c_attrs)
+    end
+
+    self.companions
   end
 end
