@@ -11,24 +11,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150420014501) do
+ActiveRecord::Schema.define(version: 20150419055456) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "companionships", force: :cascade do |t|
+    t.integer  "reserver_id",  null: false
+    t.integer  "companion_id", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "companionships", ["companion_id"], name: "index_companionships_on_companion_id", using: :btree
+  add_index "companionships", ["reserver_id"], name: "index_companionships_on_reserver_id", using: :btree
+
   create_table "itineraries", force: :cascade do |t|
-    t.integer  "traveler_id"
-    t.integer  "itinerary_traveler_id"
-    t.integer  "trip_itinerary_id"
+    t.integer  "traveler_id",           null: false
+    t.integer  "itinerary_traveler_id", null: false
+    t.integer  "trip_itinerary_id",     null: false
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
   end
 
+  add_index "itineraries", ["itinerary_traveler_id"], name: "index_itineraries_on_itinerary_traveler_id", using: :btree
   add_index "itineraries", ["traveler_id"], name: "index_itineraries_on_traveler_id", using: :btree
+  add_index "itineraries", ["trip_itinerary_id"], name: "index_itineraries_on_trip_itinerary_id", using: :btree
 
   create_table "itinerary_travelers", force: :cascade do |t|
-    t.integer "traveler_id"
-    t.integer "itinerary_id"
+    t.integer  "traveler_id",  null: false
+    t.integer  "itinerary_id", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   add_index "itinerary_travelers", ["itinerary_id"], name: "index_itinerary_travelers_on_itinerary_id", using: :btree
@@ -36,20 +50,30 @@ ActiveRecord::Schema.define(version: 20150420014501) do
 
   create_table "planets", force: :cascade do |t|
     t.string   "name",                                 null: false
-    t.string   "alias"
     t.string   "desc"
-    t.string   "gate_address", default: "0-0-0-0-0-0", null: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
     t.string   "galaxy",                               null: false
     t.string   "race"
     t.boolean  "protected",    default: false
     t.integer  "clearance",                            null: false
-    t.datetime "created_at",                           null: false
-    t.datetime "updated_at",                           null: false
+    t.string   "gate_address", default: "0-0-0-0-0-0", null: false
+    t.string   "alias"
   end
 
   add_index "planets", ["alias"], name: "index_planets_on_alias", using: :btree
   add_index "planets", ["clearance"], name: "index_planets_on_clearance", using: :btree
   add_index "planets", ["name"], name: "index_planets_on_name", using: :btree
+
+  create_table "traveler_itinerary", force: :cascade do |t|
+    t.integer  "traveler_id",  null: false
+    t.integer  "itinerary_id", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "traveler_itinerary", ["itinerary_id"], name: "index_traveler_itinerary_on_itinerary_id", using: :btree
+  add_index "traveler_itinerary", ["traveler_id"], name: "index_traveler_itinerary_on_traveler_id", using: :btree
 
   create_table "travelers", force: :cascade do |t|
     t.string   "name",                   null: false
@@ -64,24 +88,38 @@ ActiveRecord::Schema.define(version: 20150420014501) do
   add_index "travelers", ["sgtid"], name: "index_travelers_on_sgtid", unique: true, using: :btree
 
   create_table "trip_itineraries", force: :cascade do |t|
-    t.integer "trip_id"
-    t.integer "itinerary_id"
+    t.integer  "trip_id",      null: false
+    t.integer  "itinerary_id", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   add_index "trip_itineraries", ["itinerary_id"], name: "index_trip_itineraries_on_itinerary_id", using: :btree
   add_index "trip_itineraries", ["trip_id"], name: "index_trip_itineraries_on_trip_id", using: :btree
 
-  create_table "trips", force: :cascade do |t|
-    t.integer  "origin_id",       null: false
-    t.integer  "destination_id",  null: false
-    t.integer  "remaining_space"
-    t.datetime "datetime",        null: false
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+  create_table "trip_itinerary", force: :cascade do |t|
+    t.integer  "trip_id",      null: false
+    t.integer  "itinerary_id", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
+  add_index "trip_itinerary", ["itinerary_id"], name: "index_trip_itinerary_on_itinerary_id", using: :btree
+  add_index "trip_itinerary", ["trip_id"], name: "index_trip_itinerary_on_trip_id", using: :btree
+
+  create_table "trips", force: :cascade do |t|
+    t.integer  "origin_id"
+    t.integer  "destination_id"
+    t.integer  "remaining_space"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.datetime "datetime"
+  end
+
+  add_index "trips", ["datetime"], name: "index_trips_on_datetime", using: :btree
   add_index "trips", ["destination_id"], name: "index_trips_on_destination_id", using: :btree
   add_index "trips", ["origin_id", "destination_id"], name: "index_trips_on_origin_id_and_destination_id", using: :btree
   add_index "trips", ["origin_id"], name: "index_trips_on_origin_id", using: :btree
 
+  add_foreign_key "itineraries", "travelers"
 end

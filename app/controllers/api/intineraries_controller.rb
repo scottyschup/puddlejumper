@@ -1,6 +1,6 @@
 class Api::IntinerariesController < ApplicationController
   def create
-    @itinerary
+    @itinerary = Itinerary.new(itinerary_params)
   end
 
   def show
@@ -9,7 +9,13 @@ class Api::IntinerariesController < ApplicationController
   def destroy
   end
 
-  def res_params
-    params.permit[:res]
+  def itinerary_params
+    params
+      .require(:itinerary)
+      .permit(
+        traveler_attributes: [:name, :email, :sgtid],
+        trips_attributes: [:id],
+        travelers_attributes: [:name, :eamil, :sgtid]
+      )
   end
 end

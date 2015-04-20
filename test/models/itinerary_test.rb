@@ -3,7 +3,8 @@
 # Table name: itineraries
 #
 #  id                    :integer          not null, primary key
-#  traveler_itinerary_id :integer          not null
+#  traveler_id           :integer          not null
+#  itinerary_traveler_id :integer          not null
 #  trip_itinerary_id     :integer          not null
 #  created_at            :datetime         not null
 #  updated_at            :datetime         not null

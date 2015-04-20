@@ -2,22 +2,20 @@ class TravelersController < ApplicationController
   def new; end
 
   def create
-    @user = User.new(user_params)
-
-    if @user.save
-      sign_in!(@user)
-      redirect_to root_url
+    debugger
+    @traveler = Traveler.where(name: traveler_params[:name]).first_or_create
+    if @traveler.update(traveler_params)
+      render json: @traveler
     else
-      flash.now[:errors] = @user.errors.full_messages
-      render :new
+      render json: { errors: @traveler.errors.full_messages }
     end
   end
 
   private
 
-  def user_params
+  def traveler_params
     params
-      .require(:user)
-      .permit(:email, :password, :stgid, :clearance, :password)
+      .require(:traveler)
+      .permit(:name, :email, :sgtid, :clearance)
   end
 end
