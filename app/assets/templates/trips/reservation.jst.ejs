@@ -35,24 +35,30 @@
 <div class="res-form clearfix">
   <form>
     <input type=hidden
-      name=res[trip_attributes][departure][id]
+      name=reservation[departure_id]
       value="<%= fullTrip.departure.id %>">
 
     <input type=hidden
-      name=res[trip_attributes][arrival][id]
+      name=reservation[arrival_id]
       value="<%= fullTrip.arrival.id %>">
 
     <h1>Enter traveler details</h1>
 
-
+    <% var header, attr_type %>
     <% for (var i = 0; i < PuddleJumper.tripSearch.numTravelers; i ++) { %>
+      <% if (i === 0) { %>
+        <% header = "Your Information", attrs = "traveler_attrs" %>
+      <% } else { %>
+        <% header = "Travel Companion #" + i %>
+        <% attrs = "companion_attrs][" + (i - 1) %>
+      <% } %>
       <div class=traveler-info>
         <h2>
-          <%= i === 0 ? "Your Information" : "Travel Companion #" + i %>
+
         </h2>
         <label class=name>Traveler name </label>
         <input type="text"
-          name="res[travelers_attributes][<%= i %>][name]"
+          name="reservation[<%= attrs %>][name]"
           placeholder="Enter full name"
           value="<%= JSON.parse(localStorage.PuddleJumper).currUsername %>">
 
@@ -60,13 +66,13 @@
           <label class=email>Confirmation email address</label>
           <input type="text"
             class=email
-            name="res[travelers_attributes][<%= i %>][email]"
+            name="reservation[<%= attrs %>][email]"
             placeholder='Enter email address (optional)'>
         <% } %>
 
         <label class=st-id>Stargate Traveler ID number </label>
         <input type="text"
-          name="res[travelers_attributes][<%= i %>][sgtid]"
+          name="reservation[<%= attrs %>][sgtid]"
           placeholder="Enter SGT ID number, if you have one">
 
         <p class=no-sgtid>

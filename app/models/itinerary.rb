@@ -41,9 +41,9 @@ class Itinerary < ActiveRecord::Base
   def companion_attrs=(comp_attrs)
     self.companions ||= []
     comp_attrs.each do |c_attrs|
-      this_companion = Traveler.where({ name: c_attrs[:name] })
+      this_companion = Traveler.where({ name: c_attrs[1][:name] })
                                .first_or_create
-      if this_companion.update(c_attrs)
+      if this_companion.update(c_attrs[1])
         self.companions << this_companion
       end
     end
