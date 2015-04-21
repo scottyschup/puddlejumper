@@ -1,5 +1,6 @@
 class Api::IntinerariesController < ApplicationController
   def create
+
     @itinerary = Itinerary.create(reservation_params)
   end
 

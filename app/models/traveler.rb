@@ -15,7 +15,8 @@ class Traveler < ActiveRecord::Base
   before_validation :ensure_sgtid
   validates_presence_of :name, :sgtid
 
-  has_many :itineraries
+  has_many :itineraries_travelers
+  has_many :itineraries, through: :itineraries_travelers
 
   def ensure_sgtid
     self.sgtid ||= SecureRandom.urlsafe_base64(10)
