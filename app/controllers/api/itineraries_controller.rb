@@ -1,11 +1,7 @@
 class Api::ItinerariesController < ApplicationController
   def create
     @itinerary = Itinerary.new(reservation_params)
-    if @itinerary.save
-      render json: @itinerary
-    else
-      render json: @itinerary.errors.full_messages
-    end
+    @itinerary.save
   end
 
   def show

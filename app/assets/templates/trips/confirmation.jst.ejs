@@ -1,4 +1,10 @@
 <div class=confirmation>
-  <h1>It worked!</h1>
-  <button class="close btn btn-small">Back to All Trips</button>
+  <h1>Your trip has been reserved!</h1>
+  <dl>
+    <dh>Team leader: <%= itinerary.traveler().get("name") %></dh>
+    <% itinerary.companions().each(function (companion) { %>
+      <dd>Team member: <%= companion.get("name") %></dd>
+    <% }) %>
+  </dl>
+  <button class="new-search btn btn-small">Start new search</button>
 </div>

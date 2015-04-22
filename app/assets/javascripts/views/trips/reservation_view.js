@@ -7,13 +7,17 @@ PuddleJumper.Views.TripResView = Backbone.View.extend({
   events: {
     "click .close": "closeResView",
     "click .reserve": "validateForm",
+    "click .new-search": "backToRoot"
   },
 
   initialize: function (options) {
     this.fullTrip = options.fullTrip;
-    this.getCurrentUser();
+    this.retrieveCurrUser();
     this.itinerary = new PuddleJumper.Models.Itinerary();
     this.listenTo(this.itinerary, 'sync', this.renderConfirmation);
+    this.listenTo(this.itinerary.traveler(), 'sync', this.renderConfirmation);
+    this.listenTo(this.itinerary.companions(), 'sync', this.renderConfirmation);
+
   },
 
   activateModal: function () {
@@ -22,6 +26,11 @@ PuddleJumper.Views.TripResView = Backbone.View.extend({
     setTimeout(function () {
       $(".tripRes").addClass("active");
     }, 100);
+  },
+
+  backToRoot: function () {
+    this.closeResView();
+    Backbone.history.navigate("", { trigger: true });
   },
 
   closeResView: function (ev) {
@@ -33,15 +42,8 @@ PuddleJumper.Views.TripResView = Backbone.View.extend({
     }, 200);
   },
 
-  getCurrentUser: function () {
+  retrieveCurrUser: function () {
     var currUsername = JSON.parse(localStorage.PuddleJumper).currUsername;
-    // if (currUsername) {
-    //   this.traveler = new PuddleJumper.Models.Traveler();
-    //   this.traveler.set({ name: currUsername });
-    //   this.traveler.fetch();
-    // } else {
-    //   this.traveler = new PuddleJumper.Models.Traveler({ name: "" });
-    // }
   },
 
   render: function () {
@@ -74,14 +76,13 @@ PuddleJumper.Views.TripResView = Backbone.View.extend({
 
   reserveItinerary: function (ev) {
     var data = $(".res-form form").serializeJSON();
-    this.setCurrentUser(data.reservation.traveler_attributes.name);
+    this.storeCurrUser(data.reservation.traveler_attributes.name);
 
     this.$el.addClass("loading");
     this.renderLoading();
 
     var that = this;
-    this.itinerary.save(data,
-    {
+    this.itinerary.save(data, {
       success: function () {
         that.$el.removeClass("loading");
         that.renderConfirmation();
@@ -101,12 +102,10 @@ PuddleJumper.Views.TripResView = Backbone.View.extend({
 
   },
 
-  setCurrentUser: function (name) {
+  storeCurrUser: function (name) {
     var ls = JSON.parse(localStorage.PuddleJumper);
     ls.currUsername = name;
     localStorage.PuddleJumper = JSON.stringify(ls);
-    // this.traveler = new PuddleJumper.Models.Traveler();
-    // this.traveler.fetch({ name: name });
   },
 
   validateForm: function (ev) {
