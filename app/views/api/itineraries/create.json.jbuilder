@@ -1,1 +1,1 @@
-json.(@itinerary)
+json.itinerary @itinerary

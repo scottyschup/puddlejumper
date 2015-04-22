@@ -72,8 +72,8 @@ PuddleJumper.Views.TripResultsIndex = Backbone.CompositeView.extend({
       $("body").removeClass("loading");
 
       var content = "<div class=message> \
-        <h3>We were unable to process your request at this time. \
-        Please try again.</h3><p>Redirecting...</p></div>";
+        <h3>Oops...something went wrong. Please try your search again.</h3> \
+        <p>Redirecting...</p></div>";
       this.$el.html(content);
       setTimeout(function () {
         this.backToRoot();

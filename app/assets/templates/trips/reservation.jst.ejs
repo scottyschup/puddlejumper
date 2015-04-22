@@ -33,7 +33,7 @@
 
 
 <div class="res-form clearfix">
-  <form>
+  <form class=clearfix>
     <input type=hidden
       name=reservation[departure_id]
       value="<%= fullTrip.departure.id %>">
@@ -42,33 +42,33 @@
       name=reservation[arrival_id]
       value="<%= fullTrip.arrival.id %>">
 
-    <h1>Enter traveler details</h1>
+    <h3>Enter traveler details</h3>
 
-    <% var header, attr_type %>
+    <% var header, attr_type, name %>
     <% for (var i = 0; i < PuddleJumper.tripSearch.numTravelers; i ++) { %>
       <% if (i === 0) { %>
-        <% header = "Your Information", attrs = "traveler_attrs" %>
+        <% header = "Your Information" %>
+        <% attrs = "traveler_attrs" %>
+        <% name = JSON.parse(localStorage.PuddleJumper).currUsername %>
       <% } else { %>
         <% header = "Travel Companion #" + i %>
         <% attrs = "companion_attrs][" + (i - 1) %>
+        <% name = "" %>
       <% } %>
-      <div class=traveler-info>
-        <h2>
+      <div class="traveler-info clearfix">
+        <h4><%= header %></h4>
 
-        </h2>
-        <label class=name>Traveler name </label>
+        <label class=name>First and last name </label>
         <input type="text"
           name="reservation[<%= attrs %>][name]"
           placeholder="Enter full name"
-          value="<%= JSON.parse(localStorage.PuddleJumper).currUsername %>">
+          value="<%= name %>">
 
-        <% if (i === 0) { %>
-          <label class=email>Confirmation email address</label>
-          <input type="text"
-            class=email
-            name="reservation[<%= attrs %>][email]"
-            placeholder='Enter email address (optional)'>
-        <% } %>
+        <label class=email>Confirmation email address</label>
+        <input type="text"
+          class=email
+          name="reservation[<%= attrs %>][email]"
+          placeholder='Enter email address (optional)'>
 
         <label class=st-id>Stargate Traveler ID number </label>
         <input type="text"
@@ -82,7 +82,6 @@
     <% } %>
 
     <button class="reserve btn btn-small">Reserve This Trip</button>
+    <button class="close btn btn-small">Back to All Trips</button>
   </form>
 </div>
-
-<button class="close btn btn-small">Back to All Trips</button>

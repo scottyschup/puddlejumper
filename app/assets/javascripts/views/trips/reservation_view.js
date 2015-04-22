@@ -11,13 +11,9 @@ PuddleJumper.Views.TripResView = Backbone.View.extend({
 
   initialize: function (options) {
     this.fullTrip = options.fullTrip;
-    var currUser = JSON.parse(localStorage.PuddleJumper).currUsername;
-    if (currUser) {
-      this.traveler = new PuddleJumper.Models.Traveler({ name: currUser });
-      this.traveler.fetch()
-    } else {
-      this.traveler = new PuddleJumper.Models.Traveler();
-    }
+    this.getCurrentUser();
+    this.itinerary = new PuddleJumper.Models.Itinerary();
+    this.listenTo(this.itinerary, 'sync', this.renderConfirmation);
   },
 
   activateModal: function () {
@@ -35,6 +31,17 @@ PuddleJumper.Views.TripResView = Backbone.View.extend({
       $('#modal').empty();
       setTimeout(function () { $("#modal").addClass("inactive"); }, 500);
     }, 200);
+  },
+
+  getCurrentUser: function () {
+    var currUsername = JSON.parse(localStorage.PuddleJumper).currUsername;
+    // if (currUsername) {
+    //   this.traveler = new PuddleJumper.Models.Traveler();
+    //   this.traveler.set({ name: currUsername });
+    //   this.traveler.fetch();
+    // } else {
+    //   this.traveler = new PuddleJumper.Models.Traveler({ name: "" });
+    // }
   },
 
   render: function () {
@@ -67,11 +74,7 @@ PuddleJumper.Views.TripResView = Backbone.View.extend({
 
   reserveItinerary: function (ev) {
     var data = $(".res-form form").serializeJSON();
-    this.itinerary = new PuddleJumper.Models.Itinerary();
-    this.listenTo(this.itinerary, 'sync', this.render);
-    localStorage.PuddleJumper.currUsername = $(
-      "form label.name:first + input"
-    ).val();
+    this.setCurrentUser(data.reservation.traveler_attrs.name);
 
     this.$el.addClass("loading");
     this.renderLoading();
@@ -79,8 +82,14 @@ PuddleJumper.Views.TripResView = Backbone.View.extend({
     var that = this;
     this.itinerary.save(data,
     {
+      success: function () {
+        that.$el.removeClass("loading");
+        that.renderConfirmation();
+      },
       error: function () {
-        that.$el.append("<h2>Oops...there was an error processing your request</h2>");
+        that.$el.append(
+          "<h2>Oops...there was an error processing your request</h2>"
+        );
         setTimeout(function () {
           that.$el.removeClass("loading");
           that.closeResView();
@@ -90,6 +99,14 @@ PuddleJumper.Views.TripResView = Backbone.View.extend({
     });
 
 
+  },
+
+  setCurrentUser: function (name) {
+    var ls = JSON.parse(localStorage.PuddleJumper);
+    ls.currUsername = name;
+    localStorage.PuddleJumper = JSON.stringify(ls);
+    // this.traveler = new PuddleJumper.Models.Traveler();
+    // this.traveler.fetch({ name: name });
   },
 
   validateForm: function (ev) {

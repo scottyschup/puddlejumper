@@ -13,6 +13,9 @@ PuddleJumper.Views.TripSearchForm = Backbone.View.extend({
   initialize: function (options) {
     this.listenTo(PuddleJumper.planets, 'sync', this.render);
     this.prevSearch = _.last(PuddleJumper.searchHistory.trips)
+    if (!this.prevSearch) {
+      this.prevSearch = JSON.parse(localStorage.PuddleJumper).lastSearch;
+    }
   },
 
   render: function () {
@@ -26,8 +29,6 @@ PuddleJumper.Views.TripSearchForm = Backbone.View.extend({
       if (this.prevSearch) {
         this.refillForm();
       }
-      // $("#from-box").select(); // this breaks the #from-box when re-submitted...I have no idea why
-
     }.bind(this), 1);
 
     return this;
@@ -203,6 +204,10 @@ PuddleJumper.Views.TripSearchForm = Backbone.View.extend({
     ev.preventDefault();
     var data = this.$('form').serializeJSON();
     PuddleJumper.searchHistory.trips.push(data.trip);
+
+    var ls = JSON.parse(localStorage.PuddleJumper);
+    ls.lastSearch = data.trip;
+    localStorage.PuddleJumper = JSON.stringify(ls);
 
     PuddleJumper.tripSearch.fetched = false;
     PuddleJumper.tripSearch.fetch({

@@ -225,6 +225,9 @@ select.flex-dates-select {
   height: 25px;
   font-size: 14px;
   font-weight: 400;
+  width: 20%;
+  margin: 10px auto;
+  clear: both;
 }
 
 .datepicker-container {
@@ -426,7 +429,7 @@ li.change-btn {
 
 .tripRes {
   width: 80%;
-  max-height: 60%;
+  height: 60%;
   overflow: scroll;
   margin: 0 auto;
   display: block;
@@ -481,7 +484,7 @@ li.change-btn {
   float: right;
 }
 
-.alias, .date-time, .galaxy {
+.res-title dd {
   clear: both;
 }
 
@@ -500,17 +503,22 @@ li.change-btn {
 // Reservation Form
 .res-form label,
 .res-form input,
-.res-form button,
 .res-form h3,
 .res-form h4,
 .res-form p {
-  display: block;
+  margin: 5px;
   float: left;
-  font-size: 16px;
+  display: block;
 }
 
 .res-form h3 {
-  font-size: 18px;
+  font-size: 24px;
+  clear: left;
+}
+
+.res-form h4 {
+  font-size: 21px;
+  clear: left;
 }
 
 .res-form p {
@@ -525,8 +533,9 @@ li.change-btn {
 }
 
 .res-form input {
+  float: left;
   width: 57%;
-  font-size: 14px;
+  font-size: 18px;
   color: $site-orange;
   font-weight: 500;
 }
@@ -536,4 +545,11 @@ li.change-btn {
   float: left;
   width: 90%;
   margin: 10px auto;
+}
+
+.reserve, .close {
+  display: block;
+  position: relative;
+  font-weight: 500;
+  margin: 5px auto;
 }
