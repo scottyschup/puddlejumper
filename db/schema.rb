@@ -59,7 +59,6 @@ ActiveRecord::Schema.define(version: 20150422024533) do
   end
 
   add_index "travelers", ["name"], name: "index_travelers_on_name", using: :btree
-  add_index "travelers", ["sgtid"], name: "index_travelers_on_sgtid", unique: true, using: :btree
 
   create_table "trips", force: :cascade do |t|
     t.integer  "origin_id"

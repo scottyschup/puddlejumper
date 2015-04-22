@@ -13,6 +13,7 @@
 
 class Traveler < ActiveRecord::Base
   before_validation :ensure_sgtid
+
   validates_presence_of :name, :sgtid
 
   has_many :itineraries
@@ -25,9 +26,7 @@ class Traveler < ActiveRecord::Base
   )
 
   def ensure_sgtid
-    if self.sgtid == '' || self.sgtid.nil?
-      self.sgtid = SecureRandom.urlsafe_base64(10)
-    end
+    self.sgtid ||= SecureRandom.urlsafe_base64(10)
   end
 
 end

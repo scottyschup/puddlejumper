@@ -11,8 +11,6 @@
 #
 
 class Itinerary < ActiveRecord::Base
-  validates_associated :traveler, :departure, :arrival
-
   belongs_to :traveler
   belongs_to :departure, class_name: :Trip, foreign_key: :departure_id
   belongs_to :arrival, class_name: :Trip, foreign_key: :arrival_id
@@ -26,11 +24,14 @@ class Itinerary < ActiveRecord::Base
   )
 
   accepts_nested_attributes_for :companions
-  accepts_nested_attributes_for :traveler
+  accepts_nested_attributes_for(
+    :traveler,
+    reject_if: proc { |attributes| attributes[:name].blank? }
+  )
 
   def traveler_attributes=(trav_attrs)
     self.traveler = Traveler.where({ name: trav_attrs[:name] })
-                            .first_or_create
+                            .first_or_initialize
     self.traveler.update(trav_attrs)
   end
 
@@ -45,7 +46,7 @@ class Itinerary < ActiveRecord::Base
   def companions_attrs=(comp_attrs)
     comp_attrs.length.times do |i|
       this_companion = Traveler.where({ name: comp_attrs[i.to_s][:name] })
-                               .first_or_create!
+                               .first_or_initialize
       this_companion.update(comp_attrs[i.to_s])
       self.companions << this_companion
     end

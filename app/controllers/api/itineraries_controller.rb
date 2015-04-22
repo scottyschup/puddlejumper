@@ -1,8 +1,7 @@
 class Api::ItinerariesController < ApplicationController
   def create
-    @itinerary = Itinerary.create(reservation_params)
-
-    if @itinerary
+    @itinerary = Itinerary.new(reservation_params)
+    if @itinerary.save
       render json: @itinerary
     else
       render json: @itinerary.errors.full_messages
@@ -16,6 +15,8 @@ class Api::ItinerariesController < ApplicationController
   end
 
   def reservation_params
+    remove_blanks!(params[:reservation])
+
     params
       .require(:reservation)
       .permit(
@@ -24,5 +25,12 @@ class Api::ItinerariesController < ApplicationController
         traveler_attributes: [:name, :email, :sgtid],
         companions_attributes: [:name, :email, :sgtid]
       )
+  end
+
+  def remove_blanks!(hsh)
+    hsh.reject! do |key, val|
+      remove_blanks!(val) if val.is_a? Hash
+      val.to_s.empty?
+    end
   end
 end

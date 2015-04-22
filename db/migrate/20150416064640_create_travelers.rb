@@ -3,7 +3,7 @@ class CreateTravelers < ActiveRecord::Migration
     create_table :travelers do |t|
       t.string :name, null: false, index: true
       t.string :email
-      t.string :sgtid, index: { unique: true }
+      t.string :sgtid
       t.integer :clearance, default: 4
 
       t.timestamps null: false
