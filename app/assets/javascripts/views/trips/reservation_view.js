@@ -67,7 +67,8 @@ PuddleJumper.Views.TripResView = Backbone.View.extend({
 
   renderConfirmation: function () {
     var content = this.confirmationTemplate({
-      itinerary: this.itinerary
+      traveler: this.itinerary.traveler(),
+      companions: this.itinerary.companions()
     });
     this.$el.html(content);
 

@@ -13,7 +13,7 @@ PuddleJumper.Router = Backbone.Router.extend({
     "trips": "tripResultsIndex",
     "ships": "shipSearchForm",
     "lodging": "lodgingSearchForm",
-    "login": "login"
+    "clear-history": "clearSearchHistory"
   },
 
   tripSearchForm: function () {
@@ -58,8 +58,11 @@ PuddleJumper.Router = Backbone.Router.extend({
     Backbone.history.navigate("", { trigger: true });
   },
 
-  login: function () {
-    alert("Coming Soon!");
+  clearSearchHistory: function () {
+    PuddleJumper.searchHistory.trips = [];
+    var ls = JSON.parse(localStorage.PuddleJumper);
+    ls.lastSearch = '';
+    localStorage.PuddleJumper = JSON.stringify(ls);
     Backbone.history.navigate("", { trigger: true });
   }
 });

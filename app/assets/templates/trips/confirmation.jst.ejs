@@ -1,10 +1,26 @@
-<div class=confirmation>
+<div class="confirmation clearfix">
   <h1>Your trip has been reserved!</h1>
-  <dl>
-    <dh>Team leader: <%= itinerary.traveler().get("name") %></dh>
-    <% itinerary.companions().each(function (companion) { %>
-      <dd>Team member: <%= companion.get("name") %></dd>
+  <ul class="confirmation clearfix">
+    <li>Team leader: <%= traveler.get("name") %>
+      <ul>
+        <li>Stargate Traveler ID: <%= traveler.get("sgtid") %></li>
+        <li>Clearance level: <%= traveler.get("clearance") %></li>
+        <% if (traveler.get("email") !== '') { %>
+          <li>Email: <%= traveler.get("email") %></li>
+        <% } %>
+      </ul>
+    </li>
+    <% companions.each(function (companion) { %>
+      <li>Team member: <%= companion.get("name") %>
+        <ul>
+          <li>Stargate Traveler ID: <%= companion.get("sgtid") %></li>
+          <li>Clearance level: <%= companion.get("clearance") %></li>
+          <% if (companion.get("email") !== '') { %>
+            <li>Email: <%= companion.get("email") %></li>
+          <% } %>
+        </ul>
+      </li>
     <% }) %>
-  </dl>
+  </ul>
   <button class="new-search btn btn-small">Start new search</button>
 </div>

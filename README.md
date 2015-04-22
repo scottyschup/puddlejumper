@@ -9,8 +9,9 @@ PuddleJumper is a clone of Kayak for the Stargate universe, built on Rails and B
 
 - [x] Search for available Stargate transit schedules
 - [x] View individual trip details
-- [ ] Receive Stargate Traveler ID number
-- [ ] Reserve transit spots
+- [x] Receive Stargate Traveler ID number
+- [x] Reserve transit spots
+- [x] Use/clear previous searches
 - [ ] Provide tooltips for first time users
 - [ ] Sort results by date/time
 - [ ] Search for spaceship rentals
@@ -28,7 +29,7 @@ PuddleJumper is a clone of Kayak for the Stargate universe, built on Rails and B
 
 ## Implementation Timeline
 
-### Phase 1: Rails Setup/Database Seed (~1.5 day)
+### Phase 1: Rails Setup/Database Seed (~2 days)
 Because logging in is not a prerequisite to searching, I will begin with creating the gate travel seed data for the search form and getting all of the initialization preliminaries done. The most important part of this phase will be pushing the app to Heroku and ensuring that everything works before moving on to phase 2.
 
 [Details][phase-one]

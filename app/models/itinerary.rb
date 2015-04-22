@@ -43,7 +43,7 @@ class Itinerary < ActiveRecord::Base
     self.arrival = Trip.find(arr_id)
   end
 
-  def companions_attrs=(comp_attrs)
+  def companions_attributes=(comp_attrs)
     comp_attrs.length.times do |i|
       this_companion = Traveler.where({ name: comp_attrs[i.to_s][:name] })
                                .first_or_initialize
