@@ -1,6 +1,12 @@
 class Api::ItinerariesController < ApplicationController
   def create
     @itinerary = Itinerary.create(reservation_params)
+
+    if @itinerary
+      render json: @itinerary
+    else
+      render json: @itinerary.errors.full_messages
+    end
   end
 
   def show
@@ -15,8 +21,8 @@ class Api::ItinerariesController < ApplicationController
       .permit(
         :departure_id,
         :arrival_id,
-        traveler_attrs: [:name, :email, :sgtid],
-        companion_attrs: [:name, :email, :sgtid]
+        traveler_attributes: [:name, :email, :sgtid],
+        companions_attributes: [:name, :email, :sgtid]
       )
   end
 end

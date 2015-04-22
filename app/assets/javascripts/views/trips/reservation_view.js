@@ -74,7 +74,7 @@ PuddleJumper.Views.TripResView = Backbone.View.extend({
 
   reserveItinerary: function (ev) {
     var data = $(".res-form form").serializeJSON();
-    this.setCurrentUser(data.reservation.traveler_attrs.name);
+    this.setCurrentUser(data.reservation.traveler_attributes.name);
 
     this.$el.addClass("loading");
     this.renderLoading();

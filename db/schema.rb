@@ -11,29 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150421015807) do
+ActiveRecord::Schema.define(version: 20150422024533) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "itineraries", force: :cascade do |t|
-    t.integer  "traveler_id",             null: false
-    t.integer  "departure_id",            null: false
-    t.integer  "arrival_id"
-    t.integer  "itineraries_traveler_id"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
-  end
-
-  add_index "itineraries", ["itineraries_traveler_id"], name: "index_itineraries_on_itineraries_traveler_id", using: :btree
-
-  create_table "itineraries_travelers", id: false, force: :cascade do |t|
+  create_table "companionships", force: :cascade do |t|
     t.integer "traveler_id",  null: false
     t.integer "itinerary_id", null: false
   end
 
-  add_index "itineraries_travelers", ["itinerary_id", "traveler_id"], name: "index_itineraries_travelers_on_itinerary_id_and_traveler_id", using: :btree
-  add_index "itineraries_travelers", ["traveler_id", "itinerary_id"], name: "index_itineraries_travelers_on_traveler_id_and_itinerary_id", using: :btree
+  add_index "companionships", ["itinerary_id"], name: "index_companionships_on_itinerary_id", using: :btree
+  add_index "companionships", ["traveler_id"], name: "index_companionships_on_traveler_id", using: :btree
+
+  create_table "itineraries", force: :cascade do |t|
+    t.integer  "traveler_id",  null: false
+    t.integer  "departure_id", null: false
+    t.integer  "arrival_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
 
   create_table "planets", force: :cascade do |t|
     t.string   "name",                                 null: false

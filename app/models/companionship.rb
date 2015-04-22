@@ -1,12 +1,13 @@
 # == Schema Information
 #
-# Table name: itineraries_travelers
+# Table name: companionships
 #
+#  id           :integer          not null, primary key
 #  traveler_id  :integer          not null
 #  itinerary_id :integer          not null
 #
 
-class ItinerariesTraveler < ActiveRecord::Base
+class Companionship < ActiveRecord::Base
   belongs_to :traveler
   belongs_to :itinerary
 end

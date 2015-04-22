@@ -48,11 +48,11 @@
     <% for (var i = 0; i < PuddleJumper.tripSearch.numTravelers; i ++) { %>
       <% if (i === 0) { %>
         <% header = "Your Information" %>
-        <% attrs = "traveler_attrs" %>
+        <% attrs = "traveler_attributes" %>
         <% name = JSON.parse(localStorage.PuddleJumper).currUsername %>
       <% } else { %>
         <% header = "Travel Companion #" + i %>
-        <% attrs = "companion_attrs][" + (i - 1) %>
+        <% attrs = "companions_attributes][" + (i - 1) %>
         <% name = "" %>
       <% } %>
       <div class="traveler-info clearfix">

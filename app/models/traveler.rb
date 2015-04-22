@@ -15,11 +15,19 @@ class Traveler < ActiveRecord::Base
   before_validation :ensure_sgtid
   validates_presence_of :name, :sgtid
 
-  has_many :itineraries_travelers
-  has_many :itineraries, through: :itineraries_travelers
+  has_many :itineraries
+  has_many :companionships, inverse_of: :traveler
+  has_many(
+    :companion_itineraries,
+    through: :companionships,
+    class_name: "Itinerary",
+    source: :itinerary
+  )
 
   def ensure_sgtid
-    self.sgtid ||= SecureRandom.urlsafe_base64(10)
+    if self.sgtid == '' || self.sgtid.nil?
+      self.sgtid = SecureRandom.urlsafe_base64(10)
+    end
   end
 
 end
