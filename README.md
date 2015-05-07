@@ -1,24 +1,18 @@
 # PuddleJumper
 
-[Heroku link][heroku]
+[Live link](http://www.puddlejumper.space)
 
-[heroku]: http://puddlejumper.herokuapp.com
-
-## Minimum Viable Product
-PuddleJumper is a clone of Kayak for the Stargate universe, built on Rails and Backbone. Users can:
+## The basics
+PuddleJumper is a clone of Kayak for the Stargate universe, built on Rails and Backbone. Features:
 
 - [x] Search for available Stargate transit schedules
+- [x] Choose origin/destination from typeahead list
 - [x] View individual trip details
 - [x] Receive Stargate Traveler ID number
 - [x] Reserve transit spots
-- [x] Use/clear previous searches
-- [ ] Provide tooltips for first time users
+- [x] Reuse or clear previous search
+- [ ] See walkthrough dialogue on first use
 - [ ] Sort results by date/time
-- [ ] Search for spaceship rentals
-- [ ] Sort rentals by price, capacity
-- [ ] View individual spaceship details
-- [ ] Reserve spaceship rentals
-
 
 ## Design Docs
 * [View Wireframes][views]
@@ -29,7 +23,7 @@ PuddleJumper is a clone of Kayak for the Stargate universe, built on Rails and B
 
 ## Implementation Timeline
 
-### Phase 1: Rails Setup/Database Seed (~2 days)
+### Phase 1: Rails Setup/Database Seed (~3 days)
 Because logging in is not a prerequisite to searching, I will begin with creating the gate travel seed data for the search form and getting all of the initialization preliminaries done. The most important part of this phase will be pushing the app to Heroku and ensuring that everything works before moving on to phase 2.
 
 [Details][phase-one]
@@ -44,24 +38,21 @@ Although Gate Travel is free, priority is given to SGC personnel, IOA diplomats,
 
 [Details][phase-three]
 
-### Phase 4: Spaceship Search and reservation (~3 days)
-I'll add the ability to search for and rent a variety of spaceships based on the user's rental location. An image and a description of each ship will be available. Payment will be made using a Galactic Monetary Account. If they do not have one, a new account will be opened for them through PuddleJumper's galactic banking division.
-
-[Details][phase-four]
-
 
 ### Bonus Features (TBD)
 - [ ] Gate Search by Stargate glyph through interactive DHD
-- [ ] Destination packages for popular planets (like Kayak has below the search form)
+- [ ] Destination packages for popular planets (below the search form)
 - [ ] Search for off-planet lodging
 - [ ] Sort room rentals by price, user review
 - [ ] View individual lodging details
 - [ ] Reserve room rentals
+- [ ] Search for spaceship rentals
+- [ ] Sort rentals by price, capacity
+- [ ] View individual spaceship details
+- [ ] Reserve spaceship rentals
 - [ ] "Write Review" feature for spaceship rentals/lodging
 
 
 [phase-one]: ./docs/phases/phase1.md
 [phase-two]: ./docs/phases/phase2.md
 [phase-three]: ./docs/phases/phase3.md
-[phase-four]: ./docs/phases/phase4.md
-[phase-five]: ./docs/phases/phase5.md
