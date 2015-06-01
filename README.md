@@ -3,56 +3,32 @@
 [Live link](http://www.puddlejumper.space)
 
 ## The basics
-PuddleJumper is a clone of Kayak for the Stargate universe, built on Rails and Backbone. Features:
+PuddleJumper is a clone of Kayak flight search for the Stargate universe, built on Rails and Backbone. Features:
 
 - [x] Search for available Stargate transit schedules
 - [x] Choose origin/destination from typeahead list
 - [x] View individual trip details
-- [x] Receive Stargate Traveler ID number
-- [x] Reserve transit spots
-- [x] Reuse or clear previous search
-- [ ] See walkthrough dialogue on first use
-- [ ] Sort results by date/time
+- [x] Create itineraries with multiple travelers
+- [x] Create new users if necessary on reservation submission
+- [x] Reuse or clear previous search parameters
 
-## Design Docs
-* [View Wireframes][views]
-* [DB schema][schema]
+## Noteworthy features
+In order to reduce the amount of JSON data transmitted, I created a server-side search service to parse the JSON search parameters and return all valid trip legs. On the frontend, the Backbone [trip_search model][trip_search_bb_model] parses the returned data and in the case of roundtrip searches, assembles the individual legs into valid round trips.
 
-[views]: ./docs/views.md
-[schema]: ./docs/schema.md
+During the reservation stage, I wanted users to be able to add travel companions to their itinerary, regardless of whether those users were already registered with the site. To accomplish this, I used the ActiveRecord `accepts_nested_params_for` method in conjunction with the `first_or_initialize` method in my [Itinerary model][itinerary_model]. In this way Rails was able to accept user information for an undetermined number of travelers, look for them in the database, and if they were not found, create a new user from the information.
 
-## Implementation Timeline
+Because this is a single page Backbone app, and my results_index view contains multiple subviews, I implemented a [composite view utility][comp_view_util] to prevent the accumulation of zombie views.
 
-### Phase 1: Rails Setup/Database Seed (~3 days)
-Because logging in is not a prerequisite to searching, I will begin with creating the gate travel seed data for the search form and getting all of the initialization preliminaries done. The most important part of this phase will be pushing the app to Heroku and ensuring that everything works before moving on to phase 2.
+The site features database-populated typeahead for origin and destination fields (since not all users are familiar with the planets accessible through the Stargate network), as well as a "Surprise Me" button that autocompletes the form, for the more spontaneous traveler.
 
-[Details][phase-one]
+[trip_search_bb_model]: ./app/assets/javascripts/models/trip_search.js
+[itinerary_model]: ./app/models/itinerary.rb
+[comp_view_util]: ./app/assets/javascripts/util/composite_view.js
 
-### Phase 2: Search form for gate travel (~2 days)
-I will add API routes to serve gate travel data as JSON, then add Backbone models and collections that fetch data from those routes. By the end of this phase, users will be able to enter origin and destination points and travel dates and see a list of results. Because this phase will include most of the Backbone setup, it may take up to 2 days.
+## Next Steps
+Because searching for trips doesn't necessarily require a secure login, I saved User Auth for a later stage, and only just began to implement it when I ran out of time and had to push to production. Because I was adhering to an Agile development methodology, I already had a working minimum viable product and put finishing User Auth on the to-do list. Much of the boilerplate code is already there, I just need to add password hashing and create the frontend views and routes for new user and new session.
 
-[Details][phase-two]
+I also saved form validations for a later time so that users could test the reservation portion of the site with minimal hassle. A final product would of course inlcude several validations both at the database level and the Rails and Backbone model levels. Backbone.validation is the plugin I'm leaning towards using for frontend validation.
 
-### Phase 3: Reserving gate travel (~3 days)
-Although Gate Travel is free, priority is given to SGC personnel, IOA diplomats, and others representing Earth's interests abroad. For that reason visitors to the site will be required to provide their Stargate Traveler Identification Number, or will be assigned one if they do not yet have one. This number will be used to determine whether the reservation is successful
-
-[Details][phase-three]
-
-
-### Bonus Features (TBD)
-- [ ] Gate Search by Stargate glyph through interactive DHD
-- [ ] Destination packages for popular planets (below the search form)
-- [ ] Search for off-planet lodging
-- [ ] Sort room rentals by price, user review
-- [ ] View individual lodging details
-- [ ] Reserve room rentals
-- [ ] Search for spaceship rentals
-- [ ] Sort rentals by price, capacity
-- [ ] View individual spaceship details
-- [ ] Reserve spaceship rentals
-- [ ] "Write Review" feature for spaceship rentals/lodging
-
-
-[phase-one]: ./docs/phases/phase1.md
-[phase-two]: ./docs/phases/phase2.md
-[phase-three]: ./docs/phases/phase3.md
+## Special Notes
+The "long" search time between submitting the search form and receiving results is an illusion. I added a setTimeout call in order to display the Stargate spinner long enough to really appreciate it. The actual search takes less time than the spinner needs to display.

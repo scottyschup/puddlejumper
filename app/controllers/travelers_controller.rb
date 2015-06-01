@@ -2,22 +2,22 @@ class TravelersController < ApplicationController
   def new; end
 
   def create
-    @user = User.new(user_params)
+    @traveler = Traveler.new(traveler_params)
 
-    if @user.save
-      sign_in!(@user)
+    if @traveler.save
+      sign_in!(@traveler)
       redirect_to root_url
     else
-      flash.now[:errors] = @user.errors.full_messages
+      flash.now[:errors] = @traveler.errors.full_messages
       render :new
     end
   end
 
   private
 
-  def user_params
+  def traveler_params
     params
-      .require(:user)
+      .require(:traveler)
       .permit(:email, :password, :stgid, :clearance, :password)
   end
 end

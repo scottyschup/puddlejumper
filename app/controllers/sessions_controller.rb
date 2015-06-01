@@ -3,10 +3,10 @@ class SessionsController < ApplicationController
   end
 
   def create
-    @user = User.find_by_credentials(params[:user])
+    @traveler = Traveler.find_by_credentials(params[:traveler])
 
-    if @user
-      sign_in!(@user)
+    if @traveler
+      sign_in!(@traveler)
       redirect_to root_url
     else
       flash.now[:errors] = ["Invalid email and/or password"]
