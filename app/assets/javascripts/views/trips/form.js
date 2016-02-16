@@ -142,7 +142,7 @@ PuddleJumper.Views.TripSearchForm = Backbone.View.extend({
   },
 
   refillForm: function () {
-    var prev = this.prevSearch
+    var prev = this.prevSearch;
     $("#from-box").val(prev.origin);
     $("#to-box").val(prev.destination);
     $("#num-box").val(prev.num_travelers);

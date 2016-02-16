@@ -1,7 +1,7 @@
 #
 class TripSearch
   attr_reader :departures, :arrivals, :roundtrip, :num_travelers, :flex_dates,
-    :origin, :destination
+              :origin, :destination
 
   def initialize(params)
     find_planets(params)
