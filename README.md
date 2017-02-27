@@ -1,9 +1,8 @@
 # PuddleJumper
-
-[Live link](http://www.puddlejumper.space)
+This site is no longer maintained, but the code base is left here for reference purposes. This is the first major project I completed in Rails as part of a 3-month intensive coding bootcamp called App Academy. I attended from February 2015 to May 2015. 
 
 ## The basics
-PuddleJumper is a clone of Kayak flight search for the Stargate universe, built on Rails and Backbone. Features:
+PuddleJumper is a clone of Kayak flight search for the Stargate universe, built with Rails and Backbone. Features:
 
 - [x] Search for available Stargate transit schedules
 - [x] Choose origin/destination from typeahead list
