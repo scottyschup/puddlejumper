@@ -1,5 +1,5 @@
 PuddleJumper.Models.TripSearch = Backbone.Model.extend({
-  urlRoot: 'api/trips',
+  urlRoot: "api/trips",
 
   initialize: function () {
     this.fetched = false;
@@ -10,7 +10,6 @@ PuddleJumper.Models.TripSearch = Backbone.Model.extend({
     delete response.departures;
 
     if (response.arrivals) {
-      this.roundtrip = true;
       this.arrivals().set(response.arrivals, { parse: true });
       delete response.arrivals;
     } else {
@@ -25,7 +24,6 @@ PuddleJumper.Models.TripSearch = Backbone.Model.extend({
       delete response.companions;
     }
 
-    var origin
     this.origin = PuddleJumper.planets.get(response.originId);
     this.destination = PuddleJumper.planets.get(response.destinationId);
     this.numTravelers = response.numTravelers;
@@ -57,13 +55,13 @@ PuddleJumper.Models.TripSearch = Backbone.Model.extend({
       if (this.arrivals().length > 0 ? this.roundtrip : !this.roundtrip) {
         // this line makes sure roundtrips have arrivals and one-way trips do not
 
-        var dep_time, arr_time, thisTrip;
+        var arrTime, depTime, thisTrip;
         for (var i = 0; i < this.departures().length; i++) {
-          dep_time = this.departures().models[i].get("datetime");
+          depTime = this.departures().models[i].get("datetime");
           if (this.roundtrip) {
             for (var j = 0; j < this.arrivals().length; j++) {
-              arr_time = this.arrivals().models[j].get("datetime");
-              if (moment(dep_time) < moment(arr_time)) {
+              arrTime = this.arrivals().models[j].get("datetime");
+              if (moment(depTime) < moment(arrTime)) {
                 thisTrip = new PuddleJumper.Models.FullTrip({
                   departure: this.departures().models[i],
                   arrival: this.arrivals().models[j],
@@ -104,9 +102,9 @@ PuddleJumper.Models.TripSearch = Backbone.Model.extend({
   },
 
   _earliestDate: function (legsCollection) {
-    var least = moment("2222-12-31");
-    _.each(legsCollection.pluck("datetime"), function (leg_dt) {
-      least = moment(leg_dt) < least ? moment(leg_dt) : least;
+    var least = moment("2100-12-31");
+    _.each(legsCollection.pluck("datetime"), function (legDatetime) {
+      least = moment(legDatetime) < least ? moment(legDatetime) : least;
     });
     return least;
   }

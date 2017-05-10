@@ -1,79 +1,65 @@
 #
 class TripSearch
-  attr_reader :departures, :arrivals, :roundtrip, :num_travelers, :flex_dates,
-              :origin, :destination
-
   def initialize(params)
-    find_planets(params)
-    create_date_ranges(params)
-    party_size_and_trip_type(params)
-
-    @departures = nonstop_there + one_stop_there
-    @arrivals = @roundtrip ? nonstop_back + one_stop_back : []
+    @params = params
+    create_date_ranges
   end
 
-  def create_date_ranges(params)
-    @depart_start = Time.zone.parse(params[:depart])
-    @arrive_start = Time.zone.parse(params[:arrive])
-
-    if params[:flex_dates] == 'true'
-      @flex_dates = {
-        dep: params[:depart_range].to_i,
-        arr: params[:arrive_range].to_i
-      }
-      @depart_end = @depart_start + (params[:depart_range].to_i).days
-      @arrive_end = @arrive_start + (params[:arrive_range].to_i).days
-    else
-      @flex_dates = {
-        dep: 0,
-        arr: 0
-      }
-      @depart_end, @arrive_end = @depart_start, @arrive_start
-    end
+  def flex_dates
+    @flex_dates ||= {
+      dep: @params[:depart_range].to_i,
+      arr: roundtrip? ? @params[:arrive_range].to_i : 0
+    }
   end
 
-  def find_planets(params)
-    @origin = Planet.where(
-      'LOWER(name) = ?',
-      params[:origin].downcase
-    ).first
-
-    @destination = Planet.where(
-      'LOWER(name) = ?',
-      params[:destination].downcase
-    ).first
+  def origin
+    @origin ||= planet(:origin)
   end
 
-  def nonstop_there
-    @origin.departures_to(@destination).where(
+  def destination
+    @destination ||= planet(:destination)
+  end
+
+  def departures
+    @departures ||= origin.departures_to(destination).where(
       "remaining_space >= ? AND
       datetime >= ? AND
       datetime < ?",
-      @num_travelers,
+      num_travelers,
       @depart_start.to_s(:db), (@depart_end + 1.day).to_s(:db)
     ).order(:remaining_space)
   end
 
-  def nonstop_back
-    @origin.arrivals_from(@destination).where(
+  def arrivals
+    return [] unless roundtrip?
+    origin.arrivals_from(destination).where(
       "remaining_space >= ? AND
       datetime >= ? AND
       datetime < ?",
-      @num_travelers,
+      num_travelers,
       @arrive_start.to_s(:db), (@arrive_end + 1.day).to_s(:db)
     ).order(:remaining_space)
   end
 
-  def one_stop_there
-    []
+  def num_travelers
+    @num_travelers ||= @params[:num_travelers].to_i
   end
 
-  def one_stop_back
-    []
+  def roundtrip?
+    @params[:roundtrip] == 'true'
   end
 
-  def party_size_and_trip_type(params)
-    @num_travelers = params[:num_travelers].to_i
-    @roundtrip = params[:roundtrip] == 'true' ? true : false
+  private
+
+  def create_date_ranges
+    @depart_start = Time.zone.parse(@params[:depart])
+    @depart_end = @depart_start + flex_dates[:dep].days
+    return unless roundtrip?
+    @arrive_start = Time.zone.parse(@params[:arrive])
+    @arrive_end = @arrive_start + flex_dates[:arr].days
+  end
+
+  def planet(type)
+    Planet.where('LOWER(name) = ?', @params[type].downcase).first
   end
 end
