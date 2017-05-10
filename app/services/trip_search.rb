@@ -5,19 +5,8 @@ class TripSearch
     create_date_ranges
   end
 
-  def flex_dates
-    @flex_dates ||= {
-      dep: @params[:depart_range].to_i,
-      arr: roundtrip? ? @params[:arrive_range].to_i : 0
-    }
-  end
-
-  def origin
-    @origin ||= planet(:origin)
-  end
-
-  def destination
-    @destination ||= planet(:destination)
+  def arrivals
+    @arrivals ||= lookup_arrivals
   end
 
   def departures
@@ -30,7 +19,18 @@ class TripSearch
     ).order(:remaining_space)
   end
 
-  def arrivals
+  def destination
+    @destination ||= planet(:destination)
+  end
+
+  def flex_dates
+    @flex_dates ||= {
+      dep: @params[:depart_range].to_i,
+      arr: roundtrip? ? @params[:arrive_range].to_i : 0
+    }
+  end
+
+  def lookup_arrivals
     return [] unless roundtrip?
     origin.arrivals_from(destination).where(
       "remaining_space >= ? AND
@@ -43,6 +43,10 @@ class TripSearch
 
   def num_travelers
     @num_travelers ||= @params[:num_travelers].to_i
+  end
+
+  def origin
+    @origin ||= planet(:origin)
   end
 
   def roundtrip?
